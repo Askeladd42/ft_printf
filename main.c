@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2019/12/01 12:17:37 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/01 12:35:00 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int	main(int c, char **v)
 		printf("%p\n", 256);
 		printf("%s\n", ft_itoa_ult(42, "0123456789ABCDEF"));
 		conv(v[1], atoi(v[2]));
-		printf("%d\n", atoi(v[2]));
+		printf("OG Printf = %p\n", atoi(v[2]));
+		uns_conv(v[1], atoi(v[2]));
+		printf("OG Printf = %X\n", atoi(v[2]));
 	}
 	return (0);
 }
