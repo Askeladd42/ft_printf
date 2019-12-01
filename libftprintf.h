@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2019/12/01 11:32:22 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/01 12:18:23 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 size_t	ft_strlen(char *str);
 char	*ft_itoa_ult(int n, char *charset);
 int		stringer(const char *format);
-void	hexa(char *offset, int hex);
+void	conv(char *offset, int hex);
+void	uns_conv(char *offset, unsigned int hex);
 
 #endif
