@@ -6,15 +6,15 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2019/12/01 11:55:32 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/01 12:12:42 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	stringer(const char *format)
+int		stringer(const char *format)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (format[i])
