@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2019/12/01 12:33:22 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/01 12:45:35 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		stringer(const char *format)
 	size_t	i;
 
 	i = 0;
-	while (format[i])
+	while (format[i] != '%' && format[i])
 		write(1, &format[i++], 1);
 	return (i);
 }
