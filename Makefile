@@ -6,11 +6,11 @@
 #    By: plam <plam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/19 10:15:47 by plam              #+#    #+#              #
-#    Updated: 2019/11/19 10:33:42 by plam             ###   ########.fr        #
+#    Updated: 2019/12/01 10:29:16 by plam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS	=
+SRCS		= ft_strlen.c ft_itoa_ult.c ft_printf.c printfunctions.c
 
 OBJS		= ${SRCS:.c=.o}
 

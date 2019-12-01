@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2019/11/30 14:48:17 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/01 10:25:33 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char		*ft_itoa_ult(int n, char *charset)
 	dest[len] = '\0';
 	while (len-- > 0)
 	{
-		dest[len] = '0' + nbr % c_len; // a corriger 
+		dest[len] = charset[nbr % c_len];
 		nbr /= c_len;
 	}
 	if (n < 0)
