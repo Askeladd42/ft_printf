@@ -6,13 +6,13 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2019/12/03 16:13:35 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/03 16:44:07 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int		stringer(const char *format)
+size_t		stringer(const char *format)
 {
 	size_t	i;
 
@@ -20,6 +20,21 @@ int		stringer(const char *format)
 	while (format[i] != '%' && format[i])
 		write(1, &format[i++], 1);
 	return (i);
+}
+
+int		ft_atoi_simple(char *str)
+{
+	int	i;
+	int	t;
+
+	i = 0;
+	t = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		t = t * 10 + (str[i] - '0');
+		i++;
+	}
+	return (t);
 }
 
 void	conv(char *offset, int hex)
@@ -95,5 +110,15 @@ void	flag_checker(char *str)
 			i++;
 		//set_zeros(get);
 	}
-	while(get[i] >= '0' && get[i] <= '9')
+	if (get[i] >= '0' && get[i] <= '9')
+	{
+		len = ft_atoi_simple(&get[i]);
+		i++;
+	}
+	/*if ((get[i] >= '0' && get[i] <= '9') && get [i - 1] == '.')
+	{
+		acc = ft_atoi_simple(&get[i]);
+		i++;
+	}
+	*/
 }
