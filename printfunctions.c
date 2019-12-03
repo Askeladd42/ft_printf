@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2019/12/01 12:45:35 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/03 16:13:35 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	uns_conv(char *offset, unsigned int hex)
 
 	i = 0;
 	if (offset[i] == '%')
+		flag_checker(&offset[i]);
 		if (offset[i + 1] == '%')
 			write(1, "%", 1);
 		else if (offset[i + 1] == 'u')
@@ -72,4 +73,27 @@ void	uns_conv(char *offset, unsigned int hex)
 			write(1, disp, ft_strlen(disp));
 		}
 	write(1, "\n", 1);
+}
+
+void	flag_checker(char *str)
+{
+	int		i;
+	int		len;
+	int		acc;
+	char	*get;
+
+	i = 0;
+	get = &str[stringer(str)];
+	if (get[i] == '-')
+	{
+		//set_spaces(get);
+		i++;
+	}
+	if (get[i] == '0')
+	{
+		if (get[i - 1] == '-')
+			i++;
+		//set_zeros(get);
+	}
+	while(get[i] >= '0' && get[i] <= '9')
 }
