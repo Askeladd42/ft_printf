@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2019/12/04 13:58:19 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/04 17:34:23 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ char			*ft_utoa_ult(unsigned int n, char *charset);
 size_t			stringer(const char *format);
 char			*conv(char *offset, int hex);
 char			*uns_conv(char *offset, unsigned int hex);
-void			flag_checker(char *str);
+void			flag_checker(char *str, size_t len, size_t	acc);
 
 #endif

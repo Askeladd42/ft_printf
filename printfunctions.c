@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2019/12/04 14:37:36 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/04 17:35:00 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,14 @@ int		ft_atoi_simple(char *str)
 char	*conv(char *offset, int hex)
 {
 	size_t	i;
+	size_t	len;
+	size_t	acc;
 	char	*disp;
 
 	i = 0;
 	disp = NULL;
 	if (offset[i] == '%')
+		flag_checker(&offset[i], len, acc);
 		if (offset[i + 1] == '%')
 			disp = "%";
 		else if (offset[i + 1] == 'd' || offset[i + 1] == 'i')
@@ -55,13 +58,17 @@ char	*conv(char *offset, int hex)
 char	*uns_conv(char *offset, unsigned int hex)
 {
 	size_t	i;
+	size_t	len;
+	size_t	acc;
 	char	*disp;
 
 	i = 0;
+	len = 0;
+	acc = 0;
 	disp = NULL;
 	if (offset[i] == '%')
 	{
-		flag_checker(&offset[i]);
+		flag_checker(&offset[i], len, acc);
 		if (offset[i + 1] == '%')
 			disp = "%";
 		else if (offset[i + 1] == 'u')
@@ -79,14 +86,14 @@ char	*uns_conv(char *offset, unsigned int hex)
 	return (disp);
 }
 
-void	flag_checker(char *str)// à réduire
+void	flag_checker(char *str, size_t len, size_t	acc)// à réduire
 {
 	int		i;
-	int		len;
-	int		acc;
 	char	*get;
 
 	i = 0;
+	len = 0;
+	acc = 0;
 	get = &str[stringer(str)];
 	if (get[i] == '-')
 	{
