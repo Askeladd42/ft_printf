@@ -6,13 +6,13 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2019/12/03 16:44:07 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/04 14:37:36 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-size_t		stringer(const char *format)
+size_t	stringer(const char *format)
 {
 	size_t	i;
 
@@ -37,60 +37,49 @@ int		ft_atoi_simple(char *str)
 	return (t);
 }
 
-void	conv(char *offset, int hex)
+char	*conv(char *offset, int hex)
 {
 	size_t	i;
 	char	*disp;
 
 	i = 0;
+	disp = NULL;
 	if (offset[i] == '%')
 		if (offset[i + 1] == '%')
-			write(1, "%", 1);
+			disp = "%";
 		else if (offset[i + 1] == 'd' || offset[i + 1] == 'i')
-		{
 			disp = ft_itoa_ult(hex, "0123456789");
-			write(1, disp, ft_strlen(disp));
-		}
-		else if (offset[i + 1] == 'p')
-		{
-			disp = ft_itoa_ult(hex, "0123456789abcdef");
-			write(1, "0x", 2);
-			write(1, disp, ft_strlen(disp));
-		}
-	write(1, "\n", 1);
+	return (disp);
 }
 
-void	uns_conv(char *offset, unsigned int hex)
+char	*uns_conv(char *offset, unsigned int hex)
 {
 	size_t	i;
 	char	*disp;
 
 	i = 0;
+	disp = NULL;
 	if (offset[i] == '%')
+	{
 		flag_checker(&offset[i]);
 		if (offset[i + 1] == '%')
-			write(1, "%", 1);
+			disp = "%";
 		else if (offset[i + 1] == 'u')
-		{
-			disp = ft_itoa_ult(hex, "0123456789");
-			write(1, disp, ft_strlen(disp));
-		}
+			disp = ft_utoa_ult(hex, "0123456789");
 		else if (offset[i + 1] == 'x')
-		{
-			disp = ft_itoa_ult(hex, "0123456789abcdef");
-			write(1, "0x", 2);
-			write(1, disp, ft_strlen(disp));
-		}
+			disp = ft_utoa_ult(hex, "0123456789abcdef");
 		else if (offset[i + 1] == 'X')
+			disp = ft_utoa_ult(hex, "0123456789ABCDEF");
+		else if (offset[i + 1] == 'p')
 		{
-			disp = ft_itoa_ult(hex, "0123456789ABCDEF");
+			disp = ft_utoa_ult(hex, "0123456789abcdef");
 			write(1, "0x", 2);
-			write(1, disp, ft_strlen(disp));
 		}
-	write(1, "\n", 1);
+	}
+	return (disp);
 }
 
-void	flag_checker(char *str)
+void	flag_checker(char *str)// à réduire
 {
 	int		i;
 	int		len;
@@ -115,10 +104,10 @@ void	flag_checker(char *str)
 		len = ft_atoi_simple(&get[i]);
 		i++;
 	}
-	/*if ((get[i] >= '0' && get[i] <= '9') && get [i - 1] == '.')
+	if ((get[i] >= '0' && get[i] <= '9') && get[i - 1] == '.')
 	{
 		acc = ft_atoi_simple(&get[i]);
 		i++;
 	}
-	*/
+	len = (acc >= len) ? acc : len - acc;
 }
