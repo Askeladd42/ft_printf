@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2019/12/07 13:01:56 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/07 13:42:58 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,19 +73,14 @@ char	*uns_conv(char *offset, unsigned int hex)
 	if (offset[i] == '%')
 	{
 		flag_checker(&offset[i], len, acc);
-		if (offset[i + 1] == '%')
-			disp = "%";
-		else if (offset[i + 1] == 'u')
+		if (offset[i + 1] == 'u')
 			disp = ft_utoa_ult(hex, "0123456789");
-		else if (offset[i + 1] == 'x')
+		else if (offset[i + 1] == 'x' || offset[i + 1] == 'p')
 			disp = ft_utoa_ult(hex, "0123456789abcdef");
+			if (offset[i + 1] == 'p')
+				write(1, "0x", 2);
 		else if (offset[i + 1] == 'X')
 			disp = ft_utoa_ult(hex, "0123456789ABCDEF");
-		else if (offset[i + 1] == 'p')
-		{
-			disp = ft_utoa_ult(hex, "0123456789abcdef");
-			write(1, "0x", 2);
-		}
 	}
 	return (disp);
 }
