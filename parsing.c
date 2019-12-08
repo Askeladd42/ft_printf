@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2019/12/08 10:42:27 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/08 10:48:29 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	parsing_path(char *s, va_list ap)
 		va_arg(ap, int);
 	else if (s[i] == 'u' || s[i] == 'x' || s[i] == 'X' || s[i] == 'p')
 		va_arg(ap, unsigned int);
+	else if (s[i] = 'e' || s[i] == 'f' || s[i] == 'g')
+		va_arg(ap, double);
 }
 
 void	parsing_path_extra(char *s, va_list ap)
