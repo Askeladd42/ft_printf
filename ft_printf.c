@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:32:02 by plam              #+#    #+#             */
-/*   Updated: 2019/12/08 11:29:41 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/08 11:55:49 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int		ft_printf(const char *format, ...)
 {
-	va_list	ap;
+	va_list	*ap;
 	size_t	size;
 	size_t	i;
+
 
 	i = 0;
 	size = 0;
@@ -27,6 +28,6 @@ int		ft_printf(const char *format, ...)
 		parsing_path_extra(format, ap);
 		parsing_path(format, ap);
 	}
-	va_end(ap)
+	va_end(ap);
 	return (size);
 }

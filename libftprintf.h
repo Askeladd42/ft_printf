@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2019/12/08 10:43:27 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/08 11:42:59 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t			stringer(const char *format);
 char			*conv(char *offset, int hex);
 char			*uns_conv(char *offset, unsigned int hex);
 void			flag_checker(char *str, size_t len, size_t	acc);
-void			parsing_path(char *s, va_list ap);
-void			parsing_path_extra(char *s, va_list ap);
-
+void			parsing_path(const char *s, va_list ap);
+void			parsing_path_extra(const char *s, va_list ap);
+int				ft_printf(const char *format, ...);
 #endif
