@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2019/12/07 13:42:58 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/08 13:03:52 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ char	*uns_conv(char *offset, unsigned int hex)
 	return (disp);
 }
 
-void	flag_checker(char *str, size_t len, size_t	acc)// à réduire
+void	flag_checker(char *str, size_t len, size_t	acc)// à réduire (29 lignes)
 {
 	int		i;
 	char	*get;
