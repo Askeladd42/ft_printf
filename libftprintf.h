@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2019/12/08 12:51:09 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/08 13:02:47 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <unistd.h>
 
 // structure pour faire fonctionner toutes les fonctions ensemble à faire
+// utiliser va_arg(ap, ...) avec les fonctions de conversion pour les faire tourner
 
 size_t			ft_strlen(char *str);
 void			ft_putstr(char *s);
