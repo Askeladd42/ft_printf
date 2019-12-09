@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2019/12/08 13:02:47 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/09 11:13:06 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 // utiliser va_arg(ap, ...) avec les fonctions de conversion pour les faire tourner
 
 size_t			ft_strlen(char *str);
+void			ft_putchar(char c);
 void			ft_putstr(char *s);
 char			*ft_itoa_ult(int n, char *charset);
 char			*ft_utoa_ult(unsigned int n, char *charset);
