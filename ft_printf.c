@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:32:02 by plam              #+#    #+#             */
-/*   Updated: 2019/12/09 14:13:08 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/10 11:33:02 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_printf(const char *format, ...)
 	while (format[i])
 	{
 		size += stringer(&format[i]);
-		parsing_print(&format[i], ap);
+		parsing_print(&format[i], ap, i);
 	}
 	va_end(ap);
 	return (size);
