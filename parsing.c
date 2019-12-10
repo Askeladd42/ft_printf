@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2019/12/10 15:21:02 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/10 21:45:21 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,18 +82,21 @@ void		parsing_path(const char *s1, const char *s2)
 {
 	size_t	i;
 
-	i = stringer(s1);
-	if (s1[i + 1] == 'c')
-		ft_putchar(s2[0]);
-	else if (s1[i + 1] == 's')
-		ft_putstr(s2);
-	else if (s1[i + 1] == 'd' || s1[i + 1] == 'i')
-		ft_putstr(ft_itoa_ult(ft_atoi_simple(s2), "0123456789"));
-	else if (s1[i + 1] == 'u' || s1[i + 1] == 'x' || s1[i + 1] == 'X')
-		ft_putstr(uns_conv(&s1[i], (unsigned int)ft_atoi_simple(s2)));
-	else if (s1[i + 1] == 'p')
+	i = 0;
+	while (s1[i])
 	{
-		write (1, "0x", 2);
-		ft_putstr(uns_conv(&s1[i], (unsigned int)ft_atoi_simple(s2)));
+		while (s1[i] != '%' && s1[i])
+			ft_putchar(s1[i++]);
+		if (s1[i + 1] == 'c' || s1[i + 1] == '%')
+			ft_putchar(conv(&s1[i], ft_atoi_simple(s2))[0]);
+		else if (s1[i + 1] == 's')
+			ft_putstr(s2);
+		else if (s1[i + 1] == 'd' || s1[i + 1] == 'i')
+			ft_putstr(conv(&s1[i], ft_atoi_simple(s2)));
+		else if (s1[i + 1] == 'u' || s1[i + 1] == 'x' || s1[i + 1] == 'X')
+			ft_putstr(uns_conv(&s1[i], (unsigned int)ft_atoi_simple(s2)));
+		else if (s1[i + 1] == 'p')
+			ft_putstr(uns_conv(&s1[i], (unsigned int)ft_atoi_simple(s2)));
+		i++;
 	}
 }

@@ -6,23 +6,34 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2019/12/09 11:29:44 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/10 20:50:13 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-size_t	stringer(const char *format)
+/*size_t	stringer(const char *format)
 {
 	size_t	i;
 
 	i = 0;
 	while (format[i] != '%' && format[i])
+	{
+		if (format[i] == '\\')
+		{
+			i++;
+			if (format[i] == 'n')
+			{
+				write(1, "\n", 1);
+				i++;
+			}
+		}
 		write(1, &format[i++], 1);
+	}
 	return (i);
 }
-
-int		ft_atoi_simple(char *str)
+*/
+int		ft_atoi_simple(const char *str)
 {
 	int	i;
 	int	t;
@@ -37,7 +48,7 @@ int		ft_atoi_simple(char *str)
 	return (t);
 }
 
-char	*conv(char *offset, int hex)
+char	*conv(const char *offset, int hex)
 {
 	size_t	i;
 	size_t	len;
@@ -49,7 +60,7 @@ char	*conv(char *offset, int hex)
 	len = 0;
 	acc = 0;
 	if (offset[i] == '%')
-		flag_checker(&offset[i], len, acc);
+		//flag_checker(&offset[i], len, acc);
 		if (offset[i + 1] == '%')
 			disp = "%";
 		else if (offset[i + 1] == 'd' || offset[i + 1] == 'i')
@@ -59,7 +70,7 @@ char	*conv(char *offset, int hex)
 	return (disp);
 }
 
-char	*uns_conv(char *offset, unsigned int hex)
+char	*uns_conv(const char *offset, unsigned int hex)
 {
 	size_t	i;
 	size_t	len;
@@ -72,7 +83,7 @@ char	*uns_conv(char *offset, unsigned int hex)
 	disp = NULL;
 	if (offset[i] == '%')
 	{
-		flag_checker(&offset[i], len, acc);
+		//flag_checker(&offset[i], len, acc);
 		if (offset[i + 1] == 'u')
 			disp = ft_utoa_ult(hex, "0123456789");
 		else if (offset[i + 1] == 'x' || offset[i + 1] == 'p')
@@ -85,7 +96,7 @@ char	*uns_conv(char *offset, unsigned int hex)
 	return (disp);
 }
 
-void	flag_checker(char *str, size_t len, size_t acc)// à réduire (29 lignes)
+/*void	flag_checker(char *str, size_t len, size_t acc)// à réduire (29 lignes)
 {
 	int		i;
 	char	*get;
@@ -117,3 +128,4 @@ void	flag_checker(char *str, size_t len, size_t acc)// à réduire (29 lignes)
 	}
 	len = (acc >= len) ? acc : len - acc;
 }
+*/
