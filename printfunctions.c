@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2019/12/10 20:50:13 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/13 17:23:34 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ char	*conv(const char *offset, int hex)
 		//flag_checker(&offset[i], len, acc);
 		if (offset[i + 1] == '%')
 			disp = "%";
-		else if (offset[i + 1] == 'd' || offset[i + 1] == 'i')
+		if (offset[i + 1] == 'd' || offset[i + 1] == 'i')
 			disp = ft_itoa_ult(hex, "0123456789");
-		else if (offset[i + 1] == 'c')
+		if (offset[i + 1] == 'c')
 			write(1, &hex, 1);
 	return (disp);
 }
