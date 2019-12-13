@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2019/12/12 14:46:17 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/13 15:06:18 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 typedef struct	s_list
 {
-	s_list		buff[BUFFER_SIZE];
+	char		buff[BUFFER_SIZE];
 	int			index;
 	int			size;
 }				t_print;
