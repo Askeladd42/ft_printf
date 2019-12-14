@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2019/12/14 11:56:07 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/14 12:05:13 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,8 @@ void		parsing_path(const char *s1, const char *s2)
 			ft_putchar(conv(&s1[i++], ft_atoi_simple(s2))[0]);
 		else if (s1[i + 1] == 's')
 		{
+			i += 2;
 			ft_putstr(s2);
-			i++;
 		}
 		else if (s1[i + 1] == 'd' || s1[i + 1] == 'i')
 			ft_putstr(conv(&s1[i++], ft_atoi_simple(s2)));
