@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2019/12/14 12:05:13 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/14 13:57:25 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,24 +81,24 @@ void	parse_print(const char *s, va_list ap, size_t i)
 void		parsing_path(const char *s1, const char *s2)
 {
 	size_t	i;
+	t_print	dest;
 
 	i = 0;
 	while (s1[i])
 	{
 		while (s1[i] != '%' && s1[i])
 			ft_putchar(s1[i++]);
-		if (s1[i + 1] == 'c' || s1[i + 1] == '%')
-			ft_putchar(conv(&s1[i++], ft_atoi_simple(s2))[0]);
-		else if (s1[i + 1] == 's')
-		{
-			i += 2;
+		i++;
+		if (s1[i] == 'c' || s1[i] == '%')
+			ft_putchar(conv(&s1[i - 1], ft_atoi_simple(s2), dest)[0]);
+		else if (s1[i] == 's')
 			ft_putstr(s2);
-		}
-		else if (s1[i + 1] == 'd' || s1[i + 1] == 'i')
-			ft_putstr(conv(&s1[i++], ft_atoi_simple(s2)));
-		else if (s1[i + 1] == 'u' || s1[i + 1] == 'x' || s1[i + 1] == 'X')
-			ft_putstr(uns_conv(&s1[i++], (unsigned int)ft_atoi_simple(s2)));
-		else if (s1[i + 1] == 'p')
-			ft_putstr(uns_conv(&s1[i++], (unsigned int)ft_atoi_simple(s2)));
+		else if (s1[i] == 'd' || s1[i] == 'i')
+			ft_putstr(conv(&s1[i - 1], ft_atoi_simple(s2), dest));
+		else if (s1[i] == 'u' || s1[i] == 'x' || s1[i] == 'X')
+			ft_putstr(uns_conv(&s1[i - 1], (unsigned int)ft_atoi_simple(s2), dest));
+		else if (s1[i] == 'p')
+			ft_putstr(uns_conv(&s1[i - 1], (unsigned int)ft_atoi_simple(s2), dest));
+		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2019/12/13 17:23:34 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/14 13:55:00 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		ft_atoi_simple(const char *str)
 	return (t);
 }
 
-char	*conv(const char *offset, int hex)
+char	*conv(const char *offset, int hex, t_print dest)
 {
 	size_t	i;
 	size_t	len;
@@ -64,13 +64,13 @@ char	*conv(const char *offset, int hex)
 		if (offset[i + 1] == '%')
 			disp = "%";
 		if (offset[i + 1] == 'd' || offset[i + 1] == 'i')
-			disp = ft_itoa_ult(hex, "0123456789");
+			disp = ft_itoa_ult(hex, "0123456789", dest);
 		if (offset[i + 1] == 'c')
 			write(1, &hex, 1);
 	return (disp);
 }
 
-char	*uns_conv(const char *offset, unsigned int hex)
+char	*uns_conv(const char *offset, unsigned int hex, t_print dest)
 {
 	size_t	i;
 	size_t	len;
@@ -85,13 +85,13 @@ char	*uns_conv(const char *offset, unsigned int hex)
 	{
 		//flag_checker(&offset[i], len, acc);
 		if (offset[i + 1] == 'u')
-			disp = ft_utoa_ult(hex, "0123456789");
+			disp = ft_utoa_ult(hex, "0123456789", dest);
 		else if (offset[i + 1] == 'x' || offset[i + 1] == 'p')
-			disp = ft_utoa_ult(hex, "0123456789abcdef");
+			disp = ft_utoa_ult(hex, "0123456789abcdef", dest);
 			if (offset[i + 1] == 'p')
 				write(1, "0x", 2);
 		else if (offset[i + 1] == 'X')
-			disp = ft_utoa_ult(hex, "0123456789ABCDEF");
+			disp = ft_utoa_ult(hex, "0123456789ABCDEF", dest);
 	}
 	return (disp);
 }

@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2019/12/13 17:22:11 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/14 13:58:01 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,9 @@ static size_t	nb_len(unsigned int n, char *charset)
 	return (i);
 }
 
-char			*ft_itoa_ult(int n, char *charset)
+char			*ft_itoa_ult(int n, char *charset, t_print dest)
 {
 	unsigned int	nbr;
-	t_print			dest;
 
 	nbr = (n < 0) ? -n : n;
 	dest.size = ft_strlen(charset);
@@ -48,10 +47,9 @@ char			*ft_itoa_ult(int n, char *charset)
 	return (dest.buff);
 }
 
-char			*ft_utoa_ult(unsigned int n, char *charset)
+char			*ft_utoa_ult(unsigned int n, char *charset, t_print dest)
 {
 	unsigned int	nbr;
-	t_print			dest;
 
 	nbr = n;
 	dest.size = ft_strlen(charset);

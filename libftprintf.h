@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2019/12/13 15:51:38 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/14 13:55:51 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ typedef struct	s_list
 size_t			ft_strlen(char *str);
 void			ft_putchar(char c);
 void			ft_putstr(const char *s);
-char			*ft_itoa_ult(int n, char *charset);
-char			*ft_utoa_ult(unsigned int n, char *charset);
+char			*ft_itoa_ult(int n, char *charset, t_print dest);
+char			*ft_utoa_ult(unsigned int n, char *charset, t_print dest);
 size_t			stringer(const char *format);
-char			*conv(const char *offset, int hex);
-char			*uns_conv(const char *offset, unsigned int hex);
+char			*conv(const char *offset, int hex, t_print dest);
+char			*uns_conv(const char *offset, unsigned int hex, t_print dest);
 void			flag_checker(char *str, size_t len, size_t	acc);
 void			parsing_path(const char *s1, const char *s2);
 void			parse_print(const char *s1, const char *s2, size_t i);
