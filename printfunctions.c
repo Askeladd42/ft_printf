@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2019/12/14 13:55:00 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/14 14:42:42 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ char	*uns_conv(const char *offset, unsigned int hex, t_print dest)
 	return (disp);
 }
 
-/*void	flag_checker(char *str, size_t len, size_t acc)// à réduire (29 lignes)
+void	flag_checker(char *str, size_t len, size_t acc)// à réduire (29 lignes)
 {
 	int		i;
 	char	*get;
@@ -104,7 +104,8 @@ char	*uns_conv(const char *offset, unsigned int hex, t_print dest)
 	i = 0;
 	len = 0;
 	acc = 0;
-	get = &str[stringer(str)];
+	ft_putstr(&str[i]);
+	get = &str[i];
 	if (get[i] == '-')
 	{
 		//set_spaces(get);
@@ -128,4 +129,3 @@ char	*uns_conv(const char *offset, unsigned int hex, t_print dest)
 	}
 	len = (acc >= len) ? acc : len - acc;
 }
-*/
