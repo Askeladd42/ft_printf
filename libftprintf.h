@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2019/12/14 13:55:51 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/15 11:24:45 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ typedef struct	s_list
 
 // structure pour faire fonctionner toutes les fonctions ensemble à faire
 // utiliser va_arg(ap, ...) avec les fonctions de conversion pour les faire tourner
-// ATTENTION ! entier precision a toujours un 0 en premieer lieu !
-//Ré-adapter les convertisseurs avec un buffer, donc sans malloc !
+// ATTENTION ! entier precision a toujours un 0 en premier lieu !
 
 size_t			ft_strlen(char *str);
 void			ft_putchar(char c);

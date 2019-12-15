@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2019/12/14 14:42:42 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/15 10:58:46 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,11 +117,17 @@ void	flag_checker(char *str, size_t len, size_t acc)// à réduire (29 lignes)
 			i++;
 		//set_zeros(get);
 	}
+	/* if (get[i] == '*')
+		//on passe à l'argument suivant, qui prend la place de l' *
+	*/	
 	if (get[i] >= '0' && get[i] <= '9')
 	{
 		len = ft_atoi_simple(&get[i]);
 		i++;
 	}
+	/* if (get[i] == '*' && get[i - 1] == '.')
+		//on passe à l'argument suivant, qui prend la place de l' * s'il est un int
+	*/	
 	if ((get[i] >= '0' && get[i] <= '9') && get[i - 1] == '.')
 	{
 		acc = ft_atoi_simple(&get[i]);
