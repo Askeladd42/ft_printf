@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2019/12/15 11:24:45 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/15 13:43:14 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,6 @@ void			parsing_path(const char *s1, const char *s2);
 void			parse_print(const char *s1, const char *s2, size_t i);
 int				ft_atoi_simple(const char *str);
 int				ft_printf(const char *format, ...);
+void			set_spaces(char *get, size_t len, size_t acc);
+void			set_zeros(char *get, size_t len, size_t acc);
 #endif

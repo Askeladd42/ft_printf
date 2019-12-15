@@ -6,33 +6,12 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2019/12/15 10:58:46 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/15 13:32:56 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-/*size_t	stringer(const char *format)
-{
-	size_t	i;
-
-	i = 0;
-	while (format[i] != '%' && format[i])
-	{
-		if (format[i] == '\\')
-		{
-			i++;
-			if (format[i] == 'n')
-			{
-				write(1, "\n", 1);
-				i++;
-			}
-		}
-		write(1, &format[i++], 1);
-	}
-	return (i);
-}
-*/
 int		ft_atoi_simple(const char *str)
 {
 	int	i;
