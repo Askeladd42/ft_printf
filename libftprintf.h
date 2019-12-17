@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2019/12/15 13:43:14 by plam             ###   ########.fr       */
+/*   Updated: 2019/12/17 11:01:40 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct	s_list
 // structure pour faire fonctionner toutes les fonctions ensemble à faire
 // utiliser va_arg(ap, ...) avec les fonctions de conversion pour les faire tourner
 // ATTENTION ! entier precision a toujours un 0 en premier lieu !
+// ATTENTION ! QUAND ON A LE FLAG - AVEC LE CONVERTISSEUR "%p", on a à prendre en compte le "Ox" dans la taille et la précision !
 
 size_t			ft_strlen(char *str);
 void			ft_putchar(char c);
