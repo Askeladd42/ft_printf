@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/05 12:12:04 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/05 13:04:58 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,11 @@ void		parsing_path(const char *s1, const char *s2)
 		else if (s1[i] == 'p')
 			ft_putstr(uns_conv(&s1[i - 1], (unsigned int)ft_atoi_simple(s2), dest));
 		i++;
+	}
+	while (len - acc > 0)
+	{
+		ft_putchar(1, " ", 1);
+		(len - acc)--;
 	}
 }
 
