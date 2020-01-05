@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2019/12/14 13:57:25 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/05 12:12:04 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ void	parse_print(const char *s, va_list ap, size_t i)
 void		parsing_path(const char *s1, const char *s2)
 {
 	size_t	i;
+	size_t	len;
+	size_t	acc;
 	t_print	dest;
 
 	i = 0;
@@ -89,6 +91,12 @@ void		parsing_path(const char *s1, const char *s2)
 		while (s1[i] != '%' && s1[i])
 			ft_putchar(s1[i++]);
 		i++;
+		if (s1[i] == '-')
+		{
+			i++;
+			acc = accuracy(s1, i);
+			len = width(s1, i);
+		}
 		if (s1[i] == 'c' || s1[i] == '%')
 			ft_putchar(conv(&s1[i - 1], ft_atoi_simple(s2), dest)[0]);
 		else if (s1[i] == 's')
@@ -101,4 +109,31 @@ void		parsing_path(const char *s1, const char *s2)
 			ft_putstr(uns_conv(&s1[i - 1], (unsigned int)ft_atoi_simple(s2), dest));
 		i++;
 	}
+}
+
+size_t		accuracy(const char *s1, size_t i)
+{
+	size_t	acc;
+
+	acc = 0;
+	while(s1[i] >= '0' && s1[i] <= '9')
+		acc = ft_atoi_simple(&s1[i]);
+	if (s1[i] == '*')
+		acc = ft_atoi_simple(v[2]);
+	return (acc);
+}
+
+size_t		width(const char *s1, size_t i)
+{
+	size_t	len;
+
+	len = 0;
+	if (s1[i++] == '.')
+	{
+		while(s1[i] >= '0' && s1[i] <= '9')
+			len = ft_atoi_simple(&s1[i]);
+		if (s1[i] == '*')
+		len = ft_atoi_simple(v[3]);
+	}
+	return (len);
 }

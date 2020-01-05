@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2019/12/15 13:32:56 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/05 11:09:19 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char	*uns_conv(const char *offset, unsigned int hex, t_print dest)
 	return (disp);
 }
 
-void	flag_checker(char *str, size_t len, size_t acc)// à réduire (29 lignes)
+/*void	flag_checker(char *str, size_t len, size_t acc)// à réduire (29 lignes)
 {
 	int		i;
 	char	*get;
@@ -96,17 +96,15 @@ void	flag_checker(char *str, size_t len, size_t acc)// à réduire (29 lignes)
 			i++;
 		//set_zeros(get);
 	}
-	/* if (get[i] == '*')
+	if (get[i] == '*')
 		//on passe à l'argument suivant, qui prend la place de l' *
-	*/	
 	if (get[i] >= '0' && get[i] <= '9')
 	{
 		len = ft_atoi_simple(&get[i]);
 		i++;
 	}
-	/* if (get[i] == '*' && get[i - 1] == '.')
+	if (get[i] == '*' && get[i - 1] == '.')
 		//on passe à l'argument suivant, qui prend la place de l' * s'il est un int
-	*/	
 	if ((get[i] >= '0' && get[i] <= '9') && get[i - 1] == '.')
 	{
 		acc = ft_atoi_simple(&get[i]);
@@ -114,3 +112,4 @@ void	flag_checker(char *str, size_t len, size_t acc)// à réduire (29 lignes)
 	}
 	len = (acc >= len) ? acc : len - acc;
 }
+*/
