@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/05 13:04:58 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/05 13:24:47 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,12 @@ void	parse_print(const char *s, va_list ap, size_t i)
 }
 */
 
-void		parsing_path(const char *s1, const char *s2)
+void		parsing_path(const char *s1, const char **v)
 {
 	size_t	i;
 	size_t	len;
 	size_t	acc;
+	size_t	set_sp;
 	t_print	dest;
 
 	i = 0;
@@ -94,29 +95,30 @@ void		parsing_path(const char *s1, const char *s2)
 		if (s1[i] == '-')
 		{
 			i++;
-			acc = accuracy(s1, i);
-			len = width(s1, i);
+			acc = accuracy(s1, i, v);
+			len = width(s1, i, v);
+			set_sp = (len - acc > 0 ? len - acc : 0);
 		}
 		if (s1[i] == 'c' || s1[i] == '%')
-			ft_putchar(conv(&s1[i - 1], ft_atoi_simple(s2), dest)[0]);
+			ft_putchar(conv(&s1[i - 1], ft_atoi_simple(v[2]), dest)[0]);
 		else if (s1[i] == 's')
-			ft_putstr(s2);
+			ft_putstr(v[2]);
 		else if (s1[i] == 'd' || s1[i] == 'i')
-			ft_putstr(conv(&s1[i - 1], ft_atoi_simple(s2), dest));
+			ft_putstr(conv(&s1[i - 1], ft_atoi_simple(v[2]), dest));
 		else if (s1[i] == 'u' || s1[i] == 'x' || s1[i] == 'X')
-			ft_putstr(uns_conv(&s1[i - 1], (unsigned int)ft_atoi_simple(s2), dest));
+			ft_putstr(uns_conv(&s1[i - 1], (unsigned int)ft_atoi_simple(v[2]), dest));
 		else if (s1[i] == 'p')
-			ft_putstr(uns_conv(&s1[i - 1], (unsigned int)ft_atoi_simple(s2), dest));
+			ft_putstr(uns_conv(&s1[i - 1], (unsigned int)ft_atoi_simple(v[2]), dest));
 		i++;
 	}
-	while (len - acc > 0)
+	while (set_sp > 0)
 	{
-		ft_putchar(1, " ", 1);
-		(len - acc)--;
+		ft_putchar(' ');
+		set_sp--;
 	}
 }
 
-size_t		accuracy(const char *s1, size_t i)
+size_t		accuracy(const char *s1, size_t i, const char **v)
 {
 	size_t	acc;
 
@@ -128,7 +130,7 @@ size_t		accuracy(const char *s1, size_t i)
 	return (acc);
 }
 
-size_t		width(const char *s1, size_t i)
+size_t		width(const char *s1, size_t i, const char **v)
 {
 	size_t	len;
 

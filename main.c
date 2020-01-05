@@ -6,14 +6,14 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2019/12/17 10:57:32 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/05 13:21:33 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdio.h>
 
-int	main(int c, char **v)
+int	main(int c, const char **v)
 {
 	if (c > 1)
 	{
@@ -23,7 +23,7 @@ int	main(int c, char **v)
 		//printf("Mine = %s\n", uns_conv(v[1], atoi(v[2])));
 		//printf("OG Printf = %X\n", atoi(v[2]));
 		ft_putstr("* Mine = ");
-		parsing_path("Bonjour les gens,\nbonjour %p,\ncomment allez-vous ?\n", v[2]);
+		parsing_path("Bonjour les gens,\nbonjour %p,\ncomment allez-vous ?\n", v);
 		printf("\n");
 	}
 	return (0);
