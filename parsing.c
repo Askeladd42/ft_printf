@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/06 14:26:44 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/06 16:41:25 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ void		parsing_path(const char *s1, const char **v)
 			acc = accuracy(s1, i, v);
 			len = width(s1, i, v);
 			set_sp = (len - acc > 0 ? len - acc : 0);
-			i++;
 		}
 		if (s1[i] == 'c' || s1[i] == '%')
 			ft_putchar(conv(&s1[i - 1], ft_atoi_simple(v[2]), dest)[0]);
@@ -139,7 +138,7 @@ size_t		width(const char *s1, size_t i, const char **v)
 		while(s1[i] >= '0' && s1[i] <= '9')
 			len = ft_atoi_simple(&s1[i]);
 		if (s1[i] == '*')
-		len = ft_atoi_simple(v[3]);
+			len = ft_atoi_simple(v[3]);
 	}
 	return (len);
 }
