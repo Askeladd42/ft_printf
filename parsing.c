@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/06 16:41:25 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/07 16:23:17 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,10 @@ void		parsing_path(const char *s1, const char **v)
 		while (s1[i] != '%' && s1[i])
 			ft_putchar(s1[i++]);
 		i++;
-		if (s1[i] == '-')
+		if (s1[i++] == '-')
 		{
-			i++;
-			acc = accuracy(s1, i, v);
-			len = width(s1, i, v);
+			len = width(s1, i++, v);
+			acc = accuracy(s1, i++, v);
 			set_sp = (len - acc > 0 ? len - acc : 0);
 		}
 		if (s1[i] == 'c' || s1[i] == '%')
@@ -106,7 +105,10 @@ void		parsing_path(const char *s1, const char **v)
 		else if (s1[i] == 'u' || s1[i] == 'x' || s1[i] == 'X')
 			ft_putstr(uns_conv(&s1[i - 1], (unsigned int)ft_atoi_simple(v[2]), acc, dest));
 		else if (s1[i] == 'p')
+		{
+			ft_putstr("0x");
 			ft_putstr(uns_conv(&s1[i - 1], (unsigned int)ft_atoi_simple(v[2]), acc, dest));
+		}
 		while (set_sp > 0)
 		{
 			ft_putchar(' ');
@@ -121,10 +123,15 @@ size_t		accuracy(const char *s1, size_t i, const char **v)
 	size_t	acc;
 
 	acc = 0;
-	if (s1[i] >= '0' && s1[i] <= '9')
-		acc = ft_atoi_simple(&s1[i]);
-	if (s1[i] == '*')
-		acc = ft_atoi_simple(v[2]);
+	if (s1[i] == '.')
+	{
+		i++;
+		if (s1[i] >= '0' && s1[i] <= '9')
+			acc = (unsigned int)ft_atoi_simple(&s1[i]);
+		if (s1[i] == '*')
+			acc = (unsigned int)ft_atoi_simple(v[3]);
+	}
+	i++;
 	return (acc);
 }
 
@@ -133,12 +140,10 @@ size_t		width(const char *s1, size_t i, const char **v)
 	size_t	len;
 
 	len = 0;
-	if (s1[i++] == '.')
-	{
-		while(s1[i] >= '0' && s1[i] <= '9')
-			len = ft_atoi_simple(&s1[i]);
-		if (s1[i] == '*')
-			len = ft_atoi_simple(v[3]);
-	}
+	if (s1[i] >= '0' && s1[i] <= '9')
+		len = (unsigned int)ft_atoi_simple(&s1[i]);
+	if (s1[i] == '*')
+		len = (unsigned int)ft_atoi_simple(v[2]);
+	i++;
 	return (len);
 }

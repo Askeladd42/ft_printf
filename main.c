@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/01/06 16:41:35 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/07 14:56:41 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ int	main(int c, const char **v)
 		//printf("Mine = %s\n", uns_conv(v[1], atoi(v[2])));
 		//printf("OG Printf = %X\n", atoi(v[2]));
 		ft_putstr("* Mine = ");
-		parsing_path("Bonjour les gens,\nbonjour %-*p,\ncomment allez-vous ?\n", v);
-		printf("\n");
+		parsing_path("Bonjour les gens,\nbonjour %-*.*p,\ncomment allez-vous ?\n", v);
 	}
 	return (0);
 }
