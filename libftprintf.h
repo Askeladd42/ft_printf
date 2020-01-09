@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/01/07 14:29:11 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/09 13:36:42 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,12 @@ size_t			stringer(const char *format);
 size_t			accuracy(const char *s1, size_t i, const char **v);
 size_t			width(const char *s1, size_t i, const char **v);
 char			*conv(const char *offset, int hex, t_print dest);
-char			*uns_conv(const char *offset, unsigned int hex, size_t acc, 
-							t_print dest);
+char			*uns_conv(const char *offset, unsigned int hex, t_print dest);
 void			flag_checker(const char *str, size_t len, size_t	acc);
 void			parsing_path(const char *s1, const char **v);
 void			parse_print(const char *s1, const char *s2, size_t i);
 int				ft_atoi_simple(const char *str);
 int				ft_printf(const char *format, ...);
-void			set_spaces(char *get, size_t len, size_t acc);
+void			set_spaces(char *get, size_t i, size_t len, size_t acc);
 void			set_zeros(char *get, size_t len, size_t acc);
 #endif

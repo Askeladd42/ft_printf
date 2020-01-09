@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2020/01/07 11:25:32 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/09 13:36:12 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,13 @@ char	*conv(const char *offset, int hex, t_print dest)
 	return (disp);
 }
 
-char	*uns_conv(const char *offset, unsigned int hex, size_t acc, t_print dest)
+char	*uns_conv(const char *offset, unsigned int hex, t_print dest)
 {
 	size_t	i;
 	size_t	len;
 	char	*disp;
 
 	i = 0;
-	len = acc;
 	disp = NULL;
 	if (offset[i] == '%')
 	{
@@ -64,8 +63,6 @@ char	*uns_conv(const char *offset, unsigned int hex, size_t acc, t_print dest)
 			disp = ft_utoa_ult(hex, "0123456789", dest);
 		else if (offset[i + 1] == 'x' || offset[i + 1] == 'p')
 			disp = ft_utoa_ult(hex, "0123456789abcdef", dest);
-			if (offset[i + 1] == 'p')
-				write(1, "0x", 2);
 		else if (offset[i + 1] == 'X')
 			disp = ft_utoa_ult(hex, "0123456789ABCDEF", dest);
 	}
