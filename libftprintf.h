@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/01/09 13:36:42 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/13 19:46:37 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,29 @@ typedef struct	s_list
 	char		buff[BUFFER_SIZE];
 	size_t		index;
 	size_t		size;
+	size_t		acc;
+	int			flags;
 }				t_print;
+
+typedef	enum	s_flags
+{
+	ZEROS		= (1U), 
+	MINUS 		= (1U << 1U),
+	L_ASTERISK 	= (1U << 2U),
+	POINT 		= (1U << 3U),
+	R_ASTERISK 	= (1U << 4U),
+}				t_flags;
 
 // structure pour faire fonctionner toutes les fonctions ensemble à faire
 // utiliser va_arg(ap, ...) avec les fonctions de conversion pour les faire tourner
 // ATTENTION ! entier precision a toujours un 0 en premier lieu !
-// ATTENTION ! QUAND ON A LE FLAG - AVEC LE CONVERTISSEUR "%p", on a à prendre en compte le "Ox" dans la taille et la précision !
 
 size_t			ft_strlen(char *str);
 void			ft_putchar(char c);
 void			ft_putstr(const char *s);
 char			*ft_itoa_ult(int n, char *charset, t_print dest);
 char			*ft_utoa_ult(unsigned int n, char *charset, t_print dest);
+char			*ft_strchr(const char *s, int c);
 size_t			stringer(const char *format);
 size_t			accuracy(const char *s1, size_t i, const char **v);
 size_t			width(const char *s1, size_t i, const char **v);

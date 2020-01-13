@@ -6,11 +6,29 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2020/01/09 13:36:12 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/13 18:14:55 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+char	*ft_strchr(const char *s, int c)
+{
+	unsigned int	i;
+	unsigned char	*str;
+
+	i = 0;
+	str = (unsigned char *)s;
+	while (str[i])
+	{
+		if (str[i] == c)
+			return ((char *)&str[i]);
+		i++;
+	}
+	if (str[i] == c)
+		return ((char *)&str[i]);
+	return (0);
+}
 
 int		ft_atoi_simple(const char *str)
 {
@@ -68,42 +86,3 @@ char	*uns_conv(const char *offset, unsigned int hex, t_print dest)
 	}
 	return (disp);
 }
-
-/*void	flag_checker(const char *str, size_t len, size_t acc)// à réduire (29 lignes)
-{
-	int		i;
-	char	*get;
-
-	i = 0;
-	len = 0;
-	acc = 0;
-	ft_putstr(&str[i]);
-	get = &str[i];
-	if (get[i] == '-')
-	{
-		//set_spaces(get);
-		i++;
-	}
-	if (get[i] == '0')
-	{
-		if (get[i - 1] == '-')
-			i++;
-		//set_zeros(get);
-	}
-	if (get[i] == '*')
-		//on passe à l'argument suivant, qui prend la place de l' *
-	if (get[i] >= '0' && get[i] <= '9')
-	{
-		len = ft_atoi_simple(&get[i]);
-		i++;
-	}
-	if (get[i] == '*' && get[i - 1] == '.')
-		//on passe à l'argument suivant, qui prend la place de l' * s'il est un int
-	if ((get[i] >= '0' && get[i] <= '9') && get[i - 1] == '.')
-	{
-		acc = ft_atoi_simple(&get[i]);
-		i++;
-	}
-	len = (acc >= len) ? acc : len - acc;
-}
-*/

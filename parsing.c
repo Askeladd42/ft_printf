@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/09 14:27:03 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/13 18:20:44 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,4 +135,41 @@ void		parsing_path(const char *s1, const char **v)
 		}
 		i++;
 	}
+}
+
+void	toggling_flag(char c, t_print printer)
+{
+	if (c == '-')
+		printer.flags |= (1 << 1);
+	else if (c == '0')
+		printer.flags |= (1 << 2);
+	else if (c == '.')
+		printer.flags |= (1 << 3);
+	/* BONUS:
+	else if (c == ' ')
+	*/
+}
+	//if (printer.flags) à compléter
+
+void	flag_parser(t_print printer, const char *fmt, va_list ap)
+{
+	size_t	i;
+
+	i = 0;
+	while (fmt[i] && fmt[i] != '%')
+		ft_putchar(fmt[i++]);
+	while (!ft_strchr("cspdiuxX%", fmt[i]))
+		toggling_flag(fmt[i++], printer);
+	/*if (c[++i] >= '0' && c[i] <= '9')
+		printer.size = (unsigned int)ft_atoi_simple(&c[i++]);
+	else if (c[++i] == '*')
+		printer.size = va_arg(ap, unsigned int);
+	if (c[i] == '.')
+	{
+		if (c[++i] >= '0' && c[i] <= '9')
+			printer.acc = (unsigned int)ft_atoi_simple(&c[i++]);
+		else if (c[++i] == '*')
+			printer.acc = va_arg(ap, unsigned int);
+	}
+	*/
 }
