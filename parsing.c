@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/14 17:20:03 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/14 17:23:24 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,4 +200,6 @@ void	total_print(t_print printer, va_list ap)
 		print_converter(printer, ap);
 		set_spaces(printer);
 	}
+	else
+		print_converter(printer, ap);
 }
