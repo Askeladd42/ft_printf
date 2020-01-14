@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/01/13 19:46:37 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/14 12:18:39 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,6 @@ int				ft_atoi_simple(const char *str);
 int				ft_printf(const char *format, ...);
 void			set_spaces(char *get, size_t i, size_t len, size_t acc);
 void			set_zeros(char *get, size_t len, size_t acc);
+void			toggling_flag(char c, t_print printer,  va_list ap);
+void			flag_parser(t_print printer, const char *fmt, va_list ap);
 #endif

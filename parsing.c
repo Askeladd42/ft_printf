@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/14 11:13:39 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/14 12:17:30 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ void		parsing_path(const char *s1, const char **v)
 	}
 }
 
-void	toggling_flag(char c, t_print printer)
+void	toggling_flag(char c, t_print printer,  va_list ap)
 {
 	if (c == '0')
 		printer.flags |= (1);
@@ -146,7 +146,18 @@ void	toggling_flag(char c, t_print printer)
 	else if (c == '.')
 		printer.flags |= (1 << 3);
 	else if (c == '*')
-		printer.flags |= (1 << 4);
+	{
+		if ((printer.flags & POINT) && (printer.size == 0))
+		{
+			printer.size = va_arg(ap, unsigned int);
+			printer.flags |= (1 << 4);
+		}
+		else if (!(printer.flags & POINT) && (printer.acc == 0))
+		{
+			printer.acc = va_arg(ap, unsigned int);
+			printer.flags |= (1 << 2);
+		}
+	}
 	/* BONUS:
 	else if (c == ' ')
 	*/
@@ -160,17 +171,17 @@ void	flag_parser(t_print printer, const char *fmt, va_list ap)
 	while (fmt[i] && fmt[i] != '%')
 		ft_putchar(fmt[i++]);
 	while (!ft_strchr("cspdiuxX%", fmt[i]))
-		toggling_flag(fmt[i++], printer);
-	/*if (fmt[++i] >= '0' && fmt[i] <= '9')
+		toggling_flag(fmt[i++], printer, ap);
+	if (fmt[i] >= '0' && fmt[i] <= '9')
 		printer.size = (unsigned int)ft_atoi_simple(&fmt[i++]);
 	else if (fmt[++i] == '*')
 		printer.size = va_arg(ap, unsigned int);
 	if (fmt[i] == '.')
 	{
-		if (fmt[++i] >= '0' && fmt[i] <= '9')
+		if (fmt[i] >= '0' && fmt[i] <= '9')
 			printer.acc = (unsigned int)ft_atoi_simple(&fmt[i++]);
-		else if (fmt[++i] == '*')
+		else if (fmt[i] == '*')
 			printer.acc = va_arg(ap, unsigned int);
 	}
-	*/
+	
 }
