@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/14 12:39:07 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/14 12:58:26 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -177,5 +177,41 @@ void	flag_parser(t_print printer, const char *fmt, va_list ap)
 
 void	converter(char c, t_print printer, va_list ap)
 {
-	
+	/* à adapter aux nouvelles donneées :
+	if (s1[i] == 'c' || s1[i] == '%')
+			ft_putchar(conv(&s1[i - 1], ft_atoi_simple(v[2]), dest)[0]);
+		else if (s1[i] == 's')
+		{
+			set_len = ft_strlen(v[2]);
+			while (set_len-- > 0)
+				ft_putchar(*v[2]++);
+		}
+		else if (s1[i] == 'd' || s1[i] == 'i')
+		{
+			set_len = set_sp - ft_strlen(conv(&s1[i - 1], ft_atoi_simple(v[2]), dest));
+			while (set_len-- > 0)
+				ft_putchar('0');
+			ft_putstr(conv(&s1[i - 1], ft_atoi_simple(v[2]), dest));
+		}
+		else if (s1[i] == 'u' || s1[i] == 'x' || s1[i] == 'X')
+		{
+			set_len = ft_strlen(uns_conv(&s1[i - 1], ft_atoi_simple(v[2]), dest));
+			ft_putstr(uns_conv(&s1[i - 1], (unsigned int)ft_atoi_simple(v[2]), dest));
+		}
+		else if (s1[i] == 'p')
+		{
+			ft_putstr("0x");
+			set_len = ft_strlen(uns_conv(&s1[i - 1], ft_atoi_simple(v[2]), dest)) + 2;
+			while (set_len-- > 0)
+				ft_putchar('0');
+			ft_putstr(uns_conv(&s1[i - 1], (unsigned int)ft_atoi_simple(v[2]), dest));
+		}
+		set_sp = (set_sp - set_len > 0 ? set_sp - set_len : 0);
+		while (set_sp > 0)
+		{
+			set_sp--;
+			ft_putchar(' ');
+		}
+		i++;
+	*/
 }
