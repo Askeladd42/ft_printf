@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/14 12:17:30 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/14 12:39:07 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,16 +172,10 @@ void	flag_parser(t_print printer, const char *fmt, va_list ap)
 		ft_putchar(fmt[i++]);
 	while (!ft_strchr("cspdiuxX%", fmt[i]))
 		toggling_flag(fmt[i++], printer, ap);
-	if (fmt[i] >= '0' && fmt[i] <= '9')
-		printer.size = (unsigned int)ft_atoi_simple(&fmt[i++]);
-	else if (fmt[++i] == '*')
-		printer.size = va_arg(ap, unsigned int);
-	if (fmt[i] == '.')
-	{
-		if (fmt[i] >= '0' && fmt[i] <= '9')
-			printer.acc = (unsigned int)ft_atoi_simple(&fmt[i++]);
-		else if (fmt[i] == '*')
-			printer.acc = va_arg(ap, unsigned int);
-	}
+	converter(fmt[i], printer, ap);
+}
+
+void	converter(char c, t_print printer, va_list ap)
+{
 	
 }
