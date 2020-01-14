@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/14 15:55:48 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/14 17:20:03 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,9 @@ void	toggling_flag(char c, t_print printer,  va_list ap)
 	}
 	/* BONUS:
 	else if (c == ' ')
+	else if (c == '#')
+	else if (c == ''')
+	else if (c == '+')
 	*/
 }
 
@@ -177,4 +180,24 @@ void	print_converter(t_print printer, va_list ap)
 		}
 		i++;
 	*/
+}
+
+void	total_print(t_print printer, va_list ap)
+{
+	if ((printer.flags & ZEROS) && !(printer.flags & MINUS))
+	{
+		set_spaces(printer);
+		if (printer.cnv & ADDRESS)
+			ft_putstr("0x");
+		set_zeros(printer);
+		print_converter(printer, ap);
+	}
+	else if (printer.flags & MINUS)
+	{
+		if (printer.cnv & ADDRESS)
+			ft_putstr("0x");
+		set_zeros(printer);
+		print_converter(printer, ap);
+		set_spaces(printer);
+	}
 }
