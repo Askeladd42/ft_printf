@@ -6,77 +6,13 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/14 14:25:02 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/14 15:55:48 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-/*void		parsing_path(const char *s, va_list ap)
-{
-	size_t	i;
-
-	if (s[i] == 'c')
-		ap = va_arg(ap, char);
-	else if (s[i] == 's')
-		ap = va_arg(ap, char *);
-	else if (s[i] == 'd' || s[i] == 'i')
-		ap = va_arg(ap, int);
-	else if (s[i] == 'u' || s[i] == 'x' || s[i] == 'X')
-		ap = va_arg(ap, unsigned int);
-	else if (s[i] == 'p')
-		ap = va_arg(ap, unsigned long);
-	else if (s[i] == 'e' || s[i] == 'f' || s[i] == 'g')
-		ap = va_arg(ap, double);
-}
-
-void		parsing_path_extra(const char *s, va_list ap)
-{
-	size_t	i;
-
-	if (s[i++] == 'l')
-		if (s[i++] == 'l')
-			if (s[i] == 'd' || s[i] == 'i')
-				ap = va_arg(ap, long long int);
-			else if (s[i] == 'u' || s[i] == 'x' || s[i] == 'X')
-				ap = va_arg(ap, unsigned long long int);
-		else if (s[i] == 'd' || s[i] == 'i')
-			ap = va_arg(ap, long int);
-		else if (s[i] == 'u' || s[i] == 'x' || s[i] == 'X')
-			ap = va_arg(ap, unsigned long int);
-	else if (s[i++] == 'h')
-		if (s[i++] == 'h')
-			if (s[i] == 'd' || s[i] == 'i')
-				ap = va_arg(ap, char);
-			else if (s[i] == 'u' || s[i] == 'x' || s[i] == 'X')
-				ap = va_arg(ap, unsigned char);
-		else if (s[i] == 'd' || s[i] == 'i')
-			ap = va_arg(ap, short);
-		else if (s[i] == 'u' || s[i] == 'x' || s[i] == 'X')
-			ap = va_arg(ap, unsigned short);
-}
-
-void	parse_print(const char *s, va_list ap, size_t i)
-{
-	while (s[i])
-	{
-		if (ap != parsing_path_extra(s, ap))
-		{
-			if (ap == va_arg(ap, char *))
-				ft_putstr(conv(&s[i], va_arg(ap, char *)));
-			else if (ap == va_arg(ap, char))
-				ft_putchar(va_arg(ap, char));
-			else if (ap == va_arg(ap, int))
-				ft_putstr(conv(&s[i], va_arg(ap, int)));
-			else if (ap == va_arg(ap, unsigned int)
-			|| ap == va_arg(ap, unsigned long))
-				ft_putstr(va_arg(ap, unsigned int));
-		}
-	}
-}
-*/
-
-void		parsing_path(const char *s1, const char **v)
+/* void		parsing_path(const char *s1, const char **v)
 {
 	size_t	i;
 	size_t	len;
@@ -136,6 +72,7 @@ void		parsing_path(const char *s1, const char **v)
 		i++;
 	}
 }
+*/
 
 void	toggling_flag(char c, t_print printer,  va_list ap)
 {
@@ -171,7 +108,11 @@ void	flag_parser(t_print printer, const char *fmt, va_list ap)
 	while (fmt[i] && fmt[i] != '%')
 		ft_putchar(fmt[i++]);
 	while (!ft_strchr("cspdiuxX%", fmt[i]))
+	{
+		printer.size = width(fmt, i);
+		printer.acc = accuracy(fmt, i);
 		toggling_flag(fmt[i++], printer, ap);
+	}
 	converter(fmt[i], printer);
 	print_converter(printer, ap);
 }
