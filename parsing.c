@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/14 12:58:26 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/14 14:25:02 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,11 +172,33 @@ void	flag_parser(t_print printer, const char *fmt, va_list ap)
 		ft_putchar(fmt[i++]);
 	while (!ft_strchr("cspdiuxX%", fmt[i]))
 		toggling_flag(fmt[i++], printer, ap);
-	converter(fmt[i], printer, ap);
+	converter(fmt[i], printer);
+	print_converter(printer, ap);
 }
 
-void	converter(char c, t_print printer, va_list ap)
+void	converter(char c, t_print printer)
 {
+	if (c == 'c')
+		printer.cnv |= (1);
+	else if (c == 's')
+		printer.cnv |= (1 << 1);
+	else if (c == 'p')
+		printer.cnv |= (1 << 2);
+	else if (c == 'd' || c == 'i')
+		printer.cnv |= (1 << 3);
+	else if (c == 'u')
+		printer.cnv |= (1 << 4);
+	else if (c == 'x')
+		printer.cnv |= (1 << 5);
+	else if (c == 'X')
+		printer.cnv |= (1 << 6);
+}
+
+void	print_converter(t_print printer, va_list ap)
+{
+	size_t	i;
+
+	i = 0;
 	/* à adapter aux nouvelles donneées :
 	if (s1[i] == 'c' || s1[i] == '%')
 			ft_putchar(conv(&s1[i - 1], ft_atoi_simple(v[2]), dest)[0]);

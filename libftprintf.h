@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/01/14 12:18:39 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/14 14:23:16 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ typedef struct	s_list
 	size_t		size;
 	size_t		acc;
 	int			flags;
+	int			cnv;
 }				t_print;
 
-typedef	enum	s_flags
+typedef enum	s_flags
 {
 	ZEROS		= (1U), 
 	MINUS 		= (1U << 1U),
@@ -37,6 +38,17 @@ typedef	enum	s_flags
 	POINT 		= (1U << 3U),
 	R_ASTERISK 	= (1U << 4U),
 }				t_flags;
+
+typedef enum	s_conv
+{
+	CHARACTER 	= (1U),
+	STRING 		= (1U << 1U),
+	ADDRESS 	= (1U << 2U),
+	INTEGER 	= (1U << 3U),
+	U_INTEGER 	= (1U << 4U),
+	L_HEX 		= (1U << 5U),
+	H_HEX 		= (1U << 6U),
+}				t_conv;
 
 // structure pour faire fonctionner toutes les fonctions ensemble à faire
 // utiliser va_arg(ap, ...) avec les fonctions de conversion pour les faire tourner
@@ -62,4 +74,6 @@ void			set_spaces(char *get, size_t i, size_t len, size_t acc);
 void			set_zeros(char *get, size_t len, size_t acc);
 void			toggling_flag(char c, t_print printer,  va_list ap);
 void			flag_parser(t_print printer, const char *fmt, va_list ap);
+void			converter(char c, t_print printer);
+void			print_converter(t_print printer, va_list ap);
 #endif
