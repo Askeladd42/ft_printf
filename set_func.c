@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/01/14 16:02:29 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/16 15:54:15 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,20 @@ size_t		width(const char *fmt, size_t i)
 	return (len);
 }
 
-/*void	set_spaces(t_print printer)
+void	set_spaces(t_print printer)
 {
 	size_t	sp;
 	
-	if (acc >= len)
-	{
-		while (i < acc - ft_strlen(conv(&get[i])))
-			ft_putchar('0');
-			i++;
-	}
-	else if (len > acc)
-		i++;
+	sp = (printer.acc > printer.size ? printer.acc : printer.size - printer.acc);
+	while (sp > 0)
+		ft_putchar(' ');
 }
 
 void	set_zeros(t_print printer)
 {
 	size_t	zeros;
 	
-	if ()
-	{
-		set_sp = (len - acc > 0 ? len - acc : 0);
-	}
+	zeros = (printer.acc > ft_strlen(printer.buff) ? printer.acc - ft_strlen(printer.buff) : printer.acc);
+	while (zeros > 0)
+		ft_putchar('0');
 }
-*/
