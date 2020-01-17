@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/17 10:59:51 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/17 14:54:40 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	flag_parser(t_print printer, const char *fmt, va_list ap)
 		toggling_flag(fmt[i++], printer, ap);
 	}
 	converter(fmt[i], printer);
-	print_converter(printer, ap);
+	//print_converter(printer, ap);
 }
 
 void	converter(char c, t_print printer)
@@ -132,7 +132,10 @@ void	total_print(t_print printer, va_list ap)
 	else if (printer.flags & MINUS)
 	{
 		if (printer.cnv & ADDRESS)
+		{
 			ft_putstr("0x");
+			printer.size -= 2;
+		}
 		set_zeros(printer);
 		print_converter(printer, ap);
 		set_spaces(printer);

@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/01/17 10:56:49 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/17 14:57:21 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	set_zeros(t_print printer)
 
 	zeros = (printer.acc > ft_strlen(printer.buff) ?
 			printer.acc - ft_strlen(printer.buff) : printer.acc);
+	zeros = (printer.cnv & ADDRESS ? zeros - 2 : zeros);
 	while (zeros > 0)
 		ft_putchar('0');
 }
