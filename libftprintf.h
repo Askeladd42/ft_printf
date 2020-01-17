@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/01/16 16:55:08 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/17 10:01:40 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,6 @@ typedef enum	s_conv
 	H_HEX 		= (1U << 6U),
 	PERCENT 	= (1U << 7U),
 }				t_conv;
-
-// structure pour faire fonctionner toutes les fonctions ensemble à faire
-// utiliser va_arg(ap, ...) avec les fonctions de conversion pour les faire tourner
-// ATTENTION ! entier precision a toujours un 0 en premier lieu !
-// Penser à ajouter à size de ft_printf la taille des caractères affichés lors de l'emploi de print_converter et total_converter
 
 size_t			ft_strlen(char *str);
 void			ft_putchar(char c);

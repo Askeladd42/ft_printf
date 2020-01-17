@@ -6,20 +6,17 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/01/16 16:42:45 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/17 10:24:24 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdio.h>
 
-int	main(int c, const char **v)
+int	main(void)
 {
-	if (c > 1)
-	{
-		//printf("bruh %-10.7d\n", 1001);
-		printf("* OG Printf = Bonjour les gens,\nbonjour %-*.*i,\ncomment allez-vous ?\n", 8, 4, 42);
-		ft_printf("* Mine = Bonjour les gens,\nbonjour %-*.*i,\ncomment allez-vous ?\n", 8, 4, 42);
-	}
+	//printf("bruh %-10.7d\n", 1001);
+	printf("* OG Printf = Bonjour les gens,\nbonjour %-*.*i,\ncomment allez-vous ?\n", 8, 4, 42);
+	//ft_printf("* Mine = Bonjour les gens,\nbonjour %-*.*i,\ncomment allez-vous ?\n", 8, 4, 42);
 	return (0);
 }
