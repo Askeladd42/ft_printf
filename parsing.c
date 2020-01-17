@@ -6,13 +6,13 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/17 14:54:40 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/17 15:05:39 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	toggling_flag(char c, t_print printer,  va_list ap)
+void	toggling_flag(char c, t_print printer, va_list ap)
 {
 	if (c == '0')
 		printer.flags |= (1);
