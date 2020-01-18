@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/18 14:33:18 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/18 15:54:58 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,9 @@ void	print_converter(t_print *printer, va_list ap)
 	else if (printer->cnv & STRING)
 	{
 		str = va_arg(ap, char *);
-		while (printer->acc > 0)
+		if (str = NULL)
+			str = "(null)";
+		while (printer->acc > 0 && *str)
 		{
 			ft_putchar(*str++);
 			printer->acc--;
@@ -100,7 +102,7 @@ void	print_converter(t_print *printer, va_list ap)
 	}
 	else if (printer->cnv & INTEGER)
 	{
-		while (printer->acc > 0)
+		while (printer->acc > 0 && *str)
 		{
 			str = conv(va_arg(ap, int), printer);
 
@@ -115,7 +117,7 @@ void	print_converter(t_print *printer, va_list ap)
 				|| printer->cnv & H_HEX)
 	{
 		str = uns_conv(va_arg(ap, unsigned int), printer);
-		while (printer->acc > 0)
+		while (printer->acc > 0 && *str)
 		{
 			ft_putchar(*str++);
 			printer->acc--;
@@ -124,7 +126,7 @@ void	print_converter(t_print *printer, va_list ap)
 	else if (printer->cnv & ADDRESS)
 	{
 		str = uns_conv(va_arg(ap, unsigned int), printer);
-		while (printer->acc > 0)
+		while (printer->acc > 0 && *str)
 		{
 			ft_putchar(*str++);
 			printer->acc--;
