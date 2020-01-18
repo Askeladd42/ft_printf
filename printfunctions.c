@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2020/01/17 10:57:22 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/18 13:36:21 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,21 @@ int		ft_atoi_simple(const char *str)
 	return (t);
 }
 
-char	*conv(int hex, t_print dest)
+char	*conv(int hex, t_print *dest)
 {
 	size_t	i;
 	char	*disp;
 
 	i = 0;
 	disp = NULL;
-	if (dest.cnv & INTEGER)
+	if (dest->cnv & INTEGER)
 		disp = ft_itoa_ult(hex, "0123456789", dest);
-	else if (dest.cnv & CHARACTER)
+	else if (dest->cnv & CHARACTER)
 		write(1, &hex, 1);
 	return (disp);
 }
 
-char	*uns_conv(unsigned int hex, t_print dest)
+char	*uns_conv(unsigned int hex, t_print *dest)
 {
 	size_t	i;
 	size_t	len;
@@ -67,11 +67,11 @@ char	*uns_conv(unsigned int hex, t_print dest)
 
 	i = 0;
 	disp = NULL;
-	if (dest.cnv & U_INTEGER)
+	if (dest->cnv & U_INTEGER)
 		disp = ft_utoa_ult(hex, "0123456789", dest);
-	else if (dest.cnv & L_HEX || dest.cnv & ADDRESS)
+	else if (dest->cnv & L_HEX || dest->cnv & ADDRESS)
 		disp = ft_utoa_ult(hex, "0123456789abcdef", dest);
-	else if (dest.cnv & H_HEX)
+	else if (dest->cnv & H_HEX)
 		disp = ft_utoa_ult(hex, "0123456789ABCDEF", dest);
 	return (disp);
 }

@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/18 12:26:52 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/18 14:17:13 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,16 +79,22 @@ void	converter(char c, t_print *printer)
 }
 
 void	print_converter(t_print *printer, va_list ap)
-{	/* à modifier avec les va_arg correctement
-if (printer->cnv & CHARACTER)
-		ft_putchar(va_arg(ap, char));
+{
+	char *str;
+
+	if (printer->cnv & CHARACTER)
+	{
+		*str = va_arg(ap, char);
+		ft_putchar(*str);
+	}
 	else if (printer->cnv & PERCENT)
 		ft_putchar('%');
 	else if (printer->cnv & STRING)
 	{
+		str = va_arg(ap, char *);
 		while (printer->acc > 0)
 		{
-			ft_putchar(va_arg(ap, char *));
+			ft_putchar(*str++);
 			printer->acc--;
 		}
 	}
@@ -96,28 +102,35 @@ if (printer->cnv & CHARACTER)
 	{
 		while (printer->acc > 0)
 		{
-			ft_putchar(*conv(va_arg(ap, int), printer)++);
-			printer->acc--;
+			str = conv(va_arg(ap, int), printer);
+
+			if (str)
+			{
+				ft_putchar(*str++);
+				printer->acc--;
+			}
 		}
 	}
-	else if (printer->cnv & U_INTEGER || printer->cnv & L_HEX 
+	else if (printer->cnv & U_INTEGER || printer->cnv & L_HEX
 				|| printer->cnv & H_HEX)
 	{
+		str = uns_conv(va_arg(ap, unsigned int), printer);
 		while (printer->acc > 0)
 		{
-			ft_putchar(*uns_conv(va_arg(ap, unsigned int), printer)++);
+			ft_putchar(*str++);
 			printer->acc--;
 		}
 	}
 	else if (printer->cnv & ADDRESS)
 	{
+		str = uns_conv(va_arg(ap, unsigned int), printer);
 		while (printer->acc > 0)
 		{
-			ft_putchar(*uns_conv(va_arg(ap, unsigned int), printer)++);
+			ft_putchar(*str++);
 			printer->acc--;
 		}
 	}
-*/}
+}
 
 void	total_print(t_print *printer, va_list ap)
 {
