@@ -6,31 +6,31 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/17 15:05:39 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/18 12:26:52 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-void	toggling_flag(char c, t_print printer, va_list ap)
+void	toggling_flag(char c, t_print *printer, va_list ap)
 {
 	if (c == '0')
-		printer.flags |= (1);
+		printer->flags |= (1);
 	else if (c == '-')
-		printer.flags |= (1 << 1);
+		printer->flags |= (1 << 1);
 	else if (c == '.')
-		printer.flags |= (1 << 3);
+		printer->flags |= (1 << 3);
 	else if (c == '*')
 	{
-		if ((printer.flags & POINT) && (printer.size == 0))
+		if ((printer->flags & POINT) && (printer->size == 0))
 		{
-			printer.size = va_arg(ap, unsigned int);
-			printer.flags |= (1 << 4);
+			printer->size = va_arg(ap, unsigned int);
+			printer->flags |= (1 << 4);
 		}
-		else if (!(printer.flags & POINT) && (printer.acc == 0))
+		else if (!(printer->flags & POINT) && (printer->acc == 0))
 		{
-			printer.acc = va_arg(ap, unsigned int);
-			printer.flags |= (1 << 2);
+			printer->acc = va_arg(ap, unsigned int);
+			printer->flags |= (1 << 2);
 		}
 	}
 	/* BONUS:
@@ -41,7 +41,7 @@ void	toggling_flag(char c, t_print printer, va_list ap)
 	*/
 }
 
-void	flag_parser(t_print printer, const char *fmt, va_list ap)
+void	flag_parser(t_print *printer, const char *fmt, va_list ap)
 {
 	size_t	i;
 
@@ -50,91 +50,91 @@ void	flag_parser(t_print printer, const char *fmt, va_list ap)
 		ft_putchar(fmt[i++]);
 	while (!ft_strchr("cspdiuxX%", fmt[i]))
 	{
-		printer.size = width(fmt, i);
-		printer.acc = accuracy(fmt, i);
+		printer->size = width(fmt, i);
+		printer->acc = accuracy(fmt, i);
 		toggling_flag(fmt[i++], printer, ap);
 	}
 	converter(fmt[i], printer);
 	//print_converter(printer, ap);
 }
 
-void	converter(char c, t_print printer)
+void	converter(char c, t_print *printer)
 {
 	if (c == 'c')
-		printer.cnv |= (1);
+		printer->cnv |= (1);
 	else if (c == 's')
-		printer.cnv |= (1 << 1);
+		printer->cnv |= (1 << 1);
 	else if (c == 'p')
-		printer.cnv |= (1 << 2);
+		printer->cnv |= (1 << 2);
 	else if (c == 'd' || c == 'i')
-		printer.cnv |= (1 << 3);
+		printer->cnv |= (1 << 3);
 	else if (c == 'u')
-		printer.cnv |= (1 << 4);
+		printer->cnv |= (1 << 4);
 	else if (c == 'x')
-		printer.cnv |= (1 << 5);
+		printer->cnv |= (1 << 5);
 	else if (c == 'X')
-		printer.cnv |= (1 << 6);
+		printer->cnv |= (1 << 6);
 	else if (c == '%')
-		printer.cnv |= (1 << 7);
+		printer->cnv |= (1 << 7);
 }
 
-void	print_converter(t_print printer, va_list ap)
+void	print_converter(t_print *printer, va_list ap)
 {	/* à modifier avec les va_arg correctement
-if (printer.cnv & CHARACTER)
+if (printer->cnv & CHARACTER)
 		ft_putchar(va_arg(ap, char));
-	else if (printer.cnv & PERCENT)
+	else if (printer->cnv & PERCENT)
 		ft_putchar('%');
-	else if (printer.cnv & STRING)
+	else if (printer->cnv & STRING)
 	{
-		while (printer.acc > 0)
+		while (printer->acc > 0)
 		{
 			ft_putchar(va_arg(ap, char *));
-			printer.acc--;
+			printer->acc--;
 		}
 	}
-	else if (printer.cnv & INTEGER)
+	else if (printer->cnv & INTEGER)
 	{
-		while (printer.acc > 0)
+		while (printer->acc > 0)
 		{
 			ft_putchar(*conv(va_arg(ap, int), printer)++);
-			printer.acc--;
+			printer->acc--;
 		}
 	}
-	else if (printer.cnv & U_INTEGER || printer.cnv & L_HEX 
-				|| printer.cnv & H_HEX)
+	else if (printer->cnv & U_INTEGER || printer->cnv & L_HEX 
+				|| printer->cnv & H_HEX)
 	{
-		while (printer.acc > 0)
+		while (printer->acc > 0)
 		{
 			ft_putchar(*uns_conv(va_arg(ap, unsigned int), printer)++);
-			printer.acc--;
+			printer->acc--;
 		}
 	}
-	else if (printer.cnv & ADDRESS)
+	else if (printer->cnv & ADDRESS)
 	{
-		while (printer.acc > 0)
+		while (printer->acc > 0)
 		{
 			ft_putchar(*uns_conv(va_arg(ap, unsigned int), printer)++);
-			printer.acc--;
+			printer->acc--;
 		}
 	}
 */}
 
-void	total_print(t_print printer, va_list ap)
+void	total_print(t_print *printer, va_list ap)
 {
-	if ((printer.flags & ZEROS) && !(printer.flags & MINUS))
+	if ((printer->flags & ZEROS) && !(printer->flags & MINUS))
 	{
 		set_spaces(printer);
-		if (printer.cnv & ADDRESS)
+		if (printer->cnv & ADDRESS)
 			ft_putstr("0x");
 		set_zeros(printer);
 		print_converter(printer, ap);
 	}
-	else if (printer.flags & MINUS)
+	else if (printer->flags & MINUS)
 	{
-		if (printer.cnv & ADDRESS)
+		if (printer->cnv & ADDRESS)
 		{
 			ft_putstr("0x");
-			printer.size -= 2;
+			printer->size -= 2;
 		}
 		set_zeros(printer);
 		print_converter(printer, ap);

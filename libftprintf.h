@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/01/17 10:31:11 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/18 12:24:22 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,20 +53,18 @@ typedef enum	e_conv
 size_t			ft_strlen(char *str);
 void			ft_putchar(char c);
 void			ft_putstr(const char *s);
-char			*ft_itoa_ult(int n, char *charset, t_print dest);
-char			*ft_utoa_ult(unsigned int n, char *charset, t_print dest);
+char			*ft_itoa_ult(int n, char *charset, t_print *dest);
+char			*ft_utoa_ult(unsigned int n, char *charset, t_print *dest);
 char			*ft_strchr(const char *s, int c);
 size_t			accuracy(const char *fmt, size_t i);
 size_t			width(const char *fmt, size_t i);
-char			*conv(int hex, t_print dest);
-char			*uns_conv(unsigned int hex, t_print dest);
 int				ft_atoi_simple(const char *str);
 int				ft_printf(const char *format, ...);
-void			set_spaces(t_print printer);
-void			set_zeros(t_print printer);
-void			toggling_flag(char c, t_print printer, va_list ap);
-void			flag_parser(t_print printer, const char *fmt, va_list ap);
-void			converter(char c, t_print printer);
-void			print_converter(t_print printer, va_list ap);
-void			total_print(t_print printer, va_list ap);
+void			set_spaces(t_print *printer);
+void			set_zeros(t_print *printer);
+void			toggling_flag(char c, t_print *printer, va_list ap);
+void			flag_parser(t_print *printer, const char *fmt, va_list ap);
+void			converter(char c, t_print *printer);
+void			print_converter(t_print *printer, va_list ap);
+void			total_print(t_print *printer, va_list ap);
 #endif
