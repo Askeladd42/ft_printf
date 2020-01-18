@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/01/18 12:26:20 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/18 14:35:56 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ size_t	width(const char *fmt, size_t i)
 	return (len);
 }
 
-void	set_spaces(t_print printer)
+void	set_spaces(t_print *printer)
 {
 	size_t	sp;
 
@@ -47,7 +47,7 @@ void	set_spaces(t_print printer)
 		ft_putchar(' ');
 }
 
-void	set_zeros(t_print printer)
+void	set_zeros(t_print *printer)
 {
 	size_t	zeros;
 

@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/18 14:17:13 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/18 14:33:18 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,8 @@ void	print_converter(t_print *printer, va_list ap)
 
 	if (printer->cnv & CHARACTER)
 	{
-		*str = va_arg(ap, char);
-		ft_putchar(*str);
+		str = NULL;
+		ft_putchar(va_arg(ap, int));
 	}
 	else if (printer->cnv & PERCENT)
 		ft_putchar('%');
