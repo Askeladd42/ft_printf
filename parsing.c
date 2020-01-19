@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/18 15:54:58 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/19 12:03:48 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ void	flag_parser(t_print *printer, const char *fmt, va_list ap)
 		ft_putchar(fmt[i++]);
 	while (!ft_strchr("cspdiuxX%", fmt[i]))
 	{
+		toggling_flag(fmt[i++], printer, ap);
 		printer->size = width(fmt, i);
 		printer->acc = accuracy(fmt, i);
-		toggling_flag(fmt[i++], printer, ap);
 	}
 	converter(fmt[i], printer);
 	//print_converter(printer, ap);
@@ -92,7 +92,7 @@ void	print_converter(t_print *printer, va_list ap)
 	else if (printer->cnv & STRING)
 	{
 		str = va_arg(ap, char *);
-		if (str = NULL)
+		if (str == NULL)
 			str = "(null)";
 		while (printer->acc > 0 && *str)
 		{
