@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/01/18 14:04:09 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/19 12:39:10 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ typedef enum	e_conv
 size_t			ft_strlen(char *str);
 void			ft_putchar(char c);
 void			ft_putstr(const char *s);
+static size_t	nb_len(unsigned int n, char *charset);
 char			*ft_itoa_ult(int n, char *charset, t_print *dest);
 char			*ft_utoa_ult(unsigned int n, char *charset, t_print *dest);
 char			*conv(int hex, t_print *dest);

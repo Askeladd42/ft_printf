@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/01/18 14:35:56 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/19 12:36:39 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	accuracy(const char *fmt, size_t i)
 	acc = 0;
 	if (fmt[i] == '.')
 	{
-		if (fmt[i] >= '1' && fmt[i] <= '9')
+		if (fmt[i] >= '0' && fmt[i] <= '9')
 			acc = (unsigned int)ft_atoi_simple(&fmt[i]);
 	}
 	i++;
