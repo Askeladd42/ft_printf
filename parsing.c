@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/19 13:55:56 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/21 13:40:15 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 	while (!ft_strchr("cspdiuxX%", fmt[++i]))
 	{
 		toggling_flag(fmt[i], printer, ap, i);
-		printer->size = width(fmt, i);
-		printer->acc = accuracy(fmt, i);
+		printer->size = width(fmt, i, ap);
+		printer->acc = accuracy(fmt, i, ap);
 	}
 	converter(fmt[i++], printer);
 	print_converter(printer, ap);
@@ -88,9 +88,9 @@ void	print_converter(t_print *printer, va_list ap)
 		ft_putchar('%');
 	else if (printer->cnv & STRING)
 	{
-		str = va_arg(ap, char *);
-		if (str == NULL)
-			str = "(null)";
+		printer->buff = va_arg(ap, char *);
+		if (printer->buff == NULL)
+			ft_putstr("(null)");
 		while (printer->acc > 0 && *str)
 		{
 			ft_putchar(*str++);
@@ -99,16 +99,9 @@ void	print_converter(t_print *printer, va_list ap)
 	}
 	else if (printer->cnv & INTEGER)
 	{
-		while (printer->acc > 0 && *str) // rajouter les cas de conversion + taille de nombres
-		{
-			str = conv(va_arg(ap, int), printer);
-
-			if (str)
-			{
-				ft_putchar(*str++);
-				printer->acc--;
-			}
-		}
+		//printer->buff = conv(va_arg(ap, int), printer);
+		/*if (str && (printer->acc > 0))
+			ft_putstr(printer->buff);*/
 	}
 	else if (printer->cnv & U_INTEGER || printer->cnv & L_HEX
 				|| printer->cnv & H_HEX)

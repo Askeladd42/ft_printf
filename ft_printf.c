@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:32:02 by plam              #+#    #+#             */
-/*   Updated: 2020/01/19 13:46:41 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/21 12:06:25 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int		ft_printf(const char *format, ...)
 	va_start(ap, format);
 	while (*format)
 	{
+		printer.buff = NULL;
+		printer.index = 0;
 		printer.flags = 0;
 		printer.cnv = 0;
 		printer.index = 0;
