@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/22 08:42:02 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/23 08:22:14 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,10 @@ void	print_converter(t_print *printer, va_list ap)
 			printer->acc--;
 		}
 	}
-	else if (printer->cnv & INTEGER) //modifiwe les flags ?
-	{
-		//printer->buff = conv(va_arg(ap, int), printer);
-		/*if (str && (printer->acc > 0))
-			ft_putstr(printer->buff);*/
+	else if (printer->cnv & INTEGER) //r2sudre le conflit avec la taille	{
+		printer->buff = conv(va_arg(ap, int), printer);
+		if (str && (printer->acc > 0))
+			ft_putstr(printer->buff);
 	}
 	else if (printer->cnv & U_INTEGER || printer->cnv & L_HEX
 				|| printer->cnv & H_HEX)
