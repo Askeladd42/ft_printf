@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/01/22 13:07:41 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/23 10:54:45 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ size_t	accuracy(const char *fmt, size_t i, va_list ap)
 {
 	size_t	acc;
 
-	acc = 0;
 	if (fmt[i++] == '.')
 	{
 		if (fmt[i] >= '0' && fmt[i] <= '9')
@@ -25,7 +24,6 @@ size_t	accuracy(const char *fmt, size_t i, va_list ap)
 			acc = va_arg(ap, unsigned int);
 	}
 	i++;
-	printf(" acc = %zu\n", acc);
 	return (acc);
 }
 
@@ -33,13 +31,11 @@ size_t	width(const char *fmt, size_t i, va_list ap)
 {
 	size_t	len;
 
-	len = 0;
 	if (fmt[i] >= '1' && fmt[i] <= '9')
 		len = (unsigned int)ft_atoi_simple(&fmt[i]);
 	else if (fmt[i] == '*')
 		len = va_arg(ap, unsigned int);
 	i++;
-	printf("width = %zu\n", len);
 	return (len);
 }
 
