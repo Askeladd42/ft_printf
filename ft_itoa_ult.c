@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2020/01/18 13:32:12 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/23 13:40:31 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,18 @@ static size_t	nb_len(unsigned int n, char *charset)
 char			*ft_itoa_ult(int n, char *charset, t_print *dest)
 {
 	unsigned int	nbr;
+	unsigned int	index;
+	unsigned int	size;
 
 	nbr = (n < 0) ? -n : n;
-	dest->size = ft_strlen(charset);
+	size = ft_strlen(charset);
 	dest->index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
-	dest->buff[dest->index] = '\0';
-	while (dest->index-- > 0)
+	index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
+	dest->buff[index] = '\0';
+	while (index-- > 0)
 	{
-		dest->buff[dest->index] = charset[nbr % dest->size];
-		nbr /= dest->size;
+		dest->buff[index] = charset[nbr % size];
+		nbr /= size;
 	}
 	if (n < 0)
 		dest->buff[0] = '-';
@@ -50,15 +53,18 @@ char			*ft_itoa_ult(int n, char *charset, t_print *dest)
 char			*ft_utoa_ult(unsigned int n, char *charset, t_print *dest)
 {
 	unsigned int	nbr;
+	unsigned int	index;
+	unsigned int	size;
 
 	nbr = n;
-	dest->size = ft_strlen(charset);
+	size = ft_strlen(charset);
 	dest->index = nb_len(nbr, charset);
-	dest->buff[dest->index] = '\0';
-	while (dest->index-- > 0)
+	index = nb_len(nbr, charset);
+	dest->buff[index] = '\0';
+	while (index-- > 0)
 	{
-		dest->buff[dest->index] = charset[nbr % dest->size];
-		nbr /= dest->size;
+		dest->buff[index] = charset[nbr % size];
+		nbr /= size;
 	}
 	return (dest->buff);
 }

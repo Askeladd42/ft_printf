@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/01/23 10:54:45 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/23 11:42:27 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ size_t	width(const char *fmt, size_t i, va_list ap)
 {
 	size_t	len;
 
-	if (fmt[i] >= '1' && fmt[i] <= '9')
+	if (fmt[i] >= '0' && fmt[i] <= '9')
 		len = (unsigned int)ft_atoi_simple(&fmt[i]);
 	else if (fmt[i] == '*')
 		len = va_arg(ap, unsigned int);

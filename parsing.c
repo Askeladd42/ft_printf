@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/23 10:36:29 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/23 14:17:45 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	toggling_flag(char c, t_print *printer, va_list ap, size_t i)
 {
-	if (c == '0')
+	if (c == '0' && !(printer->flags & MINUS))
 		printer->flags |= (1);
 	else if (c == '-')
 		printer->flags |= (1 << 1);
@@ -45,14 +45,20 @@ void	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 {
 	while (fmt[i] != '%' && fmt[i])
 		ft_putchar(fmt[i++]);
+	printf("flag = %i\n", printer->flags);
+	printf("width = %zu\n", printer->size);
+	printf("acc = %zu\n", printer->acc);
 	while (!ft_strchr("cspdiuxX%", fmt[++i]))
 	{
 		toggling_flag(fmt[i], printer, ap, i);
+		printf("flag = %i\n", printer->flags);
 		printer->size = width(fmt, i, ap);
+		printf("width = %zu\n", printer->size);
 		printer->acc = accuracy(fmt, i, ap);
-		printf("width = %zu\nacc = %zu\n", printer->size, printer->acc);
+		printf("acc = %zu\n", printer->acc);
 	}
 	converter(fmt[i++], printer);
+	printf("conversion = %i\n",printer->cnv);
 	print_converter(printer, ap);
 }
 
@@ -101,8 +107,7 @@ void	print_converter(t_print *printer, va_list ap)
 	else if (printer->cnv & INTEGER)
 	{
 		printer->buff = conv(va_arg(ap, int), printer);
-		if (str && (printer->acc > 0))
-			ft_putstr(printer->buff);
+		ft_putstr(printer->buff);
 	}
 	else if (printer->cnv & U_INTEGER || printer->cnv & L_HEX
 			|| printer->cnv & H_HEX)
