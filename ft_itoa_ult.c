@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2020/01/24 14:05:27 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/24 14:16:24 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ char			*ft_itoa_ult(int n, char *charset, t_print *dest)
 	size = ft_strlen(charset);
 	dest->index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
 	index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
+	printf("index = %zu\n", index);
 	buff[index] = '\0';
+	printf("index in printer = %zu\n", dest->index);
 	while (index-- > 0)
 	{
 		buff[index] = charset[nbr % size];
@@ -48,6 +50,7 @@ char			*ft_itoa_ult(int n, char *charset, t_print *dest)
 	}
 	if (n < 0)
 		buff[0] = '-';
+	ft_putstr(buff);
 	return (buff);
 }
 
