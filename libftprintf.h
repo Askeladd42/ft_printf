@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/01/21 12:34:54 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/24 11:10:58 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,8 @@ char			*ft_utoa_ult(unsigned int n, char *charset, t_print *dest);
 char			*conv(int hex, t_print *dest);
 char			*uns_conv(unsigned int hex, t_print *dest);
 char			*ft_strchr(const char *s, int c);
-size_t			accuracy(const char *fmt, size_t i, va_list ap);
-size_t			width(const char *fmt, size_t i, va_list ap);
+size_t			accuracy(const char *fmt, size_t i);
+size_t			width(const char *fmt, size_t i);
 int				ft_atoi_simple(const char *str);
 int				ft_printf(const char *format, ...);
 void			set_spaces(t_print *printer);

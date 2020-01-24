@@ -6,13 +6,13 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/01/23 11:42:27 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/24 11:10:39 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-size_t	accuracy(const char *fmt, size_t i, va_list ap)
+size_t	accuracy(const char *fmt, size_t i)
 {
 	size_t	acc;
 
@@ -20,21 +20,17 @@ size_t	accuracy(const char *fmt, size_t i, va_list ap)
 	{
 		if (fmt[i] >= '0' && fmt[i] <= '9')
 			acc = (unsigned int)ft_atoi_simple(&fmt[i]);
-		else if (fmt[i] == '*')
-			acc = va_arg(ap, unsigned int);
 	}
 	i++;
 	return (acc);
 }
 
-size_t	width(const char *fmt, size_t i, va_list ap)
+size_t	width(const char *fmt, size_t i)
 {
 	size_t	len;
 
 	if (fmt[i] >= '0' && fmt[i] <= '9')
 		len = (unsigned int)ft_atoi_simple(&fmt[i]);
-	else if (fmt[i] == '*')
-		len = va_arg(ap, unsigned int);
 	i++;
 	return (len);
 }

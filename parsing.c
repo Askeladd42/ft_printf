@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/23 15:06:31 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/24 11:10:51 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,16 @@ void	toggling_flag(char c, t_print *printer, va_list ap, size_t i)
 		printer->flags |= (1 << 3);
 	else if (c == '*') // problème de détection dans ce cas
 	{
-		if ((printer->flags & POINT) && (printer->acc == 0))
+		if (printer->flags & POINT)
+		{
 			printer->flags |= (1 << 4);
-		else if (!(printer->flags & POINT) && (printer->size == 0))
+			printer->acc = va_arg(ap, unsigned int);
+		}
+		else if (!(printer->flags & POINT))
+		{
+			printer->size = va_arg(ap, unsigned int);
 			printer->flags |= (1 << 2);
+		}
 	}
 	i++;
 	/* BONUS:
@@ -47,9 +53,9 @@ void	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 	{
 		toggling_flag(fmt[i], printer, ap, i);
 		printf("flag = %i\n", printer->flags);
-		printer->size = width(fmt, i, ap);
+		printer->size = (printer->flags & L_ASTERISK ? printer->size : width(fmt, i));
 		printf("width = %zu\n", printer->size);
-		printer->acc = accuracy(fmt, i, ap);
+		printer->acc = (printer->flags & R_ASTERISK ? printer->acc : accuracy(fmt, i));
 		printf("acc = %zu\n", printer->acc);
 	}
 	converter(fmt[i++], printer);
