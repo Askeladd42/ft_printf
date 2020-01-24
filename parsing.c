@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/24 11:10:51 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/24 12:19:12 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 	}
 	converter(fmt[i++], printer);
 	printf("conversion = %i\n",printer->cnv);
-	print_converter(printer, ap);
+	total_print(printer, ap);
 }
 
 void	converter(char c, t_print *printer)
@@ -107,8 +107,9 @@ void	print_converter(t_print *printer, va_list ap)
 	}
 	else if (printer->cnv & INTEGER)
 	{
-		printer->buff = conv(va_arg(ap, int), printer);
-		ft_putstr(printer->buff);
+		str = conv(va_arg(ap, int), printer);
+		printf("%s\n", str);
+		ft_putstr(str);
 	}
 	else if (printer->cnv & U_INTEGER || printer->cnv & L_HEX
 			|| printer->cnv & H_HEX)
