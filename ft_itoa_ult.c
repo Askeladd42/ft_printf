@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2020/01/23 13:40:31 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/24 14:05:27 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static size_t	nb_len(unsigned int n, char *charset)
 
 char			*ft_itoa_ult(int n, char *charset, t_print *dest)
 {
+	char			*buff;
 	unsigned int	nbr;
 	unsigned int	index;
 	unsigned int	size;
@@ -39,19 +40,41 @@ char			*ft_itoa_ult(int n, char *charset, t_print *dest)
 	size = ft_strlen(charset);
 	dest->index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
 	index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
-	dest->buff[index] = '\0';
+	buff[index] = '\0';
 	while (index-- > 0)
 	{
-		dest->buff[index] = charset[nbr % size];
+		buff[index] = charset[nbr % size];
 		nbr /= size;
 	}
 	if (n < 0)
-		dest->buff[0] = '-';
-	return (dest->buff);
+		buff[0] = '-';
+	return (buff);
+}
+
+char			*ft_itoa_alt(int n, char *charset)
+{
+	char			*buff;
+	unsigned int	nbr;
+	unsigned int	index;
+	unsigned int	size;
+
+	nbr = (n < 0) ? -n : n;
+	size = ft_strlen(charset);
+	index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
+	buff[index] = '\0';
+	while (index-- > 0)
+	{
+		buff[index] = charset[nbr % size];
+		nbr /= size;
+	}
+	if (n < 0)
+		buff[0] = '-';
+	return (buff);
 }
 
 char			*ft_utoa_ult(unsigned int n, char *charset, t_print *dest)
 {
+	char			*buff;
 	unsigned int	nbr;
 	unsigned int	index;
 	unsigned int	size;
@@ -60,11 +83,11 @@ char			*ft_utoa_ult(unsigned int n, char *charset, t_print *dest)
 	size = ft_strlen(charset);
 	dest->index = nb_len(nbr, charset);
 	index = nb_len(nbr, charset);
-	dest->buff[index] = '\0';
+	buff[index] = '\0';
 	while (index-- > 0)
 	{
-		dest->buff[index] = charset[nbr % size];
+		buff[index] = charset[nbr % size];
 		nbr /= size;
 	}
-	return (dest->buff);
+	return (buff);
 }
