@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/24 13:24:06 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/24 14:20:17 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	toggling_flag(char c, t_print *printer, va_list ap, size_t i)
 		printer->flags |= (1 << 1);
 	else if (c == '.')
 		printer->flags |= (1 << 3);
-	else if (c == '*') // problème de détection dans ce cas
+	else if (c == '*')
 	{
 		if (printer->flags & POINT)
 		{
