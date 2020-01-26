@@ -6,29 +6,12 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/01/26 15:31:26 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/26 16:34:42 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include <stdio.h>
-
-static size_t	nb_len(unsigned int n, char *charset)
-{
-	size_t	i;
-	size_t	len;
-
-	i = 1;
-	len = ft_strlen(charset);
-	if (n == 0)
-		return (1);
-	while (n >= len)
-	{
-		i++;
-		n /= len;
-	}
-	return (i);
-}
 
 int	main(void)
 {

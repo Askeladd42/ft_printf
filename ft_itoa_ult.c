@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2020/01/26 15:08:06 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/26 18:19:26 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ static size_t	nb_len(unsigned int n, char *charset)
 	return (i);
 }
 
-char			*ft_itoa_ult(int n, char *charset, t_print *dest)
+char			*ft_itoa_ult(int n, char *charset, t_print *dest) // mettre set_zeros et set_spaces avant de mettre le convertisseur !
 {
-	char			*buff;
 	unsigned int	nbr;
 	unsigned int	index;
 	unsigned int	size;
@@ -41,38 +40,16 @@ char			*ft_itoa_ult(int n, char *charset, t_print *dest)
 	dest->index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
 	index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
 	printf("index = %u\n", index);
-	buff[index] = '\0';
-	printf("index in printer = %zu\n", dest->index);
+	dest->buff[index] = '\0';
+	printf("index in printer = %ld\n", dest->index);
 	while (index-- > 0)
 	{
-		buff[index] = charset[nbr % size];
+		dest->buff[index] = charset[nbr % size];
 		nbr /= size;
 	}
 	if (n < 0)
-		buff[0] = '-';
-	ft_putstr(buff);
-	return (buff);
-}
-
-char			*ft_itoa_alt(int n, char *charset)
-{
-	char			*buff;
-	unsigned int	nbr;
-	unsigned int	index;
-	unsigned int	size;
-
-	nbr = (n < 0) ? -n : n;
-	size = ft_strlen(charset);
-	index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
-	buff[index] = '\0';
-	while (index-- > 0)
-	{
-		buff[index] = charset[nbr % size];
-		nbr /= size;
-	}
-	if (n < 0)
-		buff[0] = '-';
-	return (buff);
+		dest->buff[0] = '-';
+	return (dest->buff);
 }
 
 char			*ft_utoa_ult(unsigned int n, char *charset, t_print *dest)
@@ -85,6 +62,25 @@ char			*ft_utoa_ult(unsigned int n, char *charset, t_print *dest)
 	nbr = n;
 	size = ft_strlen(charset);
 	dest->index = nb_len(nbr, charset);
+	index = nb_len(nbr, charset);
+	buff[index] = '\0';
+	while (index-- > 0)
+	{
+		buff[index] = charset[nbr % size];
+		nbr /= size;
+	}
+	return (buff);
+}
+
+char			*ft_utoa_alt(unsigned int n, char *charset)
+{
+	char			*buff;
+	unsigned int	nbr;
+	unsigned int	index;
+	unsigned int	size;
+
+	nbr = n;
+	size = ft_strlen(charset);
 	index = nb_len(nbr, charset);
 	buff[index] = '\0';
 	while (index-- > 0)

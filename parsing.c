@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/26 15:42:35 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/26 18:16:50 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	toggling_flag(char c, t_print *printer, va_list ap, size_t i)
 
 void	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 {
-	while (fmt[i] != '%' && fmt[i])
+	while (fmt[i] && fmt[i] != '%')
 		ft_putchar(fmt[i++]);
 	printf("flag = %i\n", printer->flags);
 	printf("width = %zu\n", printer->size);
@@ -53,9 +53,9 @@ void	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 	{
 		toggling_flag(fmt[i], printer, ap, i);
 		printf("flag = %i\n", printer->flags);
-		printer->size = (printer->flags & L_ASTERISK ? printer->size : 0);
+		printer->size = (printer->flags & L_ASTERISK ? printer->size : width(fmt, i, printer));
 		printf("width = %zu\n", printer->size);
-		printer->acc = (printer->flags & R_ASTERISK ? printer->acc : 0);
+		printer->acc = (printer->flags & R_ASTERISK ? printer->acc : accuracy(fmt, i, printer));
 		printf("acc = %zu\n", printer->acc);
 	}
 	converter(fmt[i++], printer);
@@ -97,19 +97,16 @@ void	print_converter(t_print *printer, va_list ap)
 	else if (printer->cnv & STRING)
 	{
 		str = va_arg(ap, char *);
-		if (printer->buff == NULL)
+		if (str == NULL)
 			ft_putstr("(null)");
-		while (printer->acc > 0 && *str)
-		{
-			
-			printer->acc--;
-		}
+		buffer_register(printer, str);
+		ft_putstr(printer->buff);
 	}
 	else if (printer->cnv & INTEGER)
 	{
 		str = conv(va_arg(ap, int), printer);
 		buffer_register(printer, str);
-		printf("%s\n", str);
+		printf("str = %s\n", str);
 		ft_putstr(printer->buff);
 	}
 	else if (printer->cnv & U_INTEGER || printer->cnv & L_HEX
@@ -146,13 +143,8 @@ void	total_print(t_print *printer, va_list ap)
 	else if (printer->flags & MINUS)
 	{
 		if (printer->cnv & ADDRESS)
-		{
 			ft_putstr("0x");
-			printer->size -= 2;
-		}
-		set_zeros(printer);
 		print_converter(printer, ap);
-		set_spaces(printer);
 	}
 	else
 		print_converter(printer, ap);
