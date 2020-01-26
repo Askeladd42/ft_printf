@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/01/26 09:56:27 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/26 12:23:49 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,17 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include <stdio.h>
 
-typedef struct	s_list
+typedef struct		s_list
 {
-	char		buff[BUFFER_SIZE];
-	size_t		index;
-	size_t		size;
-	size_t		acc;
-	int			flags;
-	int			cnv;
-}				t_print;
+	char			buff[BUFFER_SIZE];
+	size_t			index;
+	size_t			size;
+	size_t			acc;
+	unsigned int	flags;
+	unsigned int	cnv;
+}					t_print;
 
 typedef enum	e_flags
 {
