@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/01/24 12:57:23 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/26 14:15:53 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,17 @@ size_t	width(const char *fmt, size_t i)
 	return (len);
 }
 
-void	set_spaces(t_print *printer)
+size_t	set_spaces(t_print *printer)
 {
 	size_t	sp;
 
 	sp = (printer->acc > printer->size ?
 		printer->acc : printer->size - printer->acc);
 	printf("sp = %zu\n", sp);
-	while (sp > 0)
-		ft_putchar(' ');
+	return (sp);
 }
 
-void	set_zeros(t_print *printer)
+size_t	set_zeros(t_print *printer)
 {
 	size_t	zeros;
 
@@ -54,6 +53,4 @@ void	set_zeros(t_print *printer)
 			printer->acc - ft_strlen(printer->buff) : printer->acc);
 	zeros = (printer->cnv & ADDRESS ? zeros - 2 : zeros);
 	printf("zeros = %zu\n", zeros);
-	while (zeros > 0)
-		ft_putchar('0');
-}
+	return (zeros);

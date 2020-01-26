@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2020/01/23 13:53:27 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/26 15:09:03 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	*conv(int hex, t_print *dest)
 	
 	disp = NULL;
 	if (dest->cnv & INTEGER)
-		disp = ft_itoa_ult(hex, "0123456789", dest);
+		disp = ft_itoa_alt(hex, "0123456789");
 	else if (dest->cnv & CHARACTER)
 	{
 		*disp++ = hex;

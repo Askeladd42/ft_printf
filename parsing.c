@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/26 12:05:26 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/26 14:59:34 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,7 @@ void	print_converter(t_print *printer, va_list ap)
 	else if (printer->cnv & INTEGER)
 	{
 		str = conv(va_arg(ap, int), printer);
+		buffer_register(printer, str);
 		printf("%s\n", str);
 		ft_putstr(str);
 	}
