@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2020/01/24 14:20:39 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/26 09:57:29 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static size_t	nb_len(unsigned int n, char *charset)
 
 char			*ft_itoa_ult(int n, char *charset, t_print *dest) // probleme d'utilisation de structure
 {
-	char			*buff;
+	char			buff[64];
 	unsigned int	nbr;
 	unsigned int	index;
 	unsigned int	size;
@@ -77,7 +77,7 @@ char			*ft_itoa_alt(int n, char *charset)
 
 char			*ft_utoa_ult(unsigned int n, char *charset, t_print *dest)
 {
-	char			*buff;
+	char			buff[64];
 	unsigned int	nbr;
 	unsigned int	index;
 	unsigned int	size;
