@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:32:02 by plam              #+#    #+#             */
-/*   Updated: 2020/01/26 12:24:50 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/26 15:29:20 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		ft_printf(const char *format, ...)
 	size = 0;
 	i = 0;
 	va_start(ap, format);
-	while (*format + i)
+	while (format[i])
 	{
 		printer.index = 0;
 		printer.flags = 0;
@@ -32,6 +32,7 @@ int		ft_printf(const char *format, ...)
 		//printf("%s\n", ft_itoa_ult(42, "0123456789", &printer));
 		flag_parser(&printer, format, ap, i);
 		size += printer.index;
+		break;
 	}
 	va_end(ap);
 	return (size + i);

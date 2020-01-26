@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/26 14:59:34 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/26 15:42:35 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ void	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 	{
 		toggling_flag(fmt[i], printer, ap, i);
 		printf("flag = %i\n", printer->flags);
-		printer->size = (printer->flags & L_ASTERISK ? printer->size : width(fmt, i));
+		printer->size = (printer->flags & L_ASTERISK ? printer->size : 0);
 		printf("width = %zu\n", printer->size);
-		printer->acc = (printer->flags & R_ASTERISK ? printer->acc : accuracy(fmt, i));
+		printer->acc = (printer->flags & R_ASTERISK ? printer->acc : 0);
 		printf("acc = %zu\n", printer->acc);
 	}
 	converter(fmt[i++], printer);
@@ -110,7 +110,7 @@ void	print_converter(t_print *printer, va_list ap)
 		str = conv(va_arg(ap, int), printer);
 		buffer_register(printer, str);
 		printf("%s\n", str);
-		ft_putstr(str);
+		ft_putstr(printer->buff);
 	}
 	else if (printer->cnv & U_INTEGER || printer->cnv & L_HEX
 			|| printer->cnv & H_HEX)
