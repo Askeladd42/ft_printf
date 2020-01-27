@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/26 18:16:50 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/27 11:05:32 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ void	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 	while (!ft_strchr("cspdiuxX%", fmt[++i]))
 	{
 		toggling_flag(fmt[i], printer, ap, i);
-		printf("flag = %i\n", printer->flags);
+		//printf("flag = %i\n", printer->flags);
 		printer->size = (printer->flags & L_ASTERISK ? printer->size : width(fmt, i, printer));
-		printf("width = %zu\n", printer->size);
+		//printf("width = %zu\n", printer->size);
 		printer->acc = (printer->flags & R_ASTERISK ? printer->acc : accuracy(fmt, i, printer));
-		printf("acc = %zu\n", printer->acc);
+		//printf("acc = %zu\n", printer->acc);
 	}
 	converter(fmt[i++], printer);
 	printf("conversion = %i\n",printer->cnv);

@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2020/01/26 18:19:26 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/27 10:59:11 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static size_t	nb_len(unsigned int n, char *charset)
 	return (i);
 }
 
-char			*ft_itoa_ult(int n, char *charset, t_print *dest) // mettre set_zeros et set_spaces avant de mettre le convertisseur !
+char			*ft_itoa_ult(int n, char *charset, t_print *dest)
 {
 	unsigned int	nbr;
 	unsigned int	index;

@@ -6,13 +6,11 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/01/26 17:56:19 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/27 10:59:24 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-
-// pb d'overflow à régler
 
 size_t	accuracy(const char *fmt, size_t i, t_print *printer)
 {
@@ -49,7 +47,7 @@ size_t	set_spaces(t_print *printer)
 	return (sp);
 }
 
-size_t	set_zeros(t_print *printer) // à patcher
+size_t	set_zeros(t_print *printer)
 {
 	size_t	zeros;
 
