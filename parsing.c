@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/27 11:05:32 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/27 12:32:52 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ void	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 {
 	while (fmt[i] && fmt[i] != '%')
 		ft_putchar(fmt[i++]);
-	printf("flag = %i\n", printer->flags);
-	printf("width = %zu\n", printer->size);
-	printf("acc = %zu\n", printer->acc);
+	//printf("flag = %i\n", printer->flags);
+	//printf("width = %zu\n", printer->size);
+	//printf("acc = %zu\n", printer->acc);
 	while (!ft_strchr("cspdiuxX%", fmt[++i]))
 	{
 		toggling_flag(fmt[i], printer, ap, i);
@@ -59,7 +59,7 @@ void	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 		//printf("acc = %zu\n", printer->acc);
 	}
 	converter(fmt[i++], printer);
-	printf("conversion = %i\n",printer->cnv);
+	//printf("conversion = %i\n", printer->cnv);
 	total_print(printer, ap);
 }
 
@@ -106,7 +106,6 @@ void	print_converter(t_print *printer, va_list ap)
 	{
 		str = conv(va_arg(ap, int), printer);
 		buffer_register(printer, str);
-		printf("str = %s\n", str);
 		ft_putstr(printer->buff);
 	}
 	else if (printer->cnv & U_INTEGER || printer->cnv & L_HEX
