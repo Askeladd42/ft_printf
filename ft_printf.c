@@ -6,13 +6,13 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:32:02 by plam              #+#    #+#             */
-/*   Updated: 2020/01/27 14:26:07 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/28 14:31:17 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int		ft_printf(const char *format, ...)
+int		ft_printf(const char *format, ...) //faire en sorte de sauvegarder la position du i
 {
 	va_list	ap;
 	size_t	size;
@@ -29,10 +29,9 @@ int		ft_printf(const char *format, ...)
 		printer.cnv = 0;
 		printer.acc = 0;
 		printer.size = 0;
-		flag_parser(&printer, format, ap, i);
+		i = flag_parser(&printer, format, ap, i);
 		size += len_add(&printer);
-		printf("size = %zu\n", size);
-		break;
+		//printf("size = %zu\n", size);
 	}
 	va_end(ap);
 	return (size + i);

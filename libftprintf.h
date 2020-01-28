@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/01/27 14:25:31 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/28 14:14:49 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ size_t				set_zeros(t_print *printer);
 size_t				len_add(t_print *printer);
 void				toggling_flag(char c, t_print *printer, va_list ap,
 								size_t i);
-void				flag_parser(t_print *printer, const char *fmt, va_list ap,
+size_t				flag_parser(t_print *printer, const char *fmt, va_list ap,
 								size_t i);
 void				converter(char c, t_print *printer);
 void				print_converter(t_print *printer, va_list ap);

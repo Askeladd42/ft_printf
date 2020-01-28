@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/01/27 15:20:46 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/28 16:04:43 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,10 @@ size_t	set_spaces(t_print *printer)
 {
 	size_t	sp;
 
-	sp = (printer->acc > printer->size ?
-		printer->acc : printer->size - printer->acc);
-	if (printer->index >= set_zeros(printer) + sp)
+	sp = len_add(printer) - (printer->index - printer->acc);
+	if (printer->index >= len_add(printer))
 		sp = 0;
-	printf("sp = %zu\n", sp);
+	//printf("sp = %zu\n", sp);
 	return (sp);
 }
 
@@ -53,11 +52,10 @@ size_t	set_zeros(t_print *printer)
 {
 	size_t	zeros;
 
-	zeros = (printer->acc > printer->index ?
-			printer->acc - printer->index : printer->acc);
-	zeros = (printer->cnv & ADDRESS ? zeros - 2 : zeros);
-	if (printer->index >= zeros || printer->index >= printer->acc)
+	zeros = (printer->acc > printer->index + set_spaces(printer) ?
+			printer->acc - printer->index - set_spaces(printer) : printer->acc);
+	if (printer->index >= len_add(printer) || printer->index >= printer->acc)
 		zeros = 0;
-	printf("zeros = %zu\n", zeros);
+	//printf("zeros = %zu\n", zeros);
 	return (zeros);
 }

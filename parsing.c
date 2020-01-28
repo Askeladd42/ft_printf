@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/27 12:32:52 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/28 16:26:07 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,17 @@ void	toggling_flag(char c, t_print *printer, va_list ap, size_t i)
 	*/
 }
 
-void	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
+size_t	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 {
 	while (fmt[i] && fmt[i] != '%')
 		ft_putchar(fmt[i++]);
 	//printf("flag = %i\n", printer->flags);
 	//printf("width = %zu\n", printer->size);
 	//printf("acc = %zu\n", printer->acc);
-	while (!ft_strchr("cspdiuxX%", fmt[++i]))
+	i++;
+	while (fmt[i] && !ft_strchr("cspdiuxX%", fmt[i]))
 	{
+		i++;
 		toggling_flag(fmt[i], printer, ap, i);
 		//printf("flag = %i\n", printer->flags);
 		printer->size = (printer->flags & L_ASTERISK ? printer->size : width(fmt, i, printer));
@@ -61,6 +63,7 @@ void	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 	converter(fmt[i++], printer);
 	//printf("conversion = %i\n", printer->cnv);
 	total_print(printer, ap);
+	return (i);
 }
 
 void	converter(char c, t_print *printer)
