@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/01/28 14:14:49 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/28 17:25:06 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdio.h>
+
+// autre piste : modifier set zeros et space pour qu'ils soient directement appelés dans la fonction avant de faire les conversions
 
 typedef struct		s_list
 {
