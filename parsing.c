@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/30 11:58:10 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/30 15:07:16 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,20 +115,14 @@ void	print_converter(t_print *printer, va_list ap)
 			|| printer->cnv & H_HEX)
 	{
 		str = uns_conv(va_arg(ap, unsigned int), printer);
-		while (printer->acc > 0 && *str)
-		{
-			ft_putchar(*str++);
-			printer->acc--;
-		}
+		buffer_register(printer, str);
+		ft_putstr(printer->buff);
 	}
 	else if (printer->cnv & ADDRESS)
 	{
 		str = uns_conv(va_arg(ap, unsigned int), printer);
-		while (printer->acc > 0 && *str)
-		{
-			ft_putchar(*str++);
-			printer->acc--;
-		}
+		buffer_register(printer, str);
+		ft_putstr(printer->buff);
 	}
 }
 
