@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2020/01/28 16:46:44 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/30 14:51:45 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,37 @@ char			*ft_itoa_ult(int n, char *charset, t_print *dest) // bug sur le compte de
 	if (n < 0)
 		dest->buff[0] = '-';
 	return (dest->buff);
+}
+
+char				*ft_itoa_alt(int n, char *charset, t_print *dest)
+{
+	char			buff[64];
+	unsigned int	nbr;
+	unsigned int	index;
+	unsigned int	size;
+	unsigned int	z;
+	unsigned int	start;
+
+	nbr = (n < 0) ? -n : n;
+	size = ft_strlen(charset);
+	dest->index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
+	dest->acc = (n < 0) ? dest->index + 1 : dest->index;
+	index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
+	z = set_zeros(dest);
+	//printf("index = %u\n", index);
+	//printf("index in printer = %ld\n", dest->index);
+	start = index + z;
+	buff[start] = '\0';
+	while (index-- > 0)
+	{
+		buff[start--] = charset[nbr % size];
+		nbr /= size;
+	}
+	while (z-- > 0)
+		buff[start--] = '0';
+	if (n < 0)
+		buff[0] = '-';
+	return (buff);
 }
 
 char			*ft_utoa_ult(unsigned int n, char *charset, t_print *dest)

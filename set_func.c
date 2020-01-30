@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/01/28 16:35:34 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/30 15:00:07 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ size_t	set_spaces(t_print *printer)
 {
 	size_t	sp;
 
-	sp = len_add(printer) - (printer->index - printer->acc);
+	sp = len_add(printer) - (printer->index + set_zeros(printer));
 	if (printer->index >= len_add(printer))
 		sp = 0;
 	//printf("sp = %zu\n", sp);
@@ -52,9 +52,9 @@ size_t	set_zeros(t_print *printer)
 {
 	size_t	zeros;
 
-	zeros = (printer->acc > printer->index + set_spaces(printer) ?
-			printer->acc - printer->index - set_spaces(printer) : printer->acc);
-	if (printer->index >= len_add(printer) || printer->index >= printer->acc)
+	zeros = (printer->acc >= printer->index ?
+			printer->acc - printer->index : 0);
+	if (printer->index >= len_add(printer))
 		zeros = 0;
 	//printf("zeros = %zu\n", zeros);
 	return (zeros);
