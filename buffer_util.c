@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/01/31 11:44:19 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/31 12:19:46 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,15 @@ void	buffer_register(t_print *printer, char *str)
 	size_t	sp;
 	size_t	z;
 
-	i = 0;
+	i = len_add(printer);
 	z = set_zeros(printer);
 	sp = set_spaces(printer);
 	printf("z = %zu, sp = %zu & str = %s\n", z, sp, str);
+	printer->buff[i] = '\0';
 	if (printer->flags & MINUS || printer->flags & ZEROS)
 	{
-		while (*str && i < 64)
-			printer->buff[i++] = *str++;
+		while (i < 64)
+			printer->buff[i++] = *str;
 		while (sp-- > 0)
 			printer->buff[i++] = ' ';
 	}
