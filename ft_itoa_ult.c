@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2020/01/31 11:43:57 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/31 12:33:53 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,14 @@ char			*ft_itoa_ult(int n, char *charset, t_print *dest) // bug sur le compte de
 	unsigned int	i;
 	unsigned int	z;
 
-	z = (n < 0) ? set_zeros(dest) + 1 : set_zeros(dest);
 	nbr = (n < 0) ? -n : n;
 	size = ft_strlen(charset);
 	dest->index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
 	dest->acc = (n < 0) ? dest->index + 1 : dest->index;
 	index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
+	z = (n < 0) ? set_zeros(dest) + 1 : set_zeros(dest);
 	i = 0;
+	printf("z = %u, index = %u\n", z, index);
 	while (z-- > 0)
 		dest->buff[i++] = '0';
 	while (index-- > 0)
