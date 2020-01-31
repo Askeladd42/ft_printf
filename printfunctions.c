@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2020/01/30 14:56:17 by plam             ###   ########.fr       */
+/*   Updated: 2020/01/31 11:45:24 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,21 @@ int		ft_atoi_simple(const char *str)
 	return (t);
 }
 
-char	*conv(int hex, t_print *dest)
+void	conv(int hex, t_print *dest)
 {
 	char	*disp;
 
 	disp = NULL;
 	if (dest->cnv & INTEGER)
-		disp = ft_itoa_alt(hex, "0123456789", dest);
+		disp = ft_itoa_ult(hex, "0123456789", dest);
 	else if (dest->cnv & CHARACTER)
 	{
-		*disp++ = hex;
-		*disp = '\0';
+		dest->buff[0] = hex;
+		dest->buff[1] = '\0';
 	}
-	return (disp);
 }
 
-char	*uns_conv(unsigned int hex, t_print *dest)
+void	uns_conv(unsigned int hex, t_print *dest)
 {
 	char	*disp;
 
@@ -71,5 +70,4 @@ char	*uns_conv(unsigned int hex, t_print *dest)
 		disp = ft_utoa_ult(hex, "0123456789abcdef", dest);
 	else if (dest->cnv & H_HEX)
 		disp = ft_utoa_ult(hex, "0123456789ABCDEF", dest);
-	return (disp);
 }
