@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/02 13:07:02 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/02 13:46:45 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	print_converter(t_print *printer, va_list ap)
 		if (str == NULL)
 			ft_putstr("(null)");
 		printf("printer->flags = %u\n", printer->flags);
-		while (*str) //à modifier si précision il y a
+		while (*str) //à modifier si précision il y a && REMPLACER LE PUTCHAR PAR WRITE C"EST + SIMPLE PLUS CONTROLÉ
 		{
 			ft_putchar(*str++);
 			printer->index++;
