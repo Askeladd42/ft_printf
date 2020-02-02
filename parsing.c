@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/01/31 12:22:27 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/02 11:17:55 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,11 @@ void	print_converter(t_print *printer, va_list ap)
 		if (str == NULL)
 			ft_putstr("(null)");
 		buffer_register(printer, str);
-		ft_putstr(printer->buff);
+		while (*str)
+		{
+			ft_putchar(*str++);
+			printer->index++;
+		}
 	}
 	else if (printer->cnv & INTEGER)
 	{
