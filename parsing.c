@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/02 11:17:55 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/02 13:07:02 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,19 +46,13 @@ size_t	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 {
 	while (fmt[i] && fmt[i] != '%')
 		ft_putchar(fmt[i++]);
-	//printf("flag = %i\n", printer->flags);
-	//printf("width = %zu\n", printer->size);
-	//printf("acc = %zu\n", printer->acc);
 	i++;
 	while (fmt[i] && !ft_strchr("cspdiuxX%", fmt[i]))
 	{
 		i++;
 		toggling_flag(fmt[i], printer, ap, i);
-		//printf("flag = %i\n", printer->flags);
 		printer->size = (printer->flags & L_ASTERISK ? printer->size : width(fmt, i, printer));
-		//printf("width = %zu\n", printer->size);
 		printer->acc = (printer->flags & R_ASTERISK ? printer->acc : accuracy(fmt, i, printer));
-		//printf("acc = %zu\n", printer->acc);
 	}
 	converter(fmt[i++], printer);
 	//printf("conversion = %i\n", printer->cnv);
@@ -102,8 +96,8 @@ void	print_converter(t_print *printer, va_list ap)
 		str = va_arg(ap, char *);
 		if (str == NULL)
 			ft_putstr("(null)");
-		buffer_register(printer, str);
-		while (*str)
+		printf("printer->flags = %u\n", printer->flags);
+		while (*str) //à modifier si précision il y a
 		{
 			ft_putchar(*str++);
 			printer->index++;
@@ -112,8 +106,8 @@ void	print_converter(t_print *printer, va_list ap)
 	else if (printer->cnv & INTEGER)
 	{
 		str = conv(va_arg(ap, int), printer);
+		//ft_putstr(printer->buff);
 		buffer_register(printer, str);
-		ft_putstr(printer->buff);
 	}
 	else if (printer->cnv & U_INTEGER || printer->cnv & L_HEX
 			|| printer->cnv & H_HEX)

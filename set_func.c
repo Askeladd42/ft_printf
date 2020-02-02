@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/01/30 15:00:07 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/02 13:05:13 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	accuracy(const char *fmt, size_t i, t_print *printer)
 	size_t	acc;
 
 	acc = printer->acc;
-	if (fmt[i++] == '.')
+	if (printer->flags & POINT)
 	{
 		if (fmt[i] >= '0' && fmt[i] <= '9')
 			acc = (unsigned int)ft_atoi_simple(&fmt[i]);

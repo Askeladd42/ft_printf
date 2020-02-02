@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:32:02 by plam              #+#    #+#             */
-/*   Updated: 2020/02/02 11:23:41 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/02 11:44:22 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ int		ft_printf(const char *format, ...) //faire en sorte de sauvegarder la posit
 		//printf("size = %zu\n", size);
 	}
 	va_end(ap);
-	printf("printf return = %zu\n", size + i);
 	return (size + i);
 }

@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/02 10:15:04 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/02 13:07:45 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	buffer_register(t_print *printer, char *str)
 		while (*str && i < 64)
 			printer->buff[i++] = *str++;
 	}
-	printer->buff[i] = '\0';
+	ft_putstr(printer->buff);
 	//printf("str after conversion = %s\n", str);
 }
 
