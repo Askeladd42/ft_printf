@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/03 10:51:43 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/03 11:58:23 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ int	main(void)
 {
 	//printf("bruh %-10.7d\n", 1001);
 	printf("* OG Printf = Bonjour les gens,\nbonjour %-*.*i,\ncomment allez-vous ?\n%.5s\n", 8, 3, -42, "Plutot bien.");
-	ft_printf("* ft_printf = Bonjour les gens,\nbonjour %-*.*i,\ncomment allez-vous ?\n%.*s\n", 8, 3, -42, 5, "Plutot bien.");
+	ft_printf("* ft_printf = Bonjour les gens,\nbonjour %-*.*i,\ncomment allez-vous ?\n%.5s\n", 8, 3, -42, "Plutot bien.");
 	return (0);
 }

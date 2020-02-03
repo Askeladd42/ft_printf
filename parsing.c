@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/03 11:52:02 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/03 13:10:22 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ size_t	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 		i++;
 	}
 	converter(fmt[i++], printer);
-	//printf("conversion = %i\n", printer->cnv);
 	total_print(printer, ap);
 	return (i);
 }
@@ -96,7 +95,6 @@ void	print_converter(t_print *printer, va_list ap)
 		str = va_arg(ap, char *);
 		if (str == NULL)
 			ft_putstr("(null)");
-		printf("str = %s\nprinter->flags = %u\n", str, printer->flags);
 		write (1, str, printer->acc);
 	}
 	else if (printer->cnv & INTEGER)
