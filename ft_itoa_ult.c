@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2020/02/03 14:07:23 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/03 17:22:26 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ char			*ft_itoa_ult(int n, char *charset, t_print *dest)
 	unsigned int	size;
 	unsigned int	i;
 	unsigned int	z;
-	unsigned int	len;
 
 	nbr = (n < 0) ? -n : n;
 	size = ft_strlen(charset);
@@ -44,7 +43,6 @@ char			*ft_itoa_ult(int n, char *charset, t_print *dest)
 	dest->acc = (n < 0) ? dest->index + 1 : dest->index;
 	index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
 	z = set_zeros(dest);
-	len = len_add(dest) - set_spaces(dest);
 	i = 0;
 	while (z-- > 0)
 		dest->buff[i++] = '0';
@@ -63,20 +61,22 @@ char			*ft_utoa_ult(unsigned int n, char *charset, t_print *dest)
 	unsigned int	nbr;
 	unsigned int	index;
 	unsigned int	size;
-	unsigned int	len;
+	unsigned int	i;
+	unsigned int	z;
 
 	nbr = n;
 	size = ft_strlen(charset);
 	dest->index = nb_len(nbr, charset);
 	index = nb_len(nbr, charset);
-	len = len_add(dest) - set_spaces(dest);
-	dest->buff[len] = '\0';
+	z = set_zeros(dest);
+	i = 0;
+	while (z-- > 0)
+		dest->buff[i++] = '0';
+	dest->buff[i + index] = '\0';
 	while (index-- > 0)
 	{
-		dest->buff[len--] = charset[nbr % size];
+		dest->buff[i + index] = charset[nbr % size];
 		nbr /= size;
 	}
-	while (len > 0)
-		dest->buff[len--] = '0';
 	return (dest->buff);
 }
