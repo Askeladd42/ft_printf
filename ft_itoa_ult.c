@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2020/02/02 12:11:00 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/03 10:30:21 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static size_t	nb_len(unsigned int n, char *charset)
 	return (i);
 }
 
-char			*ft_itoa_ult(int n, char *charset, t_print *dest) // bug sur le compte des espaces
+char			*ft_itoa_ult(int n, char *charset, t_print *dest)
 {
 	unsigned int	nbr;
 	unsigned int	index;
@@ -43,7 +43,7 @@ char			*ft_itoa_ult(int n, char *charset, t_print *dest) // bug sur le compte de
 	dest->index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
 	dest->acc = (n < 0) ? dest->index + 1 : dest->index;
 	index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
-	z = (n < 0) ? set_zeros(dest) + 1 : set_zeros(dest);
+	z = set_zeros(dest);
 	len = len_add(dest) - set_spaces(dest);
 	i = 0;
 	//printf("z = %u, index = %u\n", z, index);

@@ -6,13 +6,13 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/02 13:05:13 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/03 10:58:55 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-size_t	accuracy(const char *fmt, size_t i, t_print *printer)
+size_t	accuracy(const char *fmt, size_t i, t_print *printer) // ne se lit pas lors d'un flag
 {
 	size_t	acc;
 
@@ -20,9 +20,14 @@ size_t	accuracy(const char *fmt, size_t i, t_print *printer)
 	if (printer->flags & POINT)
 	{
 		if (fmt[i] >= '0' && fmt[i] <= '9')
+		{
 			acc = (unsigned int)ft_atoi_simple(&fmt[i]);
+			while (fmt[i] >= '0' && fmt[i] <= '9')
+				i++;
+		}
+		else
+			i++;
 	}
-	i++;
 	return (acc);
 }
 
@@ -32,8 +37,13 @@ size_t	width(const char *fmt, size_t i, t_print *printer)
 
 	len = printer->size;
 	if (fmt[i] >= '0' && fmt[i] <= '9')
+	{
 		len = (unsigned int)ft_atoi_simple(&fmt[i]);
-	i++;
+		while (fmt[i] >= '0' && fmt[i] <= '9')
+			i++;
+	}
+	else
+		i++;
 	return (len);
 }
 

@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/02 13:46:45 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/03 11:52:02 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ size_t	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 	i++;
 	while (fmt[i] && !ft_strchr("cspdiuxX%", fmt[i]))
 	{
-		i++;
 		toggling_flag(fmt[i], printer, ap, i);
 		printer->size = (printer->flags & L_ASTERISK ? printer->size : width(fmt, i, printer));
 		printer->acc = (printer->flags & R_ASTERISK ? printer->acc : accuracy(fmt, i, printer));
+		i++;
 	}
 	converter(fmt[i++], printer);
 	//printf("conversion = %i\n", printer->cnv);
@@ -96,17 +96,12 @@ void	print_converter(t_print *printer, va_list ap)
 		str = va_arg(ap, char *);
 		if (str == NULL)
 			ft_putstr("(null)");
-		printf("printer->flags = %u\n", printer->flags);
-		while (*str) //à modifier si précision il y a && REMPLACER LE PUTCHAR PAR WRITE C"EST + SIMPLE PLUS CONTROLÉ
-		{
-			ft_putchar(*str++);
-			printer->index++;
-		}
+		printf("str = %s\nprinter->flags = %u\n", str, printer->flags);
+		write (1, str, printer->acc);
 	}
 	else if (printer->cnv & INTEGER)
 	{
 		str = conv(va_arg(ap, int), printer);
-		//ft_putstr(printer->buff);
 		buffer_register(printer, str);
 	}
 	else if (printer->cnv & U_INTEGER || printer->cnv & L_HEX
@@ -114,13 +109,11 @@ void	print_converter(t_print *printer, va_list ap)
 	{
 		str = uns_conv(va_arg(ap, unsigned int), printer);
 		buffer_register(printer, str);
-		ft_putstr(printer->buff);
 	}
 	else if (printer->cnv & ADDRESS)
 	{
 		str = uns_conv(va_arg(ap, unsigned int), printer);
 		buffer_register(printer, str);
-		ft_putstr(printer->buff);
 	}
 }
 
@@ -128,10 +121,8 @@ void	total_print(t_print *printer, va_list ap)
 {
 	if ((printer->flags & ZEROS) && !(printer->flags & MINUS))
 	{
-		set_spaces(printer);
 		if (printer->cnv & ADDRESS)
 			ft_putstr("0x");
-		set_zeros(printer);
 		print_converter(printer, ap);
 	}
 	else if (printer->flags & MINUS)
