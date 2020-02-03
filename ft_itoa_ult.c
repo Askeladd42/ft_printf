@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2020/02/03 10:30:21 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/03 14:07:23 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ char			*ft_itoa_ult(int n, char *charset, t_print *dest)
 	z = set_zeros(dest);
 	len = len_add(dest) - set_spaces(dest);
 	i = 0;
-	//printf("z = %u, index = %u\n", z, index);
 	while (z-- > 0)
 		dest->buff[i++] = '0';
 	while (index-- > 0)

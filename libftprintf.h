@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/02/03 11:23:09 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/03 16:27:24 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdio.h>
-
-// autre piste : modifier set zeros et space pour qu'ils soient directement appelés dans la fonction avant de faire les conversions
 
 typedef struct		s_list
 {
@@ -62,6 +60,7 @@ char				*ft_utoa_ult(unsigned int n, char *charset, t_print *dest);
 char				*conv(int hex, t_print *dest);
 char				*uns_conv(unsigned int hex, t_print *dest);
 char				*ft_strchr(const char *s, int c);
+size_t				passing_nb(const char *fmt, size_t i);
 size_t				accuracy(const char *fmt, size_t i, t_print *printer);
 size_t				width(const char *fmt, size_t i, t_print *printer);
 int					ft_atoi_simple(const char *str);

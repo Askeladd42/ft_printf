@@ -6,11 +6,21 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/03 13:10:00 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/03 16:33:23 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+size_t	passing_nb(const char *fmt, size_t i)
+{
+	size_t	add;
+	
+	add = 0;
+	while (fmt[i + add] >= '0' && fmt[i + add] <= '9')
+		add++;
+	return (add);
+}
 
 size_t	accuracy(const char *fmt, size_t i, t_print *printer)
 {
@@ -19,11 +29,10 @@ size_t	accuracy(const char *fmt, size_t i, t_print *printer)
 	acc = printer->acc;
 	if (printer->flags & POINT)
 	{
-		if (fmt[i] >= '0' && fmt[i] <= '9')
+		if (*(fmt + i) >= '0' && *(fmt + i) <= '9')
 		{
-			acc = (unsigned int)ft_atoi_simple(&fmt[i]);
-			while (fmt[i] >= '0' && fmt[i] <= '9')
-				i++;
+			acc = (unsigned int)ft_atoi_simple((fmt + i));
+			//printf("acc = %zu\n", printer->acc);
 		}
 		else
 			i++;
