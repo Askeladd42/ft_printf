@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/04 15:38:35 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/04 16:00:38 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	buffer_register(t_print *printer)
 	printer->buff[i] = '\0';
 	ft_putstr(printer->buff);
 }
+
+/*faire une fonction aui ajoute des espacements comme précédemment mais pour les string*/
 
 size_t	len_add(t_print *printer)
 {

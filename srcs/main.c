@@ -6,11 +6,11 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/04 16:02:28 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/04 16:00:46 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/libftprintf.h"
+#include "../includes/libftprintf.h"
 #include <stdio.h>
 
 int	main(void)
