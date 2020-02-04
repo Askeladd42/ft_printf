@@ -6,16 +6,18 @@
 #    By: plam <plam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/19 10:15:47 by plam              #+#    #+#              #
-#    Updated: 2020/02/04 16:12:46 by plam             ###   ########.fr        #
+#    Updated: 2020/02/04 16:24:06 by plam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= 	./srcs/ft_strlen.c ./srcs/parsing.c\
-				./srcs/ft_putstr.c ./srcs/set_func.c\
-				./srcs/ft_printf.c ./srcs/buffer_util.c \
-				./srcs/ft_itoa_ult.c ./srcs/printfunctions.c \
+SRCS		= 	ft_strlen.c parsing.c\
+				ft_putstr.c set_func.c\
+				ft_printf.c buffer_util.c \
+				ft_itoa_ult.c printfunctions.c \
 
-OBJS		= 	${SRCS:.c=.o}
+SRC			= $(addprefix ./srcs/, $(SRCS))
+
+OBJS		= 	${SRC:.c=.o}
 
 NAME		= 	libftprintf.a
 
@@ -37,5 +39,3 @@ fclean :	clean
 			${RM} $(NAME)
 
 re :		fclean all
-
-/*voir addprefix pour makefile pour le SRCS*/
