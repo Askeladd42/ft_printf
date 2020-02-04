@@ -6,7 +6,7 @@
 #    By: plam <plam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/19 10:15:47 by plam              #+#    #+#              #
-#    Updated: 2020/02/04 16:02:06 by plam             ###   ########.fr        #
+#    Updated: 2020/02/04 16:12:46 by plam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,3 +37,5 @@ fclean :	clean
 			${RM} $(NAME)
 
 re :		fclean all
+
+/*voir addprefix pour makefile pour le SRCS*/
