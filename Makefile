@@ -6,14 +6,15 @@
 #    By: plam <plam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/19 10:15:47 by plam              #+#    #+#              #
-#    Updated: 2020/01/16 10:50:11 by plam             ###   ########.fr        #
+#    Updated: 2020/02/04 14:21:24 by plam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= 	ft_strlen.c ft_itoa_ult.c ft_printf.c \
-				ft_putstr.c printfunctions.c parsing.c \
+SRCS		= 	buffer_util.c set_func.c printfunctions.c \
+				ft_strlen.c ft_itoa_ult.c ft_printf.c parsing.c\
+				ft_putstr.c \
 				
-OBJS		= 	${SRCS:.c=.o}
+OBJS		= 	srcs/${SRCS:.c=.o}
 
 NAME		= 	libftprintf.a
 
@@ -21,7 +22,7 @@ CC			= 	gcc
 
 RM			= 	rm -f
 
-CFLAGS		+=	-Wall -Wextra -Werror -I libftprintf.h
+CFLAGS		+=	-Wall -Wextra -Werror -I includes/libftprintf.h
 
 all:		$(NAME)
 
