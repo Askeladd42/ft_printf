@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/04 14:17:18 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/04 15:44:06 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void	print_converter(t_print *printer, va_list ap)
 	else if (printer->cnv & STRING)
 	{
 		str = va_arg(ap, char *);
+		buffer_register(printer); // à patcher pour les string
 		if (str == NULL)
 			ft_putstr("(null)");
 		else if (ft_strlen(str) > printer->acc)
@@ -99,13 +100,13 @@ void	print_converter(t_print *printer, va_list ap)
 	else if (printer->cnv & INTEGER)
 	{
 		str = conv(va_arg(ap, int), printer);
-		buffer_register(printer, str);
+		buffer_register(printer);
 	}
 	else if (printer->cnv & U_INTEGER || printer->cnv & L_HEX
 			|| printer->cnv & H_HEX || printer->cnv & ADDRESS)
 	{
 		str = uns_conv(va_arg(ap, unsigned int), printer);
-		buffer_register(printer, str);
+		buffer_register(printer);
 	}
 }
 

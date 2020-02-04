@@ -6,15 +6,16 @@
 #    By: plam <plam@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/19 10:15:47 by plam              #+#    #+#              #
-#    Updated: 2020/02/04 14:21:24 by plam             ###   ########.fr        #
+#    Updated: 2020/02/04 15:36:20 by plam             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= 	buffer_util.c set_func.c printfunctions.c \
-				ft_strlen.c ft_itoa_ult.c ft_printf.c parsing.c\
-				ft_putstr.c \
-				
-OBJS		= 	srcs/${SRCS:.c=.o}
+SRCS		= 	./srcs/ft_strlen.c ./srcs/parsing.c\
+				./srcs/ft_putstr.c ./srcs/set_func.c\
+				./srcs/ft_printf.c ./srcs/buffer_util.c \
+				./srcs/ft_itoa_ult.c ./srcs/printfunctions.c \
+
+OBJS		= 	${SRCS:.c=.o}
 
 NAME		= 	libftprintf.a
 
