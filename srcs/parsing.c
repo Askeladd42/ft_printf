@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/06 13:52:26 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/06 14:06:01 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,13 +115,13 @@ void	total_print(t_print *printer, va_list ap) //à changer pour s'adapter aux a
 	if ((printer->flags & ZEROS) && !(printer->flags & MINUS))
 	{
 		if (printer->cnv & ADDRESS)
-			ft_putstr("0x");
+			printer->buff[1] = 'x';
 		print_converter(printer, ap);
 	}
 	else if (printer->flags & MINUS)
 	{
 		if (printer->cnv & ADDRESS)
-			ft_putstr("0x");
+			printer->buff[1] = 'x';
 		print_converter(printer, ap);
 	}
 	else
