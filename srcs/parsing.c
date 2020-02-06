@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/04 15:44:06 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/06 13:52:26 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void	print_converter(t_print *printer, va_list ap)
 	}
 }
 
-void	total_print(t_print *printer, va_list ap)
+void	total_print(t_print *printer, va_list ap) //à changer pour s'adapter aux adresses
 {
 	if ((printer->flags & ZEROS) && !(printer->flags & MINUS))
 	{

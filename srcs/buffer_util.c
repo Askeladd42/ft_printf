@@ -6,13 +6,13 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/04 16:00:38 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/06 11:41:55 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
 
-void	buffer_register(t_print *printer)
+void	buffer_register(t_print *printer) // problème avec le nombre des espaces
 {
 	size_t	i;
 	size_t	sp;
@@ -21,6 +21,7 @@ void	buffer_register(t_print *printer)
 	i = 0;
 	z = set_zeros(printer);
 	sp = set_spaces(printer);
+	printf("buff = %s, z = %zu, sp = %zu\n", printer->buff, z, sp);
 	while (printer->buff[i])
 		i++;
 	while (sp-- > 0)
