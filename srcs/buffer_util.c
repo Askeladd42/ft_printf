@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/07 11:25:28 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/07 13:30:45 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	buffer_register(t_print *printer) // problème avec le nombre des espaces
 	i = 0;
 	z = set_zeros(printer);
 	sp = set_spaces(printer);
-	printf("buff = %s, z = %zu, sp = %zu\n", printer->buff, z, sp);
+	//printf("buff = %s, z = %zu, sp = %zu\n", printer->buff, z, sp);
 	while (printer->buff[i])
 		i++;
 	while (sp-- > 0)
