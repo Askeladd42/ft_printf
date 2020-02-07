@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/07 13:29:55 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/07 14:16:34 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,10 @@ void	converter(char c, t_print *printer)
 
 void	print_converter(t_print *printer, va_list ap)
 {
-	char *str;
+	char	*str;
+	size_t	sp;
 
+	sp = 0;
 	if (printer->cnv & CHARACTER)
 	{
 		str = NULL;
@@ -89,7 +91,7 @@ void	print_converter(t_print *printer, va_list ap)
 	else if (printer->cnv & STRING)
 	{
 		str = va_arg(ap, char *);
-		buffer_register(printer); // à patcher pour les string
+		sp = len_add(printer) - ft_strlen(str);
 		if (str == NULL)
 			ft_putstr("(null)");
 		else if (ft_strlen(str) > printer->acc)
