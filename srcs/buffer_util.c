@@ -6,11 +6,22 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/06 11:41:55 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/07 11:25:28 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
+
+void	ft_bzero(void *s, size_t n)
+{
+	size_t			i;
+	unsigned char	*str;
+
+	i = 0;
+	str = (unsigned char *)s;
+	while (i < n)
+		str[i++] = 0;
+}
 
 void	buffer_register(t_print *printer) // problème avec le nombre des espaces
 {

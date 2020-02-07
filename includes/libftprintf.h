@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/02/04 15:39:19 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/07 11:25:12 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef enum		e_conv
 }					t_conv;
 
 void				ft_putchar(char c);
+void				ft_bzero(void *s, size_t n);
 size_t				ft_strlen(char *str);
 void				ft_putstr(const char *s);
 char				*ft_itoa_ult(int n, char *charset, t_print *dest);

@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/06 11:34:22 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/07 11:10:14 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int	main(void)
 {
-	printf("* OG Printf = Bonjour les gens,\nbonjour %-*.*p,\ncomment allez-vous ?\n%15.8s\nSuper !", 8, 5, 846, "Plutot bien.");
-	ft_printf("* ft_printf = Bonjour les gens,\nbonjour %-*.*p,\ncomment allez-vous ?\n%15.8s\nSuper !", 8, 5, 846, "Plutot bien.");
+	printf("* OG Printf = Bonjour les gens,\nbonjour %-p,\ncomment allez-vous ?\n%15.8s\nSuper !", "git gud", "Plutot bien.");
+	ft_printf("* ft_printf = Bonjour les gens,\nbonjour %-p,\ncomment allez-vous ?\n%15.8s\nSuper !", "git gud", "Plutot bien.");
 	return (0);
 
 }

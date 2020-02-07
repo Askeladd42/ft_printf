@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2020/02/06 12:29:52 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/07 10:20:54 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char			*ft_itoa_ult(int n, char *charset, t_print *dest)
 	return (dest->buff);
 }
 
-char			*ft_utoa_ult(unsigned int n, char *charset, t_print *dest) // àmodifier pour qu'il se cale au buffer directement
+char			*ft_utoa_ult(unsigned int n, char *charset, t_print *dest) // à modifier pour qu'il se cale au buffer directement
 {
 	unsigned int	nbr;
 	unsigned int	index;
