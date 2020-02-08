@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/07 10:12:18 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/08 12:07:52 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 size_t	passing_nb(const char *fmt, size_t i)
 {
 	size_t	add;
-	
+
 	add = 0;
 	while (fmt[i + add] >= '0' && fmt[i + add] <= '9')
 		add++;
 	return (add);
 }
 
-size_t	accuracy(const char *fmt, size_t i, t_print *printer)
+int		accuracy(const char *fmt, size_t i, t_print *printer)
 {
-	size_t	acc;
+	int		acc;
 
 	acc = printer->acc;
 	if (printer->flags & POINT)
 	{
 		if (*(fmt + i) >= '0' && *(fmt + i) <= '9')
-			acc = (unsigned int)ft_atoi_simple((fmt + i));
+			acc = ft_atoi_simple((fmt + i));
 		else
 			i++;
 	}
@@ -67,7 +67,7 @@ size_t	set_zeros(t_print *printer)
 {
 	size_t	zeros;
 
-	zeros = (printer->acc >= printer->index ?
+	zeros = (printer->acc >= (int)printer->index ?
 			printer->acc - printer->index : 0);
 	if (printer->index >= len_add(printer))
 		zeros = 0;

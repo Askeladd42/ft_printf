@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/07 15:06:22 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/08 12:21:52 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int	main(void)
 {
-	int p = printf("* OG Printf = Bonjour les gens,\nbonjour %-p,\ncomment allez-vous ?\n%15.8s\nSuper !", "789644", "Plutot bien.");
-	int fp = ft_printf("* ft_printf = Bonjour les gens,\nbonjour %-p,\ncomment allez-vous ?\n%15.8s\nSuper !", "789644", "Plutot bien.");
+	int p = printf("* OG Printf = Bonjour les gens,\nbonjour %-*p,\ncomment allez-vous ?\n%15.8s\nSuper !", 256, "789644", "Plutot bien.");
+	int fp = ft_printf("* ft_printf = Bonjour les gens,\nbonjour %-*p,\ncomment allez-vous ?\n%15.8s\nSuper !", 256, "789644", "Plutot bien.");
 	printf("\n\n\nprintf return = %i\nft_printf return = %i\n", p, fp);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/07 14:16:34 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/08 12:20:47 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	print_converter(t_print *printer, va_list ap)
 		sp = len_add(printer) - ft_strlen(str);
 		if (str == NULL)
 			ft_putstr("(null)");
-		else if (ft_strlen(str) > printer->acc)
+		else if ((int)ft_strlen(str) > printer->acc)
 			write(1, str, printer->acc);
 		else
 			ft_putstr(str);
@@ -112,18 +112,24 @@ void	print_converter(t_print *printer, va_list ap)
 	}
 }
 
-void	total_print(t_print *printer, va_list ap) //à changer pour s'adapter aux adresses
+void	total_print(t_print *printer, va_list ap)
 {
 	if ((printer->flags & ZEROS) && !(printer->flags & MINUS))
 	{
 		if (printer->cnv & ADDRESS)
+		{
 			ft_putstr("0x10");
+			printer->size -= (printer->size > 7 ? 4 : 0);
+		}
 		print_converter(printer, ap);
 	}
 	else if (printer->flags & MINUS)
 	{
 		if (printer->cnv & ADDRESS)
+		{
 			ft_putstr("0x10");
+			printer->size -= (printer->size > 7 ? 4 : 0);
+		}
 		print_converter(printer, ap);
 	}
 	else

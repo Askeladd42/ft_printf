@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/02/07 11:25:12 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/08 11:46:51 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct		s_list
 	char			buff[BUFFER_SIZE];
 	size_t			index;
 	size_t			size;
-	size_t			acc;
+	int				acc;
 	unsigned int	flags;
 	unsigned int	cnv;
 }					t_print;
@@ -61,7 +61,7 @@ char				*conv(int hex, t_print *dest);
 char				*uns_conv(unsigned int hex, t_print *dest);
 char				*ft_strchr(const char *s, int c);
 size_t				passing_nb(const char *fmt, size_t i);
-size_t				accuracy(const char *fmt, size_t i, t_print *printer);
+int					accuracy(const char *fmt, size_t i, t_print *printer);
 size_t				width(const char *fmt, size_t i, t_print *printer);
 int					ft_atoi_simple(const char *str);
 int					ft_printf(const char *format, ...);
