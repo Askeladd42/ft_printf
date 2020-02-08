@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/08 12:18:08 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/08 16:04:09 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	buffer_register(t_print *printer)
 	printer->buff[i] = '\0';
 	ft_putstr(printer->buff);
 }
+
+//régler le problème d'espacement pour les strings
 
 size_t	len_add(t_print *printer)
 {
