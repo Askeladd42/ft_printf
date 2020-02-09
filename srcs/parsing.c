@@ -6,11 +6,13 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/08 12:20:47 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/09 10:41:45 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
+
+//segfault à r2gler dans e parsing !
 
 void	toggling_flag(char c, t_print *printer, va_list ap, size_t i)
 {
