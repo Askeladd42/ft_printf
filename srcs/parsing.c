@@ -6,13 +6,14 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/09 10:49:19 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/09 13:57:10 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
 
-//segfault à r2gler dans e parsing !
+/* adapter les fonctions pour les adresses et les srings pour qu'ils comptent 
+	correctement le nombre de caractères imprimés + fixer le reste de segfault */
 
 void	toggling_flag(char c, t_print *printer, va_list ap)
 {
@@ -92,10 +93,9 @@ void	print_converter(t_print *printer, va_list ap)
 	else if (printer->cnv & STRING)
 	{
 		str = va_arg(ap, char *);
+		str = (str == NULL ? "(null)" : str);
 		sp = len_add(printer) - ft_strlen(str);
-		if (str == NULL)
-			ft_putstr("(null)");
-		else if ((int)ft_strlen(str) > printer->acc)
+		if ((int)ft_strlen(str) > printer->acc)
 			write(1, str, printer->acc);
 		else
 			ft_putstr(str);
