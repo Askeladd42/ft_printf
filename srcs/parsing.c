@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/09 10:41:45 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/09 10:49:19 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //segfault à r2gler dans e parsing !
 
-void	toggling_flag(char c, t_print *printer, va_list ap, size_t i)
+void	toggling_flag(char c, t_print *printer, va_list ap)
 {
 	if (c == '0' && !(printer->flags & MINUS))
 		printer->flags |= (1);
@@ -35,7 +35,6 @@ void	toggling_flag(char c, t_print *printer, va_list ap, size_t i)
 			printer->flags |= (1 << 2);
 		}
 	}
-	i++;
 }
 
 size_t	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
@@ -45,7 +44,7 @@ size_t	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 	i += (fmt[i] ? 1 : 0);
 	while (fmt[i] && !ft_strchr("cspdiuxX%", fmt[i]))
 	{
-		toggling_flag(fmt[i], printer, ap, i);
+		toggling_flag(fmt[i], printer, ap);
 		printer->size = (printer->flags & L_ASTERISK ?
 				printer->size : width(fmt, i, printer));
 		printer->acc = (printer->flags & R_ASTERISK ?
