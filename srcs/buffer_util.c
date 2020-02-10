@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/08 16:04:09 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/10 16:08:29 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,6 @@ void	buffer_register(t_print *printer)
 	ft_putstr(printer->buff);
 }
 
-//régler le problème d'espacement pour les strings
-
 size_t	len_add(t_print *printer)
 {
 	if (printer->acc >= (int)printer->size
@@ -57,4 +55,26 @@ size_t	len_add(t_print *printer)
 		return (printer->size);
 	else
 		return (printer->index);
+}
+
+void	string_printer(char *str, size_t sp, t_print *printer)
+{
+	if (printer->flags & MINUS)
+	{
+		if ((int)ft_strlen(str) > printer->acc && ft_strlen(str) < printer->size)
+			write(1, str, printer->acc);
+		else
+			ft_putstr(str);
+		while (sp < printer->size && sp-- > 0)
+			ft_putchar(' ');
+	}
+	else
+	{
+		while (sp < printer->size && sp-- > 0)
+			ft_putchar(' ');
+		if ((int)ft_strlen(str) > printer->acc && ft_strlen(str) < printer->size)
+			write(1, str, printer->acc);
+		else
+			ft_putstr(str);
+	}
 }
