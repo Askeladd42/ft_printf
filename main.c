@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/10 16:19:51 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/13 17:03:39 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,27 @@
 
 int	main(void)
 {
-	printf("* OG Printf = Bonjour les gens,\nbonjour %-8.10i,\ncomment allez-vous ?\n%8.6s\nSuper !", -789644, "Plutot bien.");
-	printf("\n");
-	ft_printf("* ft_printf = Bonjour les gens,\nbonjour %-8.10i,\ncomment allez-vous ?\n%8.6s\nSuper !", -789644, "Plutot bien.");
+	//int c = 0;
+	char *s = "HELLO";
+	//unsigned int i = 12589;
+	/*printf("c=  %p\n\n", &c);
+	printf("%p", &c);
+	printf("\n\n\n");
+	ft_printf("%p", &c);*/
+	//printf("%s", "HELLOOOOLJLJL<<");
+	//printf("\n\n");
+	ft_printf("%.1s", s);
+	
+	
+	
+	//printf("%%%d%c%d%i%u%x%%%X", 45,'d', 242, 54545, -53424345, i, i);
+	//printf("\n\n\n");
+	//ft_printf("%%%d%c%d%i%u%x%%%X", 45, 'd', 242, 54545, -53424345, i, i);
+	/*printf("%%%d%p%s%c%d%i%u%x%%%X", 45, &c, "HELLOOOOLJLJL<<", 'd', 242, 54545, -53424345, i, i);
+	printf("\n\n\n");
+	ft_printf("%%%d%p%s%c%d%i%u%x%%%X", 45, &c, "HELLOOOOLJLJL<<", 'd', 242, 54545, -53424345, i, i);*/
+	
+	
 	//ft_printf("go of %3.2s\n", NULL);
 	/*int p = printf("OG Printf = %8.3i\n", -8473);
 	int fp = ft_printf("ft_printf = %8.3i\n", -8473);

@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/10 16:41:50 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/13 17:05:03 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ size_t	len_add(t_print *printer)
 	else if ((int)printer->size >= printer->acc &&
 			printer->size >= printer->index)
 		return (printer->size);
+	else if (printer->cnv & STRING && !(printer->flags & L_ASTERISK))
+		return ((int)printer->index < printer->acc ?
+		printer->index : printer->acc);
 	else
 		return (printer->index);
 }
@@ -61,8 +64,8 @@ void	string_printer(char *str, size_t sp, t_print *printer)
 {
 	if (printer->flags & MINUS)
 	{
-		if ((int)ft_strlen(str) > printer->acc
-			&& ft_strlen(str) < printer->size)
+		if ((int)printer->size > printer->acc &&
+		printer->size < printer->index)
 			write(1, str, printer->acc);
 		else
 			ft_putstr(str);
@@ -73,8 +76,8 @@ void	string_printer(char *str, size_t sp, t_print *printer)
 	{
 		while (sp < printer->size && sp-- > 0)
 			ft_putchar(' ');
-		if ((int)ft_strlen(str) > printer->acc
-			&& ft_strlen(str) < printer->size)
+		if ((int)printer->size >= printer->acc &&
+		printer->size <= len_add(printer))
 			write(1, str, printer->acc);
 		else
 			ft_putstr(str);

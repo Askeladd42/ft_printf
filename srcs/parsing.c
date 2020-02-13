@@ -6,13 +6,14 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/11 15:37:11 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/13 17:22:11 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
 
-/* fixer le reste de segfault  et les espacements aà corriger */
+/*  s et p déconnent
+	fixer le reste de segfault  et les espacements à corriger */
 
 void	toggling_flag(char c, t_print *printer, va_list ap)
 {
@@ -93,8 +94,9 @@ void	print_converter(t_print *printer, va_list ap) // couper la fonction
 	{
 		str = va_arg(ap, char *);
 		str = (str == NULL ? "(null)" : str);
-		sp = printer->size - (printer->acc > (int)ft_strlen(str)
-								? ft_strlen(str) : printer->acc);
+		printer->size = (printer->size == 0 ? printer->acc : printer->size);
+		sp = printer->size - (printer->acc > (int)printer->index
+							? printer->index : printer->acc);
 		string_printer(str, sp, printer);
 	}
 	else if (printer->cnv & INTEGER)
