@@ -6,14 +6,14 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/13 18:55:23 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/13 19:24:51 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
 
-/*  s et p déconnent
-	fixer le reste de segfault  et les espacements à corriger */
+/*  p déconne
+	fixer le reste de segfault */
 
 void	toggling_flag(char c, t_print *printer, va_list ap)
 {
