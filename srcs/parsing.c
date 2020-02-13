@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/13 17:22:11 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/13 18:39:53 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,9 @@ void	print_converter(t_print *printer, va_list ap) // couper la fonction
 	{
 		str = va_arg(ap, char *);
 		str = (str == NULL ? "(null)" : str);
-		printer->size = (printer->size == 0 ? printer->acc : printer->size);
+		printer->index = ((int)ft_strlen(str) > printer->acc ? printer->acc : ft_strlen(str));
+		printer->size = (printer->size == 0 ? printer->index : printer->size);
+		//printf("acc = %d, index = %zu, size = %zu & len = %zu\n", printer->acc, printer->index, printer->size, len_add(printer));
 		sp = printer->size - (printer->acc > (int)printer->index
 							? printer->index : printer->acc);
 		string_printer(str, sp, printer);
