@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/14 13:56:43 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/14 13:57:09 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ size_t	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 		i += (fmt[i] >= '0' && fmt[i] <= '9') ? passing_nb(fmt, i) : 1;
 	}
 	converter(fmt[i++], printer);
-	//total_print(printer, ap);
+	total_print(printer, ap);
 	return (i);
 }
 
