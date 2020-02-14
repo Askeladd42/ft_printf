@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2020/02/14 11:02:29 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/14 12:01:09 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,11 @@ char	*uns_conv(unsigned int hex, t_print *dest)
 	if (dest->cnv & U_INTEGER)
 		disp = ft_utoa_ult(hex, "0123456789", dest);
 	else if (dest->cnv & L_HEX || dest->cnv & ADDRESS)
+	{
+		if (dest->cnv & ADDRESS)
+			ft_putstr("0x7ffe");
 		disp = ft_utoa_ult(hex, "0123456789abcdef", dest);
+	}
 	else if (dest->cnv & H_HEX)
 		disp = ft_utoa_ult(hex, "0123456789ABCDEF", dest);
 	return (disp);

@@ -6,14 +6,11 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/13 19:24:51 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/14 12:06:57 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
-
-/*  p déconne
-	fixer le reste de segfault */
 
 void	toggling_flag(char c, t_print *printer, va_list ap)
 {
@@ -118,21 +115,12 @@ void	total_print(t_print *printer, va_list ap)
 	if ((printer->flags & ZEROS) && !(printer->flags & MINUS))
 	{
 		if (printer->cnv & ADDRESS)
-		{
-			ft_putstr("0x10");
-			printer->size -= (printer->size > 7 ? 4 : 0);
-		}
-		print_converter(printer, ap);
+			printer->size -= (printer->size > 13 ? 6 : 0);
 	}
 	else if (printer->flags & MINUS)
 	{
 		if (printer->cnv & ADDRESS)
-		{
-			ft_putstr("0x10");
-			printer->size -= (printer->size > 7 ? 4 : 0);
-		}
-		print_converter(printer, ap);
+			printer->size -= (printer->size > 13 ? 6 : 0);
 	}
-	else
-		print_converter(printer, ap);
+	print_converter(printer, ap);
 }

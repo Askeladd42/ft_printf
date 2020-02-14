@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/14 11:07:36 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/14 12:04:35 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 	printf("c = %p\n\n", &c);
 	ft_printf("c = %p\n\n", &c);
 	printf("%p\n", &s);
-	ft_printf("%p", &s);
+	ft_printf("%p\n", &s);
 	/*printf("\n\n\n");
 	ft_printf("%p", &c);*/
 	//printf("%s", "HELLOOOOLJLJL<<");
