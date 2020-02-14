@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/02/14 13:26:13 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/14 15:49:18 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,10 @@ size_t				ft_strlen(char *str);
 void				ft_putstr(const char *s);
 char				*ft_itoa_ult(int n, char *charset, t_print *dest);
 char				*ft_utoa_ult(unsigned int n, char *charset, t_print *dest);
+char				*ft_lltoa_ult(long long ad, char *charset, t_print *dest);
 char				*conv(int hex, t_print *dest);
 char				*uns_conv(unsigned int hex, t_print *dest);
+char				*ad_conv(long long ad, t_print *dest);
 char				*ft_strchr(const char *s, int c);
 size_t				passing_nb(const char *fmt, size_t i);
 int					accuracy(const char *fmt, size_t i, t_print *printer);

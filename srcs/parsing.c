@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/14 13:57:09 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/14 15:38:43 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,9 +106,14 @@ void	print_converter(t_print *printer, va_list ap) // couper la fonction
 		buffer_register(printer);
 	}
 	else if (printer->cnv & U_INTEGER || printer->cnv & L_HEX
-			|| printer->cnv & H_HEX || printer->cnv & ADDRESS)
+			|| printer->cnv & H_HEX)
 	{
 		str = uns_conv(va_arg(ap, unsigned int), printer);
+		buffer_register(printer);
+	}
+	else if (printer->cnv & ADDRESS)
+	{
+		str = ad_conv(va_arg(ap, long long), printer);
 		buffer_register(printer);
 	}
 }
