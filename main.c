@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/14 10:47:06 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/14 11:07:36 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int	main(void)
 	char *s = "HELLO";
 	//unsigned int i = 12589;
 	printf("c = %p\n\n", &c);
-	printf("%p", &s);
+	ft_printf("c = %p\n\n", &c);
+	printf("%p\n", &s);
+	ft_printf("%p", &s);
 	/*printf("\n\n\n");
 	ft_printf("%p", &c);*/
 	//printf("%s", "HELLOOOOLJLJL<<");
