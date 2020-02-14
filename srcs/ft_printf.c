@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:32:02 by plam              #+#    #+#             */
-/*   Updated: 2020/02/14 12:05:09 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/14 12:15:11 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int		ft_printf(const char *format, ...)
 		printer.size = 0;
 		i = flag_parser(&printer, format, ap, i);
 		size += (len_add(&printer) > 0 ? len_add(&printer) - 1 : 0);
+		size += (printer->cnv & ADDRESS ? 2 : 0);
 		ft_bzero(printer.buff, BUFFER_SIZE);
 	}
 	va_end(ap);
