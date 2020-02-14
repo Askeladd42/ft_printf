@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/14 12:10:27 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/14 13:34:17 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,10 @@ void	toggling_flag(char c, t_print *printer, va_list ap)
 size_t	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 {
 	while (fmt[i] && fmt[i] != '%')
+	{
 		ft_putchar(fmt[i++]);
+		printer->cnt++;
+	}
 	i += (fmt[i] ? 1 : 0);
 	while (fmt[i] && !ft_strchr("cspdiuxX%", fmt[i]))
 	{
