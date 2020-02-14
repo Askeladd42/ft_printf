@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/13 18:56:35 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/14 10:47:06 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
 
 int	main(void)
 {
-	//int c = 0;
+	int c = 0;
 	char *s = "HELLO";
 	//unsigned int i = 12589;
-	//printf("c=  %p\n\n", &c);
+	printf("c = %p\n\n", &c);
 	printf("%p", &s);
 	/*printf("\n\n\n");
 	ft_printf("%p", &c);*/
 	//printf("%s", "HELLOOOOLJLJL<<");
 	//printf("\n\n");
-	//ft_printf("%.10s", s);
+	//printf("%-7.1s", s);
 	
 	
 	//printf("%%%d%c%d%i%u%x%%%X", 45,'d', 242, 54545, -53424345, i, i);
