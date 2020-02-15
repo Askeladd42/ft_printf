@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/14 15:38:43 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/15 11:51:14 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ size_t	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 		i += (fmt[i] >= '0' && fmt[i] <= '9') ? passing_nb(fmt, i) : 1;
 	}
 	converter(fmt[i++], printer);
-	total_print(printer, ap);
+	print_converter(printer, ap);
 	return (i);
 }
 
@@ -77,7 +77,7 @@ void	converter(char c, t_print *printer)
 		printer->cnv |= (1 << 7);
 }
 
-void	print_converter(t_print *printer, va_list ap) // couper la fonction
+void	print_converter(t_print *printer, va_list ap)
 {
 	char	*str;
 	size_t	sp;
@@ -116,19 +116,4 @@ void	print_converter(t_print *printer, va_list ap) // couper la fonction
 		str = ad_conv(va_arg(ap, long long), printer);
 		buffer_register(printer);
 	}
-}
-
-void	total_print(t_print *printer, va_list ap)
-{
-	if ((printer->flags & ZEROS) && !(printer->flags & MINUS))
-	{
-		if (printer->cnv & ADDRESS)
-			printer->size -= (printer->size > 7 ? 4 : 0);
-	}
-	else if (printer->flags & MINUS)
-	{
-		if (printer->cnv & ADDRESS)
-			printer->size -= (printer->size > 7 ? 4 : 0);
-	}
-	print_converter(printer, ap);
 }
