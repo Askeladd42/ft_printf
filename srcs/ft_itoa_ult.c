@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2020/02/14 16:57:28 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/15 10:55:29 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ char			*ft_lltoa_ult(long long ad, char *charset, t_print *dest)
 
 	nbr = ad;
 	size = ft_strlen(charset);
-	dest->index = nb_len(nbr, charset);
+	dest->index = nb_len2(nbr, charset);
 	index = nb_len2(nbr, charset);
 	z = set_zeros(dest);
 	i = 0;
