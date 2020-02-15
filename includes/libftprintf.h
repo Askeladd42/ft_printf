@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/02/15 11:08:17 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/15 11:58:31 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ size_t				flag_parser(t_print *printer, const char *fmt, va_list ap,
 								size_t i);
 void				converter(char c, t_print *printer);
 void				print_converter(t_print *printer, va_list ap);
+void				print_converter2(t_print *printer, va_list ap);
 void				buffer_register(t_print *printer);
 #endif

@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/15 11:51:14 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/15 11:58:17 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,23 @@ void	print_converter(t_print *printer, va_list ap)
 	{
 		str = va_arg(ap, char *);
 		str = (str == NULL ? "(null)" : str);
-		printer->index = ((int)ft_strlen(str) > printer->acc ? printer->acc : ft_strlen(str));
+		printer->index = ((int)ft_strlen(str) > printer->acc ?
+							printer->acc : ft_strlen(str));
 		printer->size = (printer->size == 0 ? printer->index : printer->size);
 		sp = printer->size - (printer->acc > (int)printer->index
 							? printer->index : printer->acc);
 		string_printer(str, sp, printer);
 	}
-	else if (printer->cnv & INTEGER)
+	else
+		print_converter2(printer, ap);
+}
+
+void	print_converter2(t_print *printer, va_list ap)
+{
+	char	*str;
+
+	str = NULL;
+	if (printer->cnv & INTEGER)
 	{
 		str = conv(va_arg(ap, int), printer);
 		buffer_register(printer);
