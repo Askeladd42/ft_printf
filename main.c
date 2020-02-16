@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/16 15:15:48 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/16 18:14:05 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	main(void)
 {
 	//int c = 45;
-	//char *s = "HELLO";
+	char *s = "HELLO";
 	//unsigned int i = 12589;
 	//printf("c = %p\n\n", &c);
 	//ft_printf("c = %p\n\n", &c);
@@ -25,8 +25,8 @@ int	main(void)
 
 	printf("|%*.*i|\n", -1, -12, 758);
 	ft_printf("|%*.*i|\n", -1, -12, 758);
-	//printf("yuh");
-	ft_printf("%s", "yuh");
+	printf("%p\n", &s);
+	ft_printf("%p", &s);
 
 	/*printf("\n\n\n");
 	ft_printf("%p", &c);*/
