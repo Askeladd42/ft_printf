@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/15 12:17:55 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/16 11:24:13 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	main(void)
 {
 	//int c = 45;
-	char *s = "HELLO";
+	//char *s = "HELLO";
 	//unsigned int i = 12589;
 	//printf("c = %p\n\n", &c);
 	//ft_printf("c = %p\n\n", &c);

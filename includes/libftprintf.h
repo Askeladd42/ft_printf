@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/02/15 11:58:31 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/16 11:13:55 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ typedef struct		s_list
 	char			buff[BUFFER_SIZE];
 	size_t			cnt;
 	size_t			index;
-	size_t			size;
+	int				size;
 	int				acc;
 	unsigned int	flags;
 	unsigned int	cnv;

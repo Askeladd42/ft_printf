@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/15 11:58:17 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/16 11:19:24 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,12 @@ void	toggling_flag(char c, t_print *printer, va_list ap)
 		}
 		else if (!(printer->flags & POINT))
 		{
-			printer->size = va_arg(ap, unsigned int);
+			printer->size = va_arg(ap, int);
+			if (printer->size < 0)
+			{
+				printer->flags |= (1 << 1);
+				printer->size = -printer->size;
+			}
 			printer->flags |= (1 << 2);
 		}
 	}
