@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/16 18:10:48 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/16 19:17:10 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,13 @@ void	toggling_flag(char c, t_print *printer, va_list ap)
 
 size_t	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)// provoque le segfault, doit changer (adresse pour i ?)
 {
+	printf("\nInit phase");
 	while (fmt[i] && fmt[i] != '%')
 	{
 		ft_putchar(fmt[i++]);
 		printer->cnt++;
 	}
+	printf("\nStep 1 passed");
 	i += (fmt[i] == '%' ? 1 : 0);
 	while (fmt[i] && !ft_strchr("cspdiuxX%", fmt[i]))
 	{
@@ -55,10 +57,12 @@ size_t	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)// pr
 				printer->size : width(fmt, i, printer));
 		printer->acc = (printer->flags & R_ASTERISK ?
 				printer->acc : accuracy(fmt, i, printer));
+		printf("\nStep 2 passed");
 		i += (fmt[i] >= '0' && fmt[i] <= '9') ? passing_nb(fmt, i) : 1;
 	}
 	converter(fmt[i++], printer);
 	print_converter(printer, ap);
+	printf("\nStep 3 passed");
 	return (i);
 }
 
@@ -96,8 +100,8 @@ void	print_converter(t_print *printer, va_list ap)
 	{
 		str = va_arg(ap, char *);
 		str = ((str == NULL) ? "(null)" : str);
-		printer->index = ((int)ft_strlen(str) > printer->acc ? ft_strlen(str) :
-							(size_t)printer->acc);
+		printer->index = ft_strlen(str);
+		printer->acc = (printer->acc == 0 ? printer->index : printer->acc);
 		printer->size = (printer->size == 0 ? (int)printer->index : printer->size);
 		sp = printer->size - (printer->acc > (int)printer->index
 							? printer->index : printer->acc);
