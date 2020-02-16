@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/16 19:20:27 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/16 19:21:11 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	toggling_flag(char c, t_print *printer, va_list ap)
 	}
 }
 
-size_t	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)// provoque le segfault, doit changer (adresse pour i ?)
+size_t	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 {
 	while (fmt[i] && fmt[i] != '%')
 	{
@@ -98,7 +98,8 @@ void	print_converter(t_print *printer, va_list ap)
 		str = ((str == NULL) ? "(null)" : str);
 		printer->index = ft_strlen(str);
 		printer->acc = (printer->acc == 0 ? printer->index : printer->acc);
-		printer->size = (printer->size == 0 ? (int)printer->index : printer->size);
+		printer->size = (printer->size == 0 ? (int)printer->index :
+												printer->size);
 		sp = printer->size - (printer->acc > (int)printer->index
 							? printer->index : printer->acc);
 		string_printer(str, sp, printer);
