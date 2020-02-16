@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/16 11:19:24 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/16 17:16:11 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ size_t	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 		ft_putchar(fmt[i++]);
 		printer->cnt++;
 	}
-	i += (fmt[i] ? 1 : 0);
+	i += (fmt[i] == '%' ? 1 : 0);
 	while (fmt[i] && !ft_strchr("cspdiuxX%", fmt[i]))
 	{
 		toggling_flag(fmt[i], printer, ap);
@@ -58,6 +58,7 @@ size_t	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 		i += (fmt[i] >= '0' && fmt[i] <= '9') ? passing_nb(fmt, i) : 1;
 	}
 	converter(fmt[i++], printer);
+	printf("%s", "g");
 	print_converter(printer, ap);
 	return (i);
 }
@@ -89,19 +90,16 @@ void	print_converter(t_print *printer, va_list ap)
 
 	sp = 0;
 	if (printer->cnv & CHARACTER)
-	{
-		str = NULL;
 		ft_putchar(va_arg(ap, int));
-	}
 	else if (printer->cnv & PERCENT)
 		ft_putchar('%');
 	else if (printer->cnv & STRING)
 	{
 		str = va_arg(ap, char *);
-		str = (str == NULL ? "(null)" : str);
-		printer->index = ((int)ft_strlen(str) > printer->acc ?
-							printer->acc : ft_strlen(str));
-		printer->size = (printer->size == 0 ? printer->index : printer->size);
+		str = ((str == NULL) ? "(null)" : str);
+		printer->index = ((int)ft_strlen(str) > printer->acc ? ft_strlen(str) :
+							(size_t)printer->acc);
+		printer->size = (printer->size == 0 ? (int)printer->index : printer->size);
 		sp = printer->size - (printer->acc > (int)printer->index
 							? printer->index : printer->acc);
 		string_printer(str, sp, printer);

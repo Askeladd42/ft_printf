@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/16 11:33:23 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/16 13:40:56 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ size_t	len_add(t_print *printer)
 		return (printer->size);
 	else if (printer->cnv & STRING && !(printer->flags & L_ASTERISK))
 		return ((int)printer->index < printer->acc ?
-		printer->index : printer->acc);
+				printer->index : printer->acc);
 	else
 		return (printer->index);
 }

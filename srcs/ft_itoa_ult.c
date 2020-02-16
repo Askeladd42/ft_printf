@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2020/02/15 11:51:47 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/16 11:51:12 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,7 @@ char			*ft_itoa_ult(int n, char *charset, t_print *dest)
 	nbr = (n < 0) ? -n : n;
 	size = ft_strlen(charset);
 	dest->index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
-	dest->acc = (n < 0 && (int)dest->index < dest->acc)
-					? dest->acc + 1 : dest->index;
+	dest->acc += (n < 0 && (int)dest->index < dest->acc) ? 1 : 0;
 	index = (n < 0) ? nb_len(nbr, charset) + 1 : nb_len(nbr, charset);
 	z = set_zeros(dest);
 	i = 0;
