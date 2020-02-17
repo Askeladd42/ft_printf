@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/17 10:13:45 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/17 13:24:03 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	buffer_register(t_print *printer)
 			ft_putchar(' ');
 	}
 	printer->buff[i] = '\0';
+	if (printer->cnv & ADDRESS)
+		ft_putstr("0x");
 	ft_putstr(printer->buff);
 }
 
@@ -63,7 +65,7 @@ void	string_printer(char *str, size_t sp, t_print *printer)
 {
 	if (printer->flags & MINUS)
 	{
-		if ((printer->acc <= (int)printer->index) && printer->acc != 0)
+		if ((printer->acc <= (int)printer->index) && printer->acc > 0)
 			write(1, str, printer->acc);
 		else
 			ft_putstr(str);

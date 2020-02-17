@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2020/02/15 11:44:50 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/17 13:12:07 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,5 @@ char	*ad_conv(long long ad, t_print *dest)
 	char	*disp;
 
 	disp = ft_lltoa_ult(ad, "0123456789abcdef", dest);
-	ft_putstr("0x");
 	return (disp);
 }
