@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/17 13:41:55 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/17 15:58:26 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,17 @@ void	buffer_register(t_print *printer)
 
 size_t	len_add(t_print *printer)
 {
+	if (printer->cnv & STRING)
+	{
+		if (!(printer->flags & L_ASTERISK))
+			return ((int)printer->index < printer->acc ?
+					printer->index : printer->acc);
+	}
 	if (printer->acc >= printer->size && printer->acc >= (int)printer->index)
 		return (printer->acc);
 	else if (printer->size >= printer->acc &&
 			printer->size >= (int)printer->index)
 		return (printer->size);
-	else if (printer->cnv & STRING && !(printer->flags & L_ASTERISK))
-		return ((int)printer->index < printer->acc ?
-				printer->index : printer->acc);
 	else
 		return (printer->index);
 }
@@ -64,12 +67,14 @@ size_t	len_add(t_print *printer)
 void	string_treatment(t_print *printer, char *str, size_t sp)
 {
 	str = ((str == NULL) ? "(null)" : str);
-	printer->index = ft_strlen(str);
 	printer->acc = (printer->acc == 0 ? printer->index : printer->acc);
+	printer->index = ((int)printer->index < printer->acc ? printer->acc :
+						ft_strlen(str));
 	printer->size = (printer->size == 0 ? (int)printer->index :
 											printer->size);
 	sp = printer->size - (printer->acc > (int)printer->index
 						? printer->index : printer->acc);
+	printf("\nacc = %d, size = %d, index = %zu & len = %zu\n", printer->acc, printer->size, printer->index, len_add(printer));
 	string_printer(str, sp, printer);
 }
 
