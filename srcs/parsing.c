@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/16 19:21:11 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/17 10:17:22 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,20 @@ size_t	flag_parser(t_print *printer, const char *fmt, va_list ap, size_t i)
 		printer->cnt++;
 	}
 	i += (fmt[i] == '%' ? 1 : 0);
-	while (fmt[i] && !ft_strchr("cspdiuxX%", fmt[i]))
+	if (fmt[i - 1] == '%')
 	{
-		toggling_flag(fmt[i], printer, ap);
-		printer->size = (printer->flags & L_ASTERISK ?
-				printer->size : width(fmt, i, printer));
-		printer->acc = (printer->flags & R_ASTERISK ?
-				printer->acc : accuracy(fmt, i, printer));
-		i += (fmt[i] >= '0' && fmt[i] <= '9') ? passing_nb(fmt, i) : 1;
+		while (fmt[i] && !ft_strchr("cspdiuxX%", fmt[i]))
+		{
+			toggling_flag(fmt[i], printer, ap);
+			printer->size = (printer->flags & L_ASTERISK ?
+					printer->size : width(fmt, i, printer));
+			printer->acc = (printer->flags & R_ASTERISK ?
+					printer->acc : accuracy(fmt, i, printer));
+			i += (fmt[i] >= '0' && fmt[i] <= '9') ? passing_nb(fmt, i) : 1;
+		}
+		converter(fmt[i++], printer);
+		print_converter(printer, ap);
 	}
-	converter(fmt[i++], printer);
-	print_converter(printer, ap);
 	return (i);
 }
 

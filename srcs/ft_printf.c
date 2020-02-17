@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:32:02 by plam              #+#    #+#             */
-/*   Updated: 2020/02/16 19:25:01 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/17 10:26:57 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int		ft_printf(const char *format, ...)
 		size += printer.cnt + (len_add(&printer) > 0 ?
 								len_add(&printer) : 0);
 	}
-	printf("\nEND\n");
 	va_end(ap);
 	return (size);
 }
