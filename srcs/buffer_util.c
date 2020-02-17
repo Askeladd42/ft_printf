@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/17 17:20:24 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/17 17:41:47 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,18 +74,16 @@ void	string_treatment(t_print *printer, char *str, size_t sp)
 											printer->size);
 	sp = printer->size - (printer->acc > (int)printer->index
 						? printer->index : printer->acc);
-	printf("acc = %d, size = %d & index = %zu\nlen = %zu & sp = %zu\n", printer->acc, printer->size, printer->index, len_add(printer), sp);
+	//printf("acc = %d, size = %d & index = %zu\nlen = %zu & sp = %zu\n", printer->acc, printer->size, printer->index, len_add(printer), sp);
 	string_printer(str, sp, printer);
 }
 
-void	string_printer(char *str, size_t sp, t_print *printer)
+void	string_printer(char *str, size_t sp, t_print *printer) // cas où c n'est pas imprimable à régler
 {
 	if (printer->flags & MINUS)
 	{
 		if ((printer->acc <= (int)printer->index) && printer->acc > 0)
 			write(1, str, printer->acc);
-		else
-			ft_putstr(str);
 		while ((int)sp <= printer->size && sp-- > 0)
 			ft_putchar(' ');
 	}
@@ -95,7 +93,5 @@ void	string_printer(char *str, size_t sp, t_print *printer)
 			ft_putchar(' ');
 		if (printer->acc <= (int)printer->index)
 			write(1, str, printer->acc);
-		else
-			ft_putstr(str);
 	}
 }
