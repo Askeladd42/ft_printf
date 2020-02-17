@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/17 13:22:10 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/17 13:43:06 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,28 +95,15 @@ void	print_converter(t_print *printer, va_list ap)
 	{
 		printer->buff[0] = va_arg(ap, int);
 		str = printer->buff;
-		str = ((str == NULL) ? "(null)" : str);
-		printer->index = ft_strlen(str);
-		printer->acc = (printer->acc == 0 ? printer->index : printer->acc);
-		printer->size = (printer->size == 0 ? (int)printer->index :
-												printer->size);
-		sp = printer->size - (printer->acc > (int)printer->index
-							? printer->index : printer->acc);
-		string_printer(str, sp, printer);
+		str = va_arg(ap, char *);
+		string_treatment(printer, str, sp);
 	}
 	else if (printer->cnv & PERCENT)
 		ft_putchar('%');
 	else if (printer->cnv & STRING)
 	{
 		str = va_arg(ap, char *);
-		str = ((str == NULL) ? "(null)" : str);
-		printer->index = ft_strlen(str);
-		printer->acc = (printer->acc == 0 ? printer->index : printer->acc);
-		printer->size = (printer->size == 0 ? (int)printer->index :
-												printer->size);
-		sp = printer->size - (printer->acc > (int)printer->index
-							? printer->index : printer->acc);
-		string_printer(str, sp, printer);
+		string_treatment(printer, str, sp);
 	}
 	else
 		print_converter2(printer, ap);

@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/17 13:24:03 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/17 13:41:55 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,18 @@ size_t	len_add(t_print *printer)
 				printer->index : printer->acc);
 	else
 		return (printer->index);
+}
+
+void	string_treatment(t_print *printer, char *str, size_t sp)
+{
+	str = ((str == NULL) ? "(null)" : str);
+	printer->index = ft_strlen(str);
+	printer->acc = (printer->acc == 0 ? printer->index : printer->acc);
+	printer->size = (printer->size == 0 ? (int)printer->index :
+											printer->size);
+	sp = printer->size - (printer->acc > (int)printer->index
+						? printer->index : printer->acc);
+	string_printer(str, sp, printer);
 }
 
 void	string_printer(char *str, size_t sp, t_print *printer)
