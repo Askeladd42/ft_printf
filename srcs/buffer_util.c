@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/17 15:58:26 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/17 16:40:26 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,14 +67,13 @@ size_t	len_add(t_print *printer)
 void	string_treatment(t_print *printer, char *str, size_t sp)
 {
 	str = ((str == NULL) ? "(null)" : str);
-	printer->acc = (printer->acc == 0 ? printer->index : printer->acc);
+	printer->acc = (printer->acc == 0 ? ft_strlen(str) : printer->acc);
 	printer->index = ((int)printer->index < printer->acc ? printer->acc :
 						ft_strlen(str));
 	printer->size = (printer->size == 0 ? (int)printer->index :
 											printer->size);
 	sp = printer->size - (printer->acc > (int)printer->index
 						? printer->index : printer->acc);
-	printf("\nacc = %d, size = %d, index = %zu & len = %zu\n", printer->acc, printer->size, printer->index, len_add(printer));
 	string_printer(str, sp, printer);
 }
 
