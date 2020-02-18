@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/18 11:16:06 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/18 12:57:50 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,10 @@ void	string_treatment(t_print *printer, char *str, size_t sp)
 											printer->size);
 	sp = printer->size - (printer->acc > (int)printer->index
 						? printer->index : printer->acc);
-	//printf("acc = %d, size = %d & index = %zu\nlen = %zu & sp = %zu\n", printer->acc, printer->size, printer->index, len_add(printer), sp);
 	string_printer(str, sp, printer);
 }
 
-void	string_printer(char *str, size_t sp, t_print *printer) // cas où c n'est pas imprimable à régler
+void	string_printer(char *str, size_t sp, t_print *printer)
 {
 	if (printer->flags & MINUS)
 	{
