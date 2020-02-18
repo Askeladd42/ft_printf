@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/18 13:03:05 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/18 13:04:22 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ int	main(void)
 	ft_printf("|%10.6x|\n", 46654);*/
 
 	/*ft_printf("%p", &c);*/
-	ft_printf("%i", ft_printf("\\!/%-32c\\!/", (char)0));
+	ft_printf("%i", ft_printf("\\!/%-32.8d\\!/", 798784654));
 	printf("\n");
-	printf("%i", printf("\\!/%-32c\\!/", (char)0));
+	printf("%i", printf("\\!/%-32.8d\\!/", 798784654));
 	//printf("\n\n");
 	/*printf("%-7.1s", s);
 	ft_printf("%-7.1s", s);*/
