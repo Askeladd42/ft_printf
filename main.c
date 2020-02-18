@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/18 16:31:43 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/18 18:19:47 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	main(void)
 {
 	//int c = 45;
-	char *s = NULL;
+	//char *s = NULL;
 	//unsigned int i = 12589;
 	/*printf("OG : c = %p\n\n", &c);
 	ft_printf("ft : c = %p\n\n", &c);
@@ -33,14 +33,20 @@ int	main(void)
 	ft_printf("|%10.6x|\n", 46654);*/
 
 	/*ft_printf("%p", &c);*/
-	ft_printf("%i", ft_printf("\\!/%.p\\!/", s));
+	/*ft_printf("%i", ft_printf("\\!/%.p\\!/", s));
 	printf("\n");
-	printf("%i", printf("\\!/%.p\\!/", s));
+	printf("%i", printf("\\!/%.p\\!/", s));*/
 	//printf("\n\n");
 	/*printf("%-7.1s", s);
 	ft_printf("%-7.1s", s);*/
 	
+	/*ft_printf("%i", ft_printf("\\!/42%19.30s42\\!/", "4560635760"));
+	printf("\n");
+	printf("%i", printf("\\!/42%19.30s42\\!/", "4560635760"));*/
 	
+	printf("%10.18s\n", "1");
+	ft_printf("%10.18s\n", "1");
+
 	/*ft_printf("%%%d%c%d%i%u%x%%%X", 45, 'd', 242, 54545, -53424345, i, i);
 	printf("\n\n\n");
 	printf("%%%d%c%d%i%u%x%%%X", 45,'d', 242, 54545, -53424345, i, i);*/

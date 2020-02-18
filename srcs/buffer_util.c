@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/18 16:29:16 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/18 17:45:49 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,12 @@ void	string_treatment(t_print *printer, char *str, size_t sp)
 {
 	str = ((str == NULL) ? "(null)" : str);
 	printer->index = ft_strlen(str);
-	printer->acc = (printer->acc > (int)printer->index ? ft_strlen(str) : printer->acc);
+	printer->acc = (printer->acc > (int)printer->index ?
+					ft_strlen(str) : printer->acc);
 	printer->size = (printer->size == 0 ? (int)printer->index :
 											printer->size);
-	sp = printer->size - (printer->acc > (int)printer->index
-						? printer->index : printer->acc);
-	printf("acc = %d, size = %d, index = %zu, len = %zu, sp = %zu\n", printer->acc, printer->size, printer->index, len_add(printer), sp);
+	sp = set_spaces(printer);
+	printf("acc = %d, index = %zu, size = %d, len = %zu, sp = %zu", printer->acc, printer->index, printer->size, len_add(printer), sp);
 	string_printer(str, sp, printer);
 }
 
@@ -81,7 +81,8 @@ void	string_printer(char *str, size_t sp, t_print *printer)
 {
 	if (printer->flags & MINUS)
 	{
-		if ((printer->acc < (int)printer->index) && printer->acc > 0)
+		if ((printer->acc < (int)printer->index) && printer->acc >= 0
+			&& (printer->flags & POINT))
 			write(1, str, printer->acc);
 		else
 			ft_putstr(str);
@@ -92,7 +93,8 @@ void	string_printer(char *str, size_t sp, t_print *printer)
 	{
 		while ((int)sp <= printer->size && sp-- > 0)
 			ft_putchar(' ');
-		if ((printer->acc < (int)printer->index) && printer->acc > 0)
+		if ((printer->acc < (int)printer->index) && printer->acc >= 0
+			&& (printer->flags & POINT))
 			write(1, str, printer->acc);
 		else
 			ft_putstr(str);
