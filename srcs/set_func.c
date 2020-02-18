@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/18 18:13:07 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/18 18:20:59 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ size_t	set_spaces(t_print *printer)
 	if (printer->cnv & STRING)
 	{
 		sp = len_add(printer) - (printer->acc >= (int)printer->index ?
-			 	printer->index : printer->acc);
+				printer->index : printer->acc);
 	}
 	else
 		sp = len_add(printer) - (printer->index + set_zeros(printer));
