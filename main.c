@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/18 13:04:22 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/18 16:31:43 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	main(void)
 {
 	//int c = 45;
-	//char *s = "HELLO";
+	char *s = NULL;
 	//unsigned int i = 12589;
 	/*printf("OG : c = %p\n\n", &c);
 	ft_printf("ft : c = %p\n\n", &c);
@@ -33,9 +33,9 @@ int	main(void)
 	ft_printf("|%10.6x|\n", 46654);*/
 
 	/*ft_printf("%p", &c);*/
-	ft_printf("%i", ft_printf("\\!/%-32.8d\\!/", 798784654));
+	ft_printf("%i", ft_printf("\\!/%.p\\!/", s));
 	printf("\n");
-	printf("%i", printf("\\!/%-32.8d\\!/", 798784654));
+	printf("%i", printf("\\!/%.p\\!/", s));
 	//printf("\n\n");
 	/*printf("%-7.1s", s);
 	ft_printf("%-7.1s", s);*/

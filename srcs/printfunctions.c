@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2020/02/17 13:12:07 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/18 16:27:54 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,10 @@ char	*ad_conv(long long ad, t_print *dest)
 {
 	char	*disp;
 
-	disp = ft_lltoa_ult(ad, "0123456789abcdef", dest);
+	disp = NULL;
+	if (!(!ad && (dest->flags & POINT)))
+		disp = ft_lltoa_ult(ad, "0123456789abcdef", dest);
+	else
+		dest->index += 2;
 	return (disp);
 }
