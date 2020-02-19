@@ -6,12 +6,11 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 13:39:56 by plam              #+#    #+#             */
-/*   Updated: 2020/02/19 20:24:57 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/19 20:36:58 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
-#include <stdio.h>
 
 void	ft_putchar(char c)
 {
