@@ -6,11 +6,12 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/19 10:32:59 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/19 12:31:08 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
+#include <stdio.h>
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -52,8 +53,12 @@ size_t	len_add(t_print *printer)
 	if (printer->cnv & STRING)
 	{
 		if (!(printer->flags & L_ASTERISK))
+		{
+			if (!(printer->flags & R_ASTERISK))
+				return (printer->index);
 			return ((int)printer->index < printer->acc ?
 					printer->index : printer->acc);
+		}
 	}
 	if (printer->acc >= printer->size && printer->acc >= (int)printer->index)
 		return (printer->acc);
@@ -70,8 +75,7 @@ void	string_treatment(t_print *printer, char *str, size_t sp)
 	printer->index = ft_strlen(str);
 	printer->acc = (printer->acc > (int)printer->index ?
 					ft_strlen(str) : printer->acc);
-	printer->size = (printer->size == 0 ? (int)printer->index :
-											printer->size);
+	printer->size = (printer->size == 0 ? (int)printer->index : printer->size);
 	sp = set_spaces(printer);
 	string_printer(str, sp, printer);
 }
