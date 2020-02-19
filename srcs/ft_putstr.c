@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 13:39:56 by plam              #+#    #+#             */
-/*   Updated: 2020/02/19 20:36:58 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/19 20:38:26 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ size_t	len_add_string(t_print *printer)
 	}
 	else
 	{
-		printf("size = %d\n", printer->size);
 		if ((printer->flags & POINT) && printer->acc > 0
 				&& printer->size == 0)
 			return (printer->acc);
