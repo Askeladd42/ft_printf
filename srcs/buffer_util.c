@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/19 18:14:36 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/19 18:37:23 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	buffer_register(t_print *printer)
 size_t	len_add(t_print *printer)
 {
 	if (printer->cnv & STRING)
-		len_add_string(printer);
+		return (len_add_string(printer));
 	if (printer->acc >= printer->size && printer->acc >= (int)printer->index)
 		return (printer->acc);
 	else if (printer->size >= printer->acc &&

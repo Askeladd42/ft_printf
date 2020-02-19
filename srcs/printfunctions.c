@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2020/02/19 14:04:52 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/19 19:25:06 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	*conv(int hex, t_print *dest)
 	disp = NULL;
 	if (dest->cnv & INTEGER)
 	{
-		if (!((dest->flags & L_ASTERISK) && dest->size == 0 && hex == 0))
+		if (!((dest->flags & POINT) && dest->acc == 0 && hex == 0))
 			disp = ft_itoa_ult(hex, "0123456789", dest);
 	}
 	return (disp);
@@ -63,12 +63,15 @@ char	*uns_conv(unsigned int hex, t_print *dest)
 	char	*disp;
 
 	disp = NULL;
-	if (dest->cnv & U_INTEGER)
-		disp = ft_utoa_ult(hex, "0123456789", dest);
-	else if (dest->cnv & L_HEX)
-		disp = ft_utoa_ult(hex, "0123456789abcdef", dest);
-	else if (dest->cnv & H_HEX)
-		disp = ft_utoa_ult(hex, "0123456789ABCDEF", dest);
+	if (!((dest->flags & POINT) && dest->acc == 0 && hex == 0))
+	{
+		if (dest->cnv & U_INTEGER)
+			disp = ft_utoa_ult(hex, "0123456789", dest);
+		else if (dest->cnv & L_HEX)
+			disp = ft_utoa_ult(hex, "0123456789abcdef", dest);
+		else if (dest->cnv & H_HEX)
+			disp = ft_utoa_ult(hex, "0123456789ABCDEF", dest);
+	}
 	return (disp);
 }
 

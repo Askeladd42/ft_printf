@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/19 18:08:36 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/19 19:26:54 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ int	main(void)
 	ft_printf("\tft : %d\n", ft_printf("%0.i, %0d, %0.d, %0.d, %0.d, %0.d, %0.d, %0.d", i, j, k, l, m, c, e, d));
 	printf("\tOG : %d\n", printf("%0.i, %0.d, %0d, %0.d, %0.d, %0.d, %0.d, %0.d", i, j, k, l, m, c, e, d));
 
-	ft_printf("\tft : %d\n", ft_printf("zoozie, %-.*s\n", -0, "grosserigjelg"));
-	printf("\tOG : %d\n", printf("zoozie, %-.*s\n", -0, "grosserigjelg"));
+	ft_printf("\tft : %d\n", ft_printf("zoozie, %05.8u\n", 10));
+	printf("\tOG : %d\n", printf("zoozie, %05.8u\n", 10));
 
 	/*int c = 45;
 	char *s = NULL;
