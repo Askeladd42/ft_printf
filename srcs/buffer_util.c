@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/18 19:00:56 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/19 10:32:59 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	string_treatment(t_print *printer, char *str, size_t sp)
 	printer->size = (printer->size == 0 ? (int)printer->index :
 											printer->size);
 	sp = set_spaces(printer);
-	//printf("acc = %d, index = %zu, size = %d, len = %zu, sp = %zu", printer->acc, printer->index, printer->size, len_add(printer), sp);
 	string_printer(str, sp, printer);
 }
 
