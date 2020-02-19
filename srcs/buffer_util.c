@@ -6,12 +6,11 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/19 12:31:08 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/19 18:05:57 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
-#include <stdio.h>
 
 void	ft_bzero(void *s, size_t n)
 {
@@ -54,8 +53,19 @@ size_t	len_add(t_print *printer)
 	{
 		if (!(printer->flags & L_ASTERISK))
 		{
-			if (!(printer->flags & R_ASTERISK))
+			if (!(printer->flags & R_ASTERISK) && !(printer->flags & POINT))
 				return (printer->index);
+			if (printer->acc != 0)
+				return ((int)printer->index < printer->acc ?
+						printer->index : printer->acc);
+			return (0);
+		}
+		else
+		{
+			if (((printer->flags & POINT) && (printer->acc < 1))
+			|| printer->size > (int)printer->index
+			|| printer->size > printer->acc)
+				return (printer->size);
 			return ((int)printer->index < printer->acc ?
 					printer->index : printer->acc);
 		}
