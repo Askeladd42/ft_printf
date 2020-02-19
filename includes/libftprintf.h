@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/02/19 10:41:23 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/19 18:16:24 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int					ft_printf(const char *format, ...);
 size_t				set_spaces(t_print *printer);
 size_t				set_zeros(t_print *printer);
 size_t				len_add(t_print *printer);
+void				len_add_string(t_print *printer);
 void				char_treatment(t_print *printer, char c, size_t sp);
 void				string_treatment(t_print *printer, char *str, size_t sp);
 void				string_printer(char *str, size_t sp, t_print *printer);
