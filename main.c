@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/18 19:07:14 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/19 12:01:28 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,36 @@
 
 int	main(void)
 {
-	int c = 45;
+
+	/*int		a = -4;
+	int		b = 0;*/
+	char	c = 'a';
+	int		d = 2147483647;
+	int		e = -2147483648;
+	/*int		f = 42;
+	int		g = 25;
+	int		h = 4200;*/
+	int		i = 8;
+	int		j = -12;
+	int		k = 123456789;
+	int		l = 0;
+	int		m = -12345678;
+	//char	*n = "abcdefghijklmnop";
+	/*char	*o = "-a";
+	char	*p = "-12";
+	char	*q = "0";
+	char	*r = "%%";
+	char	*s = "-2147483648";
+	char	*t = "0x12345678";
+	char	*u = "-0";*/
+	
+	ft_printf("\tft : %d\n", ft_printf("%0.i, %0d, %0.d, %0.d, %0.d, %0.d, %0.d, %0.d", i, j, k, l, m, c, e, d));
+	printf("\tOG : %d\n", printf("%0.i, %0.d, %0d, %0.d, %0.d, %0.d, %0.d, %0.d", i, j, k, l, m, c, e, d));
+
+	ft_printf("\tft : %d\n", ft_printf("zoozie, %8s\n", "gross"));
+	printf("\tOG : %d\n", printf("zoozie, %8s\n", "gross"));
+
+	/*int c = 45;
 	char *s = NULL;
 	unsigned int i = 12589;
 	printf("OG : c = %p\n\n", &c);
@@ -23,7 +52,7 @@ int	main(void)
 	printf("%i\n", printf("%p\n", &s));
 	ft_printf("%i\n", ft_printf("%p\n", &s));
 	printf("%i\n", printf("%u\n", i));
-	ft_printf("%i\n", ft_printf("%u\n", i));
+	ft_printf("%i\n", ft_printf("%u\n", i));*/
 
 	/*printf("|%*.*i|\n", -1, -12, 758);
 	ft_printf("ft_printf = %i\n", ft_printf("|^.^/%*.*s^.^/|\n", -85, -8, s));
