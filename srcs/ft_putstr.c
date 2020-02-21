@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 13:39:56 by plam              #+#    #+#             */
-/*   Updated: 2020/02/21 20:34:46 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/21 20:39:37 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,10 @@ void	condition_zero(t_print *printer, size_t z, size_t sp)
 	if (!(printer->flags & POINT))
 	{
 		if (printer->buff[0] == '0')
+		{
 			ft_putchar('-');
-		sp -= (sp > 0 ? 1 : 0);
+			sp -= (sp > 0 ? 1 : 0);
+		}
 		while (sp-- > 0)
 			ft_putchar('0');
 	}
