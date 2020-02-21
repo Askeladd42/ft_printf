@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/21 12:47:41 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/21 18:37:51 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,17 @@ void	buffer_register(t_print *printer)
 	sp = set_spaces(printer);
 	while (printer->buff[i])
 		i++;
-	while (sp-- > 0)
+	if (printer->flags & ZEROS)
+		condition_zero(printer, z, sp);
+	else
 	{
-		if (printer->flags & MINUS)
-			printer->buff[i++] = ' ';
-		else if ((printer->flags & ZEROS)
-		&& (!(printer->flags & POINT) || printer->acc < 0))
-			ft_putchar('0');
-		else
-			ft_putchar(' ');
+		while (sp-- > 0)
+		{
+			if (printer->flags & MINUS)
+				printer->buff[i++] = ' ';
+			else
+				ft_putchar(' ');
+		}
 	}
 	printer->buff[i] = '\0';
 	if (printer->cnv & ADDRESS)

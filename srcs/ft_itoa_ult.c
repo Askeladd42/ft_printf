@@ -6,11 +6,12 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2020/02/16 11:51:12 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/21 18:17:52 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
+#include <stdio.h>
 
 static size_t	nb_len(unsigned int n, char *charset)
 {
