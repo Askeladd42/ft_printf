@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 13:39:56 by plam              #+#    #+#             */
-/*   Updated: 2020/02/21 16:55:19 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/21 17:40:56 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,18 @@ size_t	len_add_string(t_print *printer)
 		if (!(printer->flags & R_ASTERISK) && !(printer->flags & POINT))
 			return (printer->index);
 		if (printer->acc != 0)
-		{
 			return ((int)printer->index < printer->acc ?
 				printer->index : printer->acc);
-		}
-		return (0);
+		else
+			return (0);
 	}
 	else
 	{
 		if (!(printer->flags & POINT))
+		{
 			return (printer->size > (int)printer->index ?
 				printer->size : printer->index);
+		}
 		if ((printer->flags & POINT) && printer->acc > 0 && printer->size == 0)
 			return (printer->acc);
 		if (((printer->flags & POINT) && (printer->acc < 1))
