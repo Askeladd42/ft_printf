@@ -6,11 +6,13 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/19 20:26:14 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/19 23:14:03 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libftprintf.h"
+
+// regler le probleme de zeros et les tailles de string > taille mini
 
 void	ft_bzero(void *s, size_t n)
 {
