@@ -6,13 +6,13 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 10:27:09 by plam              #+#    #+#             */
-/*   Updated: 2020/02/19 18:20:18 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/21 16:15:15 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFTPRINTF_H
 # define LIBFTPRINTF_H
-# define BUFFER_SIZE 8192
+# define BUFFER_SIZE 100000
 
 # include <stdarg.h>
 # include <stdlib.h>

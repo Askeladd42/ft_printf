@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/21 12:48:49 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/21 16:21:18 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,14 @@ int	main(void)
 	char	*t = "0x12345678";
 	char	*u = "-0";*/
 	
-	ft_printf("\tft : %d\n", ft_printf("%0*d\n", 20, 200502));
-	printf("\tOG : %d\n", printf("%0*d\n", 20, 200502));
+	/*ft_printf("\tft : %d\n", ft_printf("%0*d\n", 20, 200502));
+	printf("\tOG : %d\n", printf("%0*d\n", 20, 200502));*/
 
-	/*ft_printf("\tft : %d\n", ft_printf("%*.8s\n", -8, "200502"));
-	printf("OG : %d\n", printf("%*.8s\n", -8, "200502"));*/
+/*	ft_printf("\tft : %d\n", ft_printf("%-2.1s\n", "Bruh, I O-BLITERATED YOUR ASS !"));
+	printf("\tOG : %d\n", printf("%-2.1s\n", "Bruh, I O-BLITERATED YOUR ASS !"));
+*/
+	ft_printf("\tft : %d\n", ft_printf("%0*x\n", 9000 ,42252));
+	printf("\tOG : %d\n", printf("%0*x\n", 9000, 42252));
 
 /*	ft_printf("\tft : %d\n", ft_printf("zoozie, %-*.s\n", 0, "endgame"));
 	printf("\tOG : %d\n", printf("zoozie, %-*.s\n", 0, "endgame"));*/
