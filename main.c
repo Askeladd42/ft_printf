@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/19 20:33:19 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/21 12:48:49 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,20 @@ int	main(void)
 {
 
 	/*int		a = -4;
-	int		b = 0;*/
+	int		b = 0;
 	char	c = 'a';
 	int		d = 2147483647;
 	int		e = -2147483648;
-	/*int		f = 42;
+	int		f = 42;
 	int		g = 25;
-	int		h = 4200;*/
-	/*int		i = 8;
+	int		h = 4200;
+	int		i = 8;
 	int		j = -12;
 	int		k = 123456789;
 	int		l = 0;
-	int		m = -12345678;*/
-	//char	*n = "abcdefghijklmnop";
-	/*char	*o = "-a";
+	int		m = -12345678;
+	char	*n = "abcdefghijklmnop";
+	char	*o = "-a";
 	char	*p = "-12";
 	char	*q = "0";
 	char	*r = "%%";
@@ -38,8 +38,11 @@ int	main(void)
 	char	*t = "0x12345678";
 	char	*u = "-0";*/
 	
-	ft_printf("\tft : %d\n", ft_printf("%-*c%-*.s%-*d%-2p%%%-*i%-.u%% %.0x%%%% %-X", 0, 'c', 0, "hello//>>><<<<", 14 ,450, &c,  8,d, e, 3250, 3250));
-	printf("\tOG : %d\n", printf("%-*c%-*.s%-*d%-2p%%%-*i%-.u%% %.0x%%%% %-X", 0, 'c', 0, "hello//>>><<<<", 14 ,450, &c,  8,d, e, 3250, 3250));
+	ft_printf("\tft : %d\n", ft_printf("%0*d\n", 20, 200502));
+	printf("\tOG : %d\n", printf("%0*d\n", 20, 200502));
+
+	/*ft_printf("\tft : %d\n", ft_printf("%*.8s\n", -8, "200502"));
+	printf("OG : %d\n", printf("%*.8s\n", -8, "200502"));*/
 
 /*	ft_printf("\tft : %d\n", ft_printf("zoozie, %-*.s\n", 0, "endgame"));
 	printf("\tOG : %d\n", printf("zoozie, %-*.s\n", 0, "endgame"));*/
