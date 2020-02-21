@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 13:39:56 by plam              #+#    #+#             */
-/*   Updated: 2020/02/21 20:24:37 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/21 20:34:46 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,8 @@ void	condition_zero(t_print *printer, size_t z, size_t sp)
 {
 	if (printer->buff[0] == '-')
 	{
-		if (printer->size > (int)printer->index)
+		if ((!(printer->flags & POINT) && printer->size > (int)printer->index)
+		|| printer->acc > (int)printer->index)
 			printer->buff[0] = '0';
 		z--;
 	}
