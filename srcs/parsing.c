@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/18 14:48:58 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/22 19:16:30 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void	print_converter2(t_print *printer, va_list ap)
 	}
 	else if (printer->cnv & ADDRESS)
 	{
-		str = ad_conv(va_arg(ap, long long), printer);
+		str = ad_conv(va_arg(ap, unsigned long long), printer);
 		buffer_register(printer);
 	}
 }

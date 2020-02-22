@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 13:39:56 by plam              #+#    #+#             */
-/*   Updated: 2020/02/22 12:31:56 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/22 20:28:37 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,19 @@ void	ft_putstr(const char *s)
 	size_t	i;
 
 	i = 0;
-	while (s[i] != '%' && s[i])
+	while (s[i])
 		write(1, &s[i++], 1);
 }
 
 void	char_treatment(t_print *printer, char c, size_t sp)
 {
+	printer->acc = (printer->cnv & PERCENT ? 1 : printer->acc);
 	printer->index = printer->acc > 0 ? printer->acc : 1;
 	printer->size = (printer->size == 0 ? (int)printer->index :
 											printer->size);
-	sp = printer->size - (printer->acc > (int)printer->index
-						? printer->index : printer->acc) - 1;
+	sp = printer->size - (printer->acc >= (int)printer->index
+		? printer->index : printer->acc) - (printer->cnv & PERCENT ? 0 : 1);
+
 	if (printer->flags & MINUS)
 	{
 		ft_putchar(c);

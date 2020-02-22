@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/30 10:25:43 by plam              #+#    #+#             */
-/*   Updated: 2020/02/21 18:40:02 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/22 19:21:42 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,13 +98,14 @@ char			*ft_utoa_ult(unsigned int n, char *charset, t_print *dest)
 	return (dest->buff);
 }
 
-char			*ft_lltoa_ult(long long ad, char *charset, t_print *dest)
+char			*ft_lltoa_ult(unsigned long long ad, char *charset,
+					t_print *dest)
 {
-	long long		nbr;
-	unsigned int	index;
-	unsigned int	size;
-	unsigned int	i;
-	unsigned int	z;
+	unsigned long long		nbr;
+	unsigned int			index;
+	unsigned int			size;
+	unsigned int			i;
+	unsigned int			z;
 
 	nbr = ad;
 	size = ft_strlen(charset);

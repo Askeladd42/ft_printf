@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 13:23:47 by plam              #+#    #+#             */
-/*   Updated: 2020/02/19 19:25:06 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/22 19:16:14 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ char	*uns_conv(unsigned int hex, t_print *dest)
 	return (disp);
 }
 
-char	*ad_conv(long long ad, t_print *dest)
+char	*ad_conv(unsigned long long ad, t_print *dest)
 {
 	char	*disp;
 
