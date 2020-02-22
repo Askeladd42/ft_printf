@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 13:43:09 by plam              #+#    #+#             */
-/*   Updated: 2020/02/22 16:23:40 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/22 16:40:35 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlen(char *str)
 	return (i);
 }
 
-void	check_neg_zero(t_print *printer, size_t z, size_t sp)
+size_t	check_neg_zero(t_print *printer, size_t z, size_t sp)
 {
 	if (printer->buff[0] == '-')
 	{
@@ -41,11 +41,12 @@ void	check_neg_zero(t_print *printer, size_t z, size_t sp)
 		}
 		z--;
 	}
+	return (sp);
 }
 
 void	condition_zero(t_print *printer, size_t z, size_t sp)
 {
-	check_neg_zero(printer, z, sp);
+	sp = check_neg_zero(printer, z, sp);
 	if (!(printer->flags & POINT))
 	{
 		if (printer->buff[0] == '0' && ft_atoi_simple(printer->buff) != 0)
