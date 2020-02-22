@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/21 19:02:19 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/22 11:14:02 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,12 @@ void	string_printer(char *str, size_t sp, t_print *printer)
 	else
 	{
 		while ((int)sp <= printer->size && sp-- > 0)
-			ft_putchar(' ');
+		{
+			if (printer->flags & ZEROS)
+				ft_putchar('0');
+			else
+				ft_putchar(' ');
+		}
 		if ((printer->acc < (int)printer->index) && printer->acc >= 0
 			&& (printer->flags & POINT))
 			write(1, str, printer->acc);
