@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/22 11:14:02 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/22 13:34:33 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	buffer_register(t_print *printer)
 	sp = set_spaces(printer);
 	while (printer->buff[i])
 		i++;
-	if (printer->flags & ZEROS)
+	if (printer->flags & ZEROS && !(printer->flags & MINUS))
 		condition_zero(printer, z, sp);
 	else
 	{
