@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 13:43:09 by plam              #+#    #+#             */
-/*   Updated: 2020/02/22 12:01:39 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/22 13:14:20 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ void	condition_zero(t_print *printer, size_t z, size_t sp)
 	{
 		while (sp-- > 0)
 			ft_putchar(' ');
-		if (printer->buff[0] == '0' && ft_atoi_simple(printer->buff) != 0)
+		if ((!(printer->flags & POINT) && printer->size > (int)printer->index)
+		|| (printer->acc > (int)printer->index && printer->acc > printer->size))
 		{
 			ft_putchar('-');
 			sp--;
