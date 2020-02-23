@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/01/26 12:46:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/22 20:07:24 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/23 13:48:23 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	buffer_register(t_print *printer)
 	}
 	printer->buff[i] = '\0';
 	last_int_treatment(printer);
-	ft_putstr(printer->buff);
 }
 
 size_t	len_add(t_print *printer)

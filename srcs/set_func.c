@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/15 13:33:24 by plam              #+#    #+#             */
-/*   Updated: 2020/02/22 20:13:10 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/23 13:42:19 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ size_t	width(const char *fmt, size_t i, t_print *printer)
 		len = (unsigned int)ft_atoi_simple(&fmt[i]);
 		while (fmt[i] >= '0' && fmt[i] <= '9')
 			i++;
-		printer->flags |= (1 << 2);
+		if (len != 0)
+			printer->flags |= (1 << 2);
 	}
 	else
 		i++;

@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/07 13:43:09 by plam              #+#    #+#             */
-/*   Updated: 2020/02/22 18:06:24 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/23 13:48:02 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	last_int_treatment(t_print *printer)
 	}
 	if (printer->cnv & ADDRESS)
 		ft_putstr("0x");
+	ft_putstr(printer->buff);
 }
 
 size_t	check_neg_zero(t_print *printer, size_t z, size_t sp)
