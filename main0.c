@@ -6,12 +6,14 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/23 13:26:46 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/23 14:05:46 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/libftprintf.h"
 #include <stdio.h>
+
+#include <limits.h>
 
 int	main(void)
 {
@@ -49,8 +51,9 @@ int	main(void)
 	printf("\tOG : %d\n", printf("%0*x\n", 9000, 42252));
 */
 
-	ft_printf("\tft : %d\n", ft_printf("%0-20.9d", 34));
-	printf("\tOG : %d\n", printf("%0-20.9d", 34));
+	ft_printf("\tft : %d\n", ft_printf("%0300d", 0));
+	fprintf(stdout, "\tOG : %d\n", printf("%0300d", 0));
+
 
 	/*int c = 45;
 	char *s = NULL;
