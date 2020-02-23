@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/07 08:42:44 by plam              #+#    #+#             */
-/*   Updated: 2020/02/22 19:16:30 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/23 10:57:37 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	toggling_flag(char c, t_print *printer, va_list ap)
 	if (c == '0' && !(printer->flags & MINUS))
 		printer->flags |= (1);
 	else if (c == '-')
-		printer->flags |= (1 << 1);
+		toggling_minus(printer);
 	else if (c == '.')
 		printer->flags |= (1 << 3);
 	else if (c == '*')
@@ -32,7 +32,7 @@ void	toggling_flag(char c, t_print *printer, va_list ap)
 			printer->size = va_arg(ap, int);
 			if (printer->size < 0)
 			{
-				printer->flags |= (1 << 1);
+				toggling_minus(printer);
 				printer->size = -printer->size;
 			}
 			printer->flags |= (1 << 2);
