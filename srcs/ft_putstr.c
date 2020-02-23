@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 13:39:56 by plam              #+#    #+#             */
-/*   Updated: 2020/02/23 11:13:47 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/23 11:21:06 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	ft_putstr(const char *s)
 
 void	toggling_minus(t_print *printer)
 {
-	if (printer->flags & ZEROS)
-		printer->flags -= (1);
 	printer->flags |= (1 << 1);
+	if (printer->flags & ZEROS && printer->flags & MINUS)
+		printer->flags ^= ZEROS;
 }
 
 void	char_treatment(t_print *printer, char c, size_t sp)

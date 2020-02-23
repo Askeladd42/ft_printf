@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 11:20:20 by plam              #+#    #+#             */
-/*   Updated: 2020/02/23 11:02:35 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/23 11:28:56 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ int	main(void)
 	printf("\tOG : %d\n", printf("%0*x\n", 9000, 42252));
 */
 
-	ft_printf("\tft : %d\n", ft_printf("%*.0s", 10, ""));
-	printf("\tOG : %d\n", printf("%*.0s", 10, ""));
+	ft_printf("\tft : %d\n", ft_printf("%-8.5d", 34));
+	printf("\tOG : %d\n", printf("%-8.5d", 34));
 
 	/*int c = 45;
 	char *s = NULL;
