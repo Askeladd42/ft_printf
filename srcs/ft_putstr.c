@@ -6,7 +6,7 @@
 /*   By: plam <plam@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 13:39:56 by plam              #+#    #+#             */
-/*   Updated: 2020/02/23 10:58:56 by plam             ###   ########.fr       */
+/*   Updated: 2020/02/23 11:13:47 by plam             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void	char_treatment(t_print *printer, char c, size_t sp)
 											printer->size);
 	sp = printer->size - (printer->acc >= (int)printer->index
 		? printer->index : printer->acc) - (printer->cnv & PERCENT ? 0 : 1);
-
 	if (printer->flags & MINUS)
 	{
 		ft_putchar(c);
